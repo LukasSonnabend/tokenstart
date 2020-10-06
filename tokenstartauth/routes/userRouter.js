@@ -5,7 +5,7 @@ const User = require("../models/userModel");
 const RefreshToken = require("../models/rTokenModel");
 const auth = require("../middleware/auth");
 const authOps = require("../middleware/authOps");
-const {mailFunc} = require("../aux/mailer");
+const {mailFunc} = require("../auxilliary/mailer");
 const { route } = require("./projectRouter");
 
 
