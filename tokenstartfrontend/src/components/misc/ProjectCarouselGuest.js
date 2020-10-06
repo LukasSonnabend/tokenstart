@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Axios from "axios";
+import {useHistory} from "react-router-dom";
+
 
 export default function ProjectCarouselGuest() {
 
@@ -11,6 +13,7 @@ export default function ProjectCarouselGuest() {
     console.log(projectList)
     let projectDataList = projectData[0];
     console.log(projectData);
+    const history = useHistory();
     console.log(projectDataList);
 
     //const numbers = [1, 2, 3, 4, 5];
@@ -48,7 +51,7 @@ export default function ProjectCarouselGuest() {
                     <div className="card-body">
                         <h5 className="card-title">{project.projectName}</h5>
                         <p className="card-text">{project.sDescription}<br />Von: { project.projectOwnerName }</p>
-                        <a href="#" className="btn btn-primary">Zum Token</a>
+                        <button className="btn btn-primary" onClick={ () => history.push("/project/" + project._id)}>Zum Token</button>
                     </div>
                 </div>
             })
