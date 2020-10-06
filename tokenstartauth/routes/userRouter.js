@@ -25,7 +25,7 @@ router.post('/register', async (req, res) => {
 
     const existingUser = await User.findOne({email: email})
     if(existingUser)
-        return res.status(400).json({msg:"Email already registered"});
+        return res.status(400).json({msg:"E-mail already registered"});
 
 
     if (!displayname) displayname = email;
