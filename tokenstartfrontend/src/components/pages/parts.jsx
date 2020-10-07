@@ -67,12 +67,17 @@ export function NavBar() {
               <li className="nav-item">
                 <Link to="/projects" className="nav-link text-dark">Projects overview</Link>
               </li>
-            </ul>
+            </ul>        <form className="form-inline my-2 my-lg-0">
+              <li style={{ listStyle: "none" }} className="nav-item">
+                <ProjectSearch />
+              </li>
+            </form>
+
           </div>
 
           {/* Desktop Navigation */}
           <div id="desktopNavigationBar" className="col-12 d-none d-sm-block">
-            <ul className="navbar-nav mr-auto">
+            <ul className="nav navbar-nav pull-sm-left">
               <li className="nav-item">
                 <Link to="/projects/new" className="nav-link text-dark"><button className="btn btn-outline-dark">Start project</button></Link>
               </li>
@@ -80,18 +85,22 @@ export function NavBar() {
                 <Link to="/projects" className="nav-link text-dark"><button className="btn btn-outline-dark">Projects overview</button></Link>
               </li>
             </ul>
-            <form className="form-inline my-2 my-lg-0">
-              <li style={{ listStyle: "none" }} className="nav-item">
-                <AuthOptions />
-              </li>
-            </form>
+            <ul className="nav navbar-nav">
+              <form className="form-inline my-2 my-lg-0">
+                <li className="nav-item desktopSearch">
+                  <ProjectSearch />
+                </li>
+              </form>
+            </ul>
+            <ul className="nav navbar-nav ml-auto">
+              <form className="form-inline my-2 my-lg-0">
+                <li style={{ listStyle: "none" }} className="nav-item">
+                  <AuthOptions />
+                </li>
+              </form>
+            </ul>
           </div>
 
-          <form className="form-inline my-2 my-lg-0">
-              <li style={{ listStyle: "none" }} className="nav-item">
-                <ProjectSearch />
-              </li>
-            </form>
 
 
         </div>

@@ -43,14 +43,14 @@ export default function GetProjects() {
 
     }, [searchTerm]);
 
-    return <div className="mr-2" >
+    return <div className="mb-0" >
 
          { showSearch &&<div className="focusCatch" onClick={(e) => setShowSearch(false)}>
         LIt
         </div>}
 
-        <input id="searchField" className="searchField" type="text" placeholder="Search TokenStart Projects" onChange={(e) => SetSearchTerm(e.target.value)} />
-        <div className="col-3 searchResults position-absolute">
+        <input id="searchField" className="searchField mb-0" type="text" placeholder="Search TokenStart Projects" onChange={(e) => SetSearchTerm(e.target.value)} />
+        <div className="col-12 searchResults position-absolute">
             <ul className="my-0">
                 { showSearch &&
                 resultList !== undefined &&
