@@ -18,7 +18,7 @@ export default function Payment(props) {
     const [investment, setInvestment] = useState();
     const [showQR, setShowQR] = useState();
 
-    const qrMessage = "Fuck you you little Bitch \n Send " + investment + " to " + paymentType + " Wallet ID " + "DFOHJIUDF8834840dkdkkd45848kejdvoih§(%/jdj";
+    const qrMessage = "Send " + investment + " to " + paymentType + " Wallet ID " + "DFOHJIUDF8834840dkdkkd45848kejdvoih§(%/jdj";
 
     useEffect(() => {
         if (localStorage.getItem("auth-token").length === 0) {
