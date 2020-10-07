@@ -4,9 +4,9 @@ import ErrorNotice from '../misc/ErrorNotice';
 import UserContext from "../../context/UserContext";
 import ProgressBar from '../misc/ProgressBar';
 import ProjectCarouselGuest from '../misc/ProjectCarouselGuest';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, RouteLink, Link } from 'react-router-dom';
 import ChainIcons from "../misc/chainIcon";
-import Payment from './payment';
+
 
 
 export default function Project(props) {
@@ -167,8 +167,8 @@ export default function Project(props) {
                         </table>
                         <Link to={{
                                 pathname: '/checkout',
-                                state: {
-                                    project: projectInfo
+                                projectProps: {
+                                    project: projectInfo.Project
                                 }
                         }} className="btn btn-primary">Buy Token</Link>
                     </div>

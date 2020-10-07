@@ -16,6 +16,8 @@ import CreateProject from './components/pages/createProject';
 import FourOFour from './components/pages/FourOFour';
 import ProjectsOverview from './components/pages/ProjectsOverview';
 import Payment from './components/pages/payment';
+import ScrollTop from './components/misc/ScrollTop';
+
 
 
 function App() {
@@ -60,6 +62,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <ScrollTop/>
       <UserContext.Provider value={{ userData, setUserData }}>
       <NavBar/>
       <Switch>
