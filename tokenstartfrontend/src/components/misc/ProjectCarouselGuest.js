@@ -10,28 +10,13 @@ export default function ProjectCarouselGuest() {
 
     var carousel;
     let projectData = [projectList];
-    console.log(projectList)
+
     let projectDataList = projectData[0];
-    console.log(projectData);
+
     const history = useHistory();
-    console.log(projectDataList);
 
-    //const numbers = [1, 2, 3, 4, 5];
+
     let listItems;
-
-    async function getProjects(){
-        const projectRes = await Axios.get("http://127.0.0.1:1234/projects") 
-        setProjectList({
-            list: projectRes.data
-        });
-    }
-
-    if (carousel){
-
-     
-
-        getProjects();
-    }
 
     useEffect(() => {
         async function getProjects(){
@@ -40,9 +25,9 @@ export default function ProjectCarouselGuest() {
                 list: projectRes.data
             });
         }
-        getProjects();
+        if (!projectDataList){
+        getProjects();}
 
-        //console.log(projectData)
         if (projectDataList) {
             console.log("running list")
             carousel = projectList.list.map((project, index) => {
@@ -60,12 +45,7 @@ export default function ProjectCarouselGuest() {
         //renders carousel to dom
         ReactDOM.render(carousel, document.getElementById('projectCarousel'));
         // document.getElementById("projectCarousel").innerHTML = carousel;
-    }, [projectData]);
-
-
-    console.log(carousel)
-
-
+    }, [projectDataList]);
     
     return <>
         <div>
