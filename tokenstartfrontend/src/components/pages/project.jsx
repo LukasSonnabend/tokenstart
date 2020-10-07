@@ -16,13 +16,12 @@ export default function Project(props) {
     let editLink = "";
 
     useEffect(() => {
-
-        if (!projectInfo){
+        if (!Project._id){
         getProjects();
         }
 
 
-    }, []);
+    }, [props.match.params.projectId]);
 
     async function getProjects() {
         const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
@@ -175,7 +174,7 @@ export default function Project(props) {
                 </div>
                 <div>
                     <h2>Suggested projects for you</h2>
-                    <ProjectCarouselGuest></ProjectCarouselGuest>
+                    {/* <ProjectCarouselGuest></ProjectCarouselGuest> */}
                 </div>
             </>
 
