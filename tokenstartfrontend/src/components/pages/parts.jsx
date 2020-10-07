@@ -3,7 +3,6 @@ import AuthOptions from '../auth/authOptions.js';
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
-
 export function NavBar() {
   const [searchInput, setSearchInput] = useState();
 
@@ -27,17 +26,13 @@ export function NavBar() {
             {/* <li className="nav-item ml-auto">
                 <a className="nav-link" href="#" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">🔍</a>
             </li> */}
-
+            <input placeholder="Search for tokens" onChange={e => setSearchInput(e.target.value)} />
             <li className="nav-item">
               <AuthOptions />
             </li>
           </ul>
         </div>
       </nav>
-      <div className="collapse" id="collapseExample">
-        <input placeholder="Suche nach Tokens" onChange={e => setSearchInput(e.target.value)} />
-      </div>
-
     </div>
   )
 }
