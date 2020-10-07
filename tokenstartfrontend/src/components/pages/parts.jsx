@@ -21,9 +21,9 @@ export function NavBar() {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav w-100">
             <li className="nav-item active">
-            <Link to="/projects/new"><button className="btn btn-primary">Projekt starten</button></Link>
+            <Link to="/projects"><button className="btn btn-primary"> Go to projects overview</button></Link> 
+            <Link to="/projects/new"><button className="btn btn-primary">Start project</button></Link>  
             </li>
-
             {/* <li className="nav-item ml-auto">
                 <a className="nav-link" href="#" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">🔍</a>
             </li> */}
