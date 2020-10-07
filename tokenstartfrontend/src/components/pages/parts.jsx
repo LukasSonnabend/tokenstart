@@ -9,7 +9,7 @@ import ProjectSearch from "../../components/misc/ProjectSearch";
 
 //   return (
 //     <div>
-//       <div class="alert alert-warning" role="alert">
+//       <div className="alert alert-warning" role="alert">
 //         Currently under construction
 //       </div>
 //       <nav className="navbar bg-light .justify-content-center">
@@ -43,31 +43,57 @@ export function NavBar() {
 
   return (
     <div>
-      <div class="alert alert-warning" role="alert">
+      <div className="alert alert-warning" role="alert">
         Currently under construction
         </div>
       <nav className="navbar bg-light .justify-content-center">
         <a href="/"><p><span>T</span>oken<span>S</span>tart</p></a>
       </nav>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <Link to="/projects/new" className="nav-link text-dark"><button className="btn btn-outline-dark">Start project</button></Link>
-            </li>
-            <li class="nav-item">
-              <Link to="/projects" className="nav-link text-dark"><button className="btn btn-outline-dark">Projects overview</button></Link>
-            </li>
-          </ul>
-          <ProjectSearch/>
-          <form class="form-inline my-2 my-lg-0">
-            <li style={{listStyle: "none"}} className="nav-item">
-              <AuthOptions />
-            </li>
-          </form>
+        <div className="d-block d-sm-none">
+          <AuthOptions />
+        </div>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+
+          {/* Mobile Navigation */}
+          <div className="d-block d-sm-none">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <Link to="/projects/new" className="nav-link text-dark">Start project</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/projects" className="nav-link text-dark">Projects overview</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div id="desktopNavigationBar" className="col-12 d-none d-sm-block">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <Link to="/projects/new" className="nav-link text-dark"><button className="btn btn-outline-dark">Start project</button></Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/projects" className="nav-link text-dark"><button className="btn btn-outline-dark">Projects overview</button></Link>
+              </li>
+            </ul>
+            <form className="form-inline my-2 my-lg-0">
+              <li style={{ listStyle: "none" }} className="nav-item">
+                <AuthOptions />
+              </li>
+            </form>
+          </div>
+
+          <form className="form-inline my-2 my-lg-0">
+              <li style={{ listStyle: "none" }} className="nav-item">
+                <ProjectSearch />
+              </li>
+            </form>
+
+
         </div>
       </nav>
 
