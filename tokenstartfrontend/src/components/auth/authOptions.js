@@ -38,7 +38,7 @@ export default function AuthOptions(){
             {
                 userData.user ? (
                 <>
-                <button className="btn btn-danger" onClick={logout}><FontAwesomeIcon icon={faSignOutAlt} /></button>
+                <button className="btn btn-danger mr-2" onClick={logout}><FontAwesomeIcon icon={faSignOutAlt} /></button>
                 <button className="btn btn-info" onClick={accSettings}><FontAwesomeIcon icon={faUserCircle} /></button>
                 </>
                 ) :

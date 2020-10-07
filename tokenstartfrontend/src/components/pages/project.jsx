@@ -4,8 +4,9 @@ import ErrorNotice from '../misc/ErrorNotice';
 import UserContext from "../../context/UserContext";
 import ProgressBar from '../misc/ProgressBar';
 import ProjectCarouselGuest from '../misc/ProjectCarouselGuest';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, RouteLink, Link } from 'react-router-dom';
 import ChainIcons from "../misc/chainIcon";
+
 
 
 export default function Project(props) {
@@ -15,21 +16,20 @@ export default function Project(props) {
     let editLink = "";
 
     useEffect(() => {
-
-        async function getProjects() {
-            const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
-            setProjectInfo({
-                Project: projectRes.data
-            });
-
+        if (!Project._id){
+        getProjects();
         }
 
-        getProjects();
 
+    }, [props.match.params.projectId]);
 
+    async function getProjects() {
+        const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
+        setProjectInfo({
+            Project: projectRes.data
+        });
 
-    }, []);
-
+    }
 
     if (projectInfo && userData.user) {
         if (projectInfo["Project"].projectOwnerID == userData.user.id) {
@@ -81,7 +81,7 @@ export default function Project(props) {
 
                 <ProgressBar tokenData={projectInfo.Project} />
 
-                <div onClick="" className="horizontalCard col-11 col-md-6 margin0a">
+                <div  className="horizontalCard col-11 col-md-6 margin0a">
                     <div className="horizontalCardLeftProject">
                         <div className="tokenModel1">
 
@@ -134,49 +134,55 @@ export default function Project(props) {
                     </table>
                 </div>
                 <div className="mb-2">
-                    <h2>Projekt Beschreibung</h2>
+                    <h2>Project description</h2>
                     <p className="col-10 col-md-10 margin0a mb-3">
                         {projectInfo.Project.lDescription}
                     </p>
                 </div>
                 <div className="row col-md-11 margin0a mb-3">
                     <div className="col-12 col-md-6">
-                        <h2>Über den Ersteller {projectInfo.Project.projectOwnerName}</h2>
+                        <h2>About the creator {projectInfo.Project.projectOwnerName}</h2>
                         <p className="col-12">
                             Is own and differentiates officer as and good alphabet odd farther of no we're and eager. Would the hologram over myself fresh before continues business approved he seven incurred about every so phase the long, and slide is actually person, away, because way. A of after their be more the.
                     <br /><br />Intention he his shall gain, he entrance don't lamps, were more by they example, dreams, agreed few the practice a have live river and a takes hollow more the frequently the where the her self-interest, question. To you in such be affected shine. We of on word countries.
                 </p>
                     </div>
                     <div className="col-md-6">
-                        <h2>Projektübersicht</h2>
+                        <h2>Project overview</h2>
                         <table className="table table-bordered margin0a mb-4">
 
                             <tr>
-                                <th>Verbleibende Token</th>
+                                <th>Available supply</th>
                                 <td>{projectInfo.Project.tokenSupply - projectInfo.Project.toOwner}</td>
                             </tr>
                             <tr>
-                                <th>Projektstart</th>
+                                <th>Project start</th>
                                 <td>{projectInfo.Project.date.slice(0, 10)}</td>
                             </tr>
                             <tr>
-                                <th>Tokengegenwert</th>
+                                <th>Token price</th>
                                 <td>50$</td>
                             </tr>
                         </table>
-                        <button className="btn btn-primary">Token Abschluss</button>
+                        <Link to={{
+                                pathname: '/checkout',
+                                projectProps: {
+                                    project: projectInfo.Project
+                                }
+                        }} className="btn btn-primary">Buy Token</Link>
                     </div>
                 </div>
                 <div>
-                    <h2>Diese Projekte könnten dich interessieren</h2>
-                    <ProjectCarouselGuest></ProjectCarouselGuest>
+                    <h2>Suggested projects for you</h2>
+                    {/* <ProjectCarouselGuest></ProjectCarouselGuest> */}
                 </div>
             </>
 
-        )}
+        )
+}
 
 
-    </div>
+    </div >
 
 
 

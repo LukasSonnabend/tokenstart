@@ -115,7 +115,7 @@ export default function GetProjects(props) {
                             projectList.ownProjects.map(
                                 (item, i) =>
                                     <>
-                                        <div onClick="" className="horizontalCard">
+                                        <div className="horizontalCard">
                                             <div className="horizontalCardLeft">
                                                 <div className="TokenModel">
 
