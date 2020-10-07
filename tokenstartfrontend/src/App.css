@@ -11,6 +11,15 @@ p {
   overflow-wrap: anywhere;
 }
 
+
+@media only screen and (min-width: 600px){
+/* Nav Bar */
+#desktopNavigationBar{
+  display: inline-flex!important;
+}
+
+}
+
 #root>div {
   min-height: 100%;
   display: grid;
@@ -529,11 +538,12 @@ form input:focus {
 .searchField{
   position: relative;
   z-index: 3;
-  width: 260px;
+  width: 20em;
+  text-align: center;
 }
 
 .searchResults{
-  width: 260px;
+  width: 20em;
   list-style: none;
   background-color: white;
   z-index: 4;
@@ -556,10 +566,20 @@ form input:focus {
 
 .focusCatch {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100vh;
+left: -500%;
+    right: -500%;
+    height: 200vh;
   margin-top: -200px;
   z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.desktopSearch {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 20em;
 }
