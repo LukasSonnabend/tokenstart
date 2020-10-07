@@ -4,15 +4,22 @@ import ChainIcons from "./chainIcon";
 import Axios from "axios";
 
 
-export default function GetProjects(props) {
+export default function GetProjects() {
 
     const [searchTerm, SetSearchTerm] = useState();
     const [resultList, setResultList] = useState();
     const [showSearch, setShowSearch] = useState();
-
     const history = useHistory();
 
     //https://levelup.gitconnected.com/building-a-simple-dynamic-search-bar-in-react-js-f1659d64dfae
+
+    const goToProject = id => {
+        setShowSearch(false);
+        SetSearchTerm(undefined);
+        console.log(document.getElementById("searchField").value = '');
+        history.push("/project/" + id);
+
+    }
 
     useEffect(() => {
 
@@ -42,7 +49,7 @@ export default function GetProjects(props) {
         LIt
         </div>}
 
-        <input className="searchField" type="text" placeholder="Search TokenStart Projects" onChange={(e) => SetSearchTerm(e.target.value)} />
+        <input id="searchField" className="searchField" type="text" placeholder="Search TokenStart Projects" onChange={(e) => SetSearchTerm(e.target.value)} />
         <div className="col-3 searchResults position-absolute">
             <ul className="my-0">
                 { showSearch &&
@@ -51,7 +58,7 @@ export default function GetProjects(props) {
                     resultList.matchingProjects.map(
                         (item, i) =>
                             <>
-                                <li onClick={history.push("/project/" + item._id)}>
+                                <li onClick={ () => goToProject(item._id)}>
                                     <div key={i} className="d-flex">
                                         <div className="col-3">
                                             {ChainIcons(item.tokenChain)}
