@@ -2,3 +2,4 @@
 /tokenstartfrontend/node_modules
 /tokenstartauth/.env
 /tokenstartfrontend/.env
+/node_modules
