@@ -174,7 +174,7 @@ export default function Project(props) {
                 </div>
                 <div>
                     <h2>Suggested projects for you</h2>
-                    {/* <ProjectCarouselGuest></ProjectCarouselGuest> */}
+                    <ProjectCarouselGuest></ProjectCarouselGuest>
                 </div>
             </>
 
