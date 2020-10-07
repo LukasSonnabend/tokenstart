@@ -523,3 +523,43 @@ form input:focus {
   max-width: 150px;
   left: 100px;
 }
+
+/* Search */
+
+.searchField{
+  position: relative;
+  z-index: 3;
+  width: 260px;
+}
+
+.searchResults{
+  width: 260px;
+  list-style: none;
+  background-color: white;
+  z-index: 4;
+}
+
+.searchResults li{
+  list-style: none;
+  border-bottom: 2px solid black;
+  text-align: left;
+  padding: 0.5em;
+}
+
+.searchResults li:hover{
+  background-color: lightgrey;
+}
+
+.searchResults ul{
+  padding-left: 0;
+}
+
+.focusCatch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  margin-top: -200px;
+  z-index: 1;
+}

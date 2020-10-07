@@ -1,51 +1,75 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import ChainIcons from "./chainIcon";
 import Axios from "axios";
-import { Link } from 'react-router-dom';
 
 
 export default function GetProjects(props) {
 
     const [searchTerm, SetSearchTerm] = useState();
+    const [resultList, setResultList] = useState();
+    const [showSearch, setShowSearch] = useState();
 
-    // const dynamicSearch = () => {
-    //     return 
-    // }https://levelup.gitconnected.com/building-a-simple-dynamic-search-bar-in-react-js-f1659d64dfae
+    const history = useHistory();
 
-    // useEffect(() => {
+    //https://levelup.gitconnected.com/building-a-simple-dynamic-search-bar-in-react-js-f1659d64dfae
+
+    useEffect(() => {
 
         //get project names + ids
 
-    //     async function getProjects() {
-    //         const projectRes = await Axios.get("http://localhost:1234/projects/")
-    //         let allProjectsList = projectRes.data;
+        async function getProjects() {
+            const projectRes = await Axios.get("http://localhost:1234/projects/")
+            let allProjectsList = projectRes.data;
 
 
-    //         setProjectList({
-    //             ownProjects: allProjectsList.filter(project => project.projectOwnerID === props.userID),
-    //             otherProjects: allProjectsList.filter(project => project.projectOwnerID !== props.userID)
-    //         });
-    //         setUserData({
-    //             token: userData.token,
-    //             user: userData.user,
-    //             list: projectRes.data
-    //         });
-    //     }
+            setResultList({
+                matchingProjects: allProjectsList.filter(project => project["projectName"].toLowerCase().includes(searchTerm.toLowerCase())),
+            });
 
-    //     getProjects();
+        }
 
-    //     let ownedProjects = [];
-    //     for (let project in projectList) {
-    //         if (projectList[project].projectOwnerID === props.userID) {
-    //             ownedProjects.push(projectList[project].projectOwnerID)
-    //         }
-    //     }
+        if (searchTerm) {
+            setShowSearch(true);
+            getProjects();
+        }
 
-    // }, []);
+    }, [searchTerm]);
 
-    return <div>
-        <input type="text" placeholder="Search TokenStart Projects" onChange={ (e) => SetSearchTerm(e.target.value)}/>
-</div>
+    return <div className="mr-2" >
+
+         { showSearch &&<div className="focusCatch" onClick={(e) => setShowSearch(false)}>
+        LIt
+        </div>}
+
+        <input className="searchField" type="text" placeholder="Search TokenStart Projects" onChange={(e) => SetSearchTerm(e.target.value)} />
+        <div className="col-3 searchResults position-absolute">
+            <ul className="my-0">
+                { showSearch &&
+                resultList !== undefined &&
+
+                    resultList.matchingProjects.map(
+                        (item, i) =>
+                            <>
+                                <li onClick={history.push("/project/" + item._id)}>
+                                    <div key={i} className="d-flex">
+                                        <div className="col-3">
+                                            {ChainIcons(item.tokenChain)}
+                                        </div>
+                                        <div className="col-9">
+                                            <p className="my-1">{item.projectName} <span style={{ fontWeight: "bold" }}>[{item.tokenShort}]</span></p>
+                                            <p className="my-1">Created by {item.projectOwnerName}</p>
+                                            <small className="noMargin">{item.date.slice(0, 10)}</small>
+                                        </div>
+                                    </div>
+                                </li>
+                            </>
+                    )
+
+                
+                }
+            </ul>
+        </div>
+    </div>
 
 }

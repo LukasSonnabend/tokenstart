@@ -17,20 +17,20 @@ export default function Project(props) {
 
     useEffect(() => {
 
-        async function getProjects() {
-            const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
-            setProjectInfo({
-                Project: projectRes.data
-            });
-
-        }
-
+        if (!projectInfo){
         getProjects();
-
+        }
 
 
     }, []);
 
+    async function getProjects() {
+        const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
+        setProjectInfo({
+            Project: projectRes.data
+        });
+
+    }
 
     if (projectInfo && userData.user) {
         if (projectInfo["Project"].projectOwnerID == userData.user.id) {
@@ -82,7 +82,7 @@ export default function Project(props) {
 
                 <ProgressBar tokenData={projectInfo.Project} />
 
-                <div onClick="" className="horizontalCard col-11 col-md-6 margin0a">
+                <div  className="horizontalCard col-11 col-md-6 margin0a">
                     <div className="horizontalCardLeftProject">
                         <div className="tokenModel1">
 
