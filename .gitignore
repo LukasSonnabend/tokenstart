@@ -3,3 +3,4 @@
 /tokenstartauth/.env
 /tokenstartfrontend/.env
 /node_modules
+/.vscode
