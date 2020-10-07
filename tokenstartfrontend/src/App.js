@@ -15,6 +15,7 @@ import UserContext from "./context/UserContext";
 import CreateProject from './components/pages/createProject';
 import FourOFour from './components/pages/FourOFour';
 import ProjectsOverview from './components/pages/ProjectsOverview';
+import Payment from './components/pages/payment';
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
         <Route path="/project/:projectId" component={Project}/>
         <Route path="/edit/project/:projectId" component={EditProject}/>
         <Route path="/account" component={Account}/>
+        <Route path="/checkout" component={Payment}/>
         <Route path="/404" component={FourOFour}/>
       </Switch>
     <Footer/>
