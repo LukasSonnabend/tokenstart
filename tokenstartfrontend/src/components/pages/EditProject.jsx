@@ -163,7 +163,7 @@ export default function EditProject(props) {
                 <h2>Edit Token</h2>
                 <form className="col-10 margin0a" onSubmit={submit}>
                     <div className="card">
-                        <label>Projekt name</label>
+                        <label>Project name</label>
                         <input id="new-ProjectName" value={projectName} type="text" placeholder='z.B. "AI Roboterarm"' onChange={e => setProjectName(e.target.value)} />
 
                         <div className="card-deck">
@@ -230,23 +230,23 @@ export default function EditProject(props) {
                         </select> */}
 
 
-                        <label>Kurzbeschreibung</label>
+                        <label>Short description</label>
                         <input id="new-ShortDescription" value={shortDescription} type="text" placeholder='z.B. "Anteilstoken für Roboterarm"' onChange={e => setShortDescription(e.target.value)} />
-                        <label>Projektbeschreibung</label>
+                        <label>Project description</label>
                         <textarea id="new-LongDescription" value={longDescription} type="text" onChange={e => setLongDescription(e.target.value)} rows="3" />
-                        <label>Projektbesitzer</label>
+                        <label>Project owner</label>
                         <input id="new-ProjektOwner" type="text" value={tokenOwner} disabled />
                     </div>
                     <div className="card">
-                        <label>Token Name</label>
+                        <label>Token name</label>
                         <input id="new-TokenName" value={tokenName} type="text" disabled />
-                        <label>Token Abkürzung</label>
+                        <label>Token shortcut</label>
                         <input className="is-invalid" value={tokenShort} id="new-TokenShort" placeholder="Max. 3 Zeichen" type="text" onChange={e => setTokenShort(e.target.value)} disabled />
-                        <label>Anzahl an Token</label>
+                        <label>Total token amount</label>
                         <input id="new-TokenSupply" value={tokenSupply} type="number" disabled />
-                        <label>Kleinste handelbare Einheit</label>
+                        <label>Individual minimum contribution</label>
                         <input id="new-smallestTradable" value={smallestTradable} type="number" disabled />
-                        <label>Token an Besitzer</label>
+                        <label>Tokens owned by creator</label>
                         <input id="new-toOwner" value={toOwner} placeholder={"Max. " + tokenSupply} type="number" disabled />
                     </div>
                     {error && (

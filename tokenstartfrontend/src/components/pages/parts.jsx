@@ -136,16 +136,16 @@ export function Footer() {
 
             <ul className="list-unstyled">
               <li>
-                <Link to="about">Über uns</Link>
+                <Link to="about">About us</Link>
               </li>
               <li>
-                <Link to="ourgoal">Unser Ziel</Link>
+                <Link to="ourgoal">Our goal</Link>
               </li>
               <li>
-                <a href="#!">Statistiken</a>
+                <a href="#!">Statistics</a>
               </li>
               <li>
-                <a href="#!">Presse</a>
+                <a href="#!">Press</a>
               </li>
             </ul>
 
@@ -165,13 +165,13 @@ export function Footer() {
                 <a href="#!">FAQs</a>
               </li>
               <li>
-                <a href="#!">Hilfe Center</a>
+                <a href="#!">Help Center</a>
               </li>
               <li>
-                <a href="#!">Hilfe für Projektinhaber</a>
+                <a href="#!">Help for project owners</a>
               </li>
               <li>
-                <a href="#!">Hilfe für Investoren</a>
+                <a href="#!">Help for donators</a>
               </li>
             </ul>
 
@@ -183,7 +183,7 @@ export function Footer() {
           <div className="col-md-3 mx-auto">
 
 
-            <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Mehr von Tokenstart</h5>
+            <h5 className="font-weight-bold text-uppercase mt-3 mb-4">More from TokenStart</h5>
 
             <ul className="list-unstyled">
               <li>

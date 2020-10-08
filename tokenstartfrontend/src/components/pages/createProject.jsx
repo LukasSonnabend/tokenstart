@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import Axios from "axios";
+import ImageUploader from 'react-images-upload';
 import ErrorNotice from '../misc/ErrorNotice';
 
 export default function CreateProject() {
@@ -13,6 +14,7 @@ export default function CreateProject() {
     const [tokenShort, setTokenShort] = useState();
     const [tokenSupply, setTokenSupply] = useState("Token Supply");
     const [smallestTradable, setSmallestTradable] = useState();
+    const [pictures, setPictures] = useState([]);
     const [toOwner, setToOwner] = useState();
     const [error, setError] = useState();
 
@@ -22,16 +24,33 @@ export default function CreateProject() {
     let user = undefined;
     localStorage.getItem("userData").length > 0 ? user = localStorage.getItem("userData") : user = "";
 
+
+
+
+    // function onDrop(picture) {
+    //     if (!pictures) {
+    //         setPictures([picture])
+    //     } else {
+    //         setPictures(picture)
+    //     }
+    // }
+    const onDrop = (e, picture) => {
+        console.log(e)
+        console.log(picture)
+        setPictures([...pictures, picture]);
+    };
+
+
     function setSelection(chain) {
         // 0 are selected
 
         var selectedChain = document.getElementsByClassName("selected");
 
-        if ( selectedChain.length !== 0 ){
+        if (selectedChain.length !== 0) {
             document.getElementById(selectedChain[0].id).classList.remove("selected");
             document.getElementById(chain).classList.add("selected");
             setTokenChain(chain);
-            
+
         } else {
             document.getElementById(chain).classList.add("selected");
             setTokenChain(chain);
@@ -58,17 +77,21 @@ export default function CreateProject() {
 
 
     // let user = userData.user;
-
+    let imgUrl
     useEffect(() => {
         if (user == undefined) history.push("/login")
 
-    })
+
+        if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
+
+    }, [pictures])
 
     const submit = async (e) => {
         try {
             e.preventDefault();
             const newProject = {
                 projectName: projectName,
+                projectPicture: pictures,
                 tokenChain: tokenChain,
                 sDescription: shortDescription,
                 lDescription: longDescription,
@@ -109,11 +132,37 @@ export default function CreateProject() {
     return <div>
         {user == undefined ? <p>Please Log in </p> :
             (<>
-                <h2>Neues Token erstellen</h2>
+                <h2>Create new token</h2>
                 <form className="col-10 margin0a" onSubmit={submit}>
                     <div className="card">
-                        <label>Projekt name</label>
-                        <input id="new-ProjectName" type="text" placeholder='z.B. "AI Roboterarm"' onChange={e => setProjectName(e.target.value)} />
+                        <label>Project name</label>
+                        <input id="new-ProjectName" type="text" placeholder='e.g. Community project"' onChange={e => setProjectName(e.target.value)} />
+
+                        {pictures.length < 1 &&
+                            <ImageUploader
+                                withIcon={true}
+                                singleImage={true}
+                                onChange={onDrop}
+                                imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                                maxFileSize={5242880}
+                            />
+                        }
+
+                        {pictures.length > 0 &&
+                        <>
+                            <div>
+                            <button className="btn btn-danger" onClick={ () => setPictures([])}>X</button>
+                            <div>
+                                <img id="imgViewer" />
+                            </div>
+                            </div>
+                        </>
+
+                        }
+
+
+
+
 
                         <div className="card-deck">
                             <div id="Ethereum" className="card cryptoCard">
@@ -179,23 +228,23 @@ export default function CreateProject() {
                         </select> */}
 
 
-                        <label>Kurzbeschreibung</label>
-                        <input id="new-ShortDescription" type="text" placeholder='z.B. "Anteilstoken für Roboterarm"' onChange={e => setShortDescription(e.target.value)} />
-                        <label>Projektbeschreibung</label>
+                        <label>Short description</label>
+                        <input id="new-ShortDescription" type="text" placeholder='z.B. "Cleaning of community gardens"' onChange={e => setShortDescription(e.target.value)} />
+                        <label>Project description</label>
                         <textarea id="new-LongDescription" type="text" onChange={e => setLongDescription(e.target.value)} rows="3" />
-                        <label>Projektbesitzer</label>
+                        <label>Project owner</label>
                         <input id="new-ProjektOwner" type="text" value={JSON.parse(user).displayname} disabled />
                     </div>
                     <div className="card">
-                        <label>Token Name</label>
+                        <label>Token name</label>
                         <input id="new-TokenName" type="text" onChange={e => setTokenName(e.target.value)} />
-                        <label>Token Abkürzung</label>
-                        <input className="is-invalid" id="new-TokenShort" placeholder="Max. 3 Zeichen" type="text" onChange={e => setTokenShort(e.target.value)} />
-                        <label>Anzahl an Token</label>
+                        <label>Token shortcut</label>
+                        <input className="is-invalid" id="new-TokenShort" placeholder="Max. 3 signs" type="text" onChange={e => setTokenShort(e.target.value)} />
+                        <label>Total token amount</label>
                         <input id="new-TokenSupply" type="number" onChange={e => setTokenSupply(parseInt(e.target.value))} />
-                        <label>Kleinste handelbare Einheit</label>
+                        <label>Individual minimum contribution</label>
                         <input id="new-smallestTradable" step=".01" type="number" onChange={e => setSmallestTradable(parseInt(e.target.value))} />
-                        <label>Token an Besitzer</label>
+                        <label>Tokens owned by creator</label>
                         <input id="new-toOwner" placeholder={"Max. " + tokenSupply} type="number" onChange={e => setToOwner(parseInt(e.target.value))} />
                     </div>
                     {error && (

@@ -61,7 +61,6 @@ export default function GetProjects(props) {
     }, []);
 
     return <div>
-        <span>Projects</span>
 
 
         {projectList == undefined ? (<p>Please Log in </p>) : (
