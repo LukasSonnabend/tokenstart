@@ -36,7 +36,7 @@ export default function ProjectCarouselGuest() {
                     <div className="card-body">
                         <h5 className="card-title">{project.projectName}</h5>
                         <p className="card-text">{project.sDescription}<br />Von: { project.projectOwnerName }</p>
-                        <button className="btn btn-primary" onClick={ () => history.push("/project/" + project._id)}>Zum Token</button>
+                        <button className="btn btn-primary" onClick={ () => history.push("/project/" + project._id)}>{project.tokenShort} Token</button>
                     </div>
                 </div>
             })
