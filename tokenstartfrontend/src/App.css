@@ -50,11 +50,13 @@ p {
 }
 
 #root>div>div:nth-child(1)>nav.navbar.bg-light.\.justify-content-center>a>p>span {
-  color: rgb(15, 104, 77);
+  color: rgb(10, 27, 175);
 }
 
 #root>div>div:nth-child(1)>nav.navbar.bg-light.\.justify-content-center>a>p {
-  font-size: 25px;
+  font-size: 50px;
+  font-family: 'UbuntuItalic';
+    color: rgb(0, 0, 0);
 }
 
 .margin0a {

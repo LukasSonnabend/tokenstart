@@ -1,7 +1,14 @@
+@font-face {
+ font-family: 'UbuntuItalic', 'CovesBold';
+ src: local('UbuntuItalic'), url(./components/fonts/UbuntuItalic.ttf) format('truetype');
+ src: local('CovesBold'), url(./components/fonts/UbuntuItalic.ttf) format('opentype');
+}
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, 'UbuntuItalic', 'CovesBold', 'Segoe UI', 'Roboto', 'Oxygen',
+   'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,7 +19,4 @@ code {
     monospace;
 }
 
-font-face {
-  font-family: 'UbuntuItalic';
-  src: local('UbuntuItalic'), url(./src/components/fonts/Ubuntu-Italic.ttf) format('truetype');
-}
+
