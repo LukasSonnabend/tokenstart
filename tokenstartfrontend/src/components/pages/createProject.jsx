@@ -109,11 +109,11 @@ export default function CreateProject() {
     return <div>
         {user == undefined ? <p>Please Log in </p> :
             (<>
-                <h2>Neues Token erstellen</h2>
+                <h2>Create new token</h2>
                 <form className="col-10 margin0a" onSubmit={submit}>
                     <div className="card">
-                        <label>Projekt name</label>
-                        <input id="new-ProjectName" type="text" placeholder='z.B. "AI Roboterarm"' onChange={e => setProjectName(e.target.value)} />
+                        <label>Project name</label>
+                        <input id="new-ProjectName" type="text" placeholder='e.g. Community project"' onChange={e => setProjectName(e.target.value)} />
 
                         <div className="card-deck">
                             <div id="Ethereum" className="card cryptoCard">
@@ -179,23 +179,23 @@ export default function CreateProject() {
                         </select> */}
 
 
-                        <label>Kurzbeschreibung</label>
-                        <input id="new-ShortDescription" type="text" placeholder='z.B. "Anteilstoken für Roboterarm"' onChange={e => setShortDescription(e.target.value)} />
-                        <label>Projektbeschreibung</label>
+                        <label>Short description</label>
+                        <input id="new-ShortDescription" type="text" placeholder='z.B. "Cleaning of community gardens"' onChange={e => setShortDescription(e.target.value)} />
+                        <label>Project description</label>
                         <textarea id="new-LongDescription" type="text" onChange={e => setLongDescription(e.target.value)} rows="3" />
-                        <label>Projektbesitzer</label>
+                        <label>Project owner</label>
                         <input id="new-ProjektOwner" type="text" value={JSON.parse(user).displayname} disabled />
                     </div>
                     <div className="card">
-                        <label>Token Name</label>
+                        <label>Token name</label>
                         <input id="new-TokenName" type="text" onChange={e => setTokenName(e.target.value)} />
-                        <label>Token Abkürzung</label>
-                        <input className="is-invalid" id="new-TokenShort" placeholder="Max. 3 Zeichen" type="text" onChange={e => setTokenShort(e.target.value)} />
-                        <label>Anzahl an Token</label>
+                        <label>Token shortcut</label>
+                        <input className="is-invalid" id="new-TokenShort" placeholder="Max. 3 signs" type="text" onChange={e => setTokenShort(e.target.value)} />
+                        <label>Total token amount</label>
                         <input id="new-TokenSupply" type="number" onChange={e => setTokenSupply(parseInt(e.target.value))} />
-                        <label>Kleinste handelbare Einheit</label>
+                        <label>Individual minimum contribution</label>
                         <input id="new-smallestTradable" step=".01" type="number" onChange={e => setSmallestTradable(parseInt(e.target.value))} />
-                        <label>Token an Besitzer</label>
+                        <label>Tokens owned by creator</label>
                         <input id="new-toOwner" placeholder={"Max. " + tokenSupply} type="number" onChange={e => setToOwner(parseInt(e.target.value))} />
                     </div>
                     {error && (
