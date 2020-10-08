@@ -585,3 +585,8 @@ left: -500%;
   text-align: center;
   width: 20em;
 }
+
+/* upload image */
+#imgViewer{
+  max-width: 250px;
+}

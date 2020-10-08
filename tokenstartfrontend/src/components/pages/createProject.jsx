@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import Axios from "axios";
+import ImageUploader from 'react-images-upload';
 import ErrorNotice from '../misc/ErrorNotice';
 
 export default function CreateProject() {
@@ -13,6 +14,7 @@ export default function CreateProject() {
     const [tokenShort, setTokenShort] = useState();
     const [tokenSupply, setTokenSupply] = useState("Token Supply");
     const [smallestTradable, setSmallestTradable] = useState();
+    const [pictures, setPictures] = useState([]);
     const [toOwner, setToOwner] = useState();
     const [error, setError] = useState();
 
@@ -22,16 +24,33 @@ export default function CreateProject() {
     let user = undefined;
     localStorage.getItem("userData").length > 0 ? user = localStorage.getItem("userData") : user = "";
 
+
+
+
+    // function onDrop(picture) {
+    //     if (!pictures) {
+    //         setPictures([picture])
+    //     } else {
+    //         setPictures(picture)
+    //     }
+    // }
+    const onDrop = (e, picture) => {
+        console.log(e)
+        console.log(picture)
+        setPictures([...pictures, picture]);
+    };
+
+
     function setSelection(chain) {
         // 0 are selected
 
         var selectedChain = document.getElementsByClassName("selected");
 
-        if ( selectedChain.length !== 0 ){
+        if (selectedChain.length !== 0) {
             document.getElementById(selectedChain[0].id).classList.remove("selected");
             document.getElementById(chain).classList.add("selected");
             setTokenChain(chain);
-            
+
         } else {
             document.getElementById(chain).classList.add("selected");
             setTokenChain(chain);
@@ -58,17 +77,21 @@ export default function CreateProject() {
 
 
     // let user = userData.user;
-
+    let imgUrl
     useEffect(() => {
         if (user == undefined) history.push("/login")
 
-    })
+
+        if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
+
+    }, [pictures])
 
     const submit = async (e) => {
         try {
             e.preventDefault();
             const newProject = {
                 projectName: projectName,
+                projectPicture: pictures,
                 tokenChain: tokenChain,
                 sDescription: shortDescription,
                 lDescription: longDescription,
@@ -114,6 +137,32 @@ export default function CreateProject() {
                     <div className="card">
                         <label>Project name</label>
                         <input id="new-ProjectName" type="text" placeholder='e.g. Community project"' onChange={e => setProjectName(e.target.value)} />
+
+                        {pictures.length < 1 &&
+                            <ImageUploader
+                                withIcon={true}
+                                singleImage={true}
+                                onChange={onDrop}
+                                imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                                maxFileSize={5242880}
+                            />
+                        }
+
+                        {pictures.length > 0 &&
+                        <>
+                            <div>
+                            <button className="btn btn-danger" onClick={ () => setPictures([])}>X</button>
+                            <div>
+                                <img id="imgViewer" />
+                            </div>
+                            </div>
+                        </>
+
+                        }
+
+
+
+
 
                         <div className="card-deck">
                             <div id="Ethereum" className="card cryptoCard">
