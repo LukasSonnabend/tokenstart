@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import Axios from "axios";
+import ImageUploader from 'react-images-upload';
 import ErrorNotice from '../misc/ErrorNotice';
 
 export default function EditProject(props) {
@@ -13,6 +14,7 @@ export default function EditProject(props) {
     const [tokenShort, setTokenShort] = useState();
     const [tokenSupply, setTokenSupply] = useState("Token Supply");
     const [smallestTradable, setSmallestTradable] = useState();
+    const [pictures, setPictures] = useState([]);
     const [toOwner, setToOwner] = useState();
     const [tokenOwner, setTokenOwner] = useState();
     const [error, setError] = useState();
@@ -22,6 +24,13 @@ export default function EditProject(props) {
 
     let user = undefined;
     localStorage.getItem("userData").length > 0 ? user = localStorage.getItem("userData") : user = "";
+
+
+    const onDrop = (e, picture) => {
+        console.log(e)
+        console.log(picture)
+        setPictures([...pictures, picture]);
+    };
 
     function setSelection(chain) {
         // 0 are selected
@@ -42,9 +51,12 @@ export default function EditProject(props) {
     useEffect(() => {
         if (user == undefined) history.push("/login")
 
+        if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
+
         async function getProjects() {
             const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
             setProjectName(projectRes.data.projectName);
+            setPictures(projectRes.data.picture)
             setTokenChain(projectRes.data.tokenChain);
             setShortDescription(projectRes.data.sDescription);
             setLongDescription(projectRes.data.lDescription);
@@ -58,17 +70,17 @@ export default function EditProject(props) {
 
             document.getElementById(projectRes.data.tokenChain).classList.add("selected");
 
-            if ( !userData.user ){
+            if (!userData.user) {
                 return history.push("/404")
             }
-            
+
         }
 
         getProjects();
         console.log(userData)
 
 
-      
+
 
         //document.getElementById(tokenChain).classList.add("selected");       
 
@@ -89,7 +101,7 @@ export default function EditProject(props) {
                         "refresh-token": localStorage.getItem("refresh-token")
                     }
                 })
-                
+
             localStorage.setItem("auth-token", accessToken.data.AccessToken)
 
             const deleteProject = await Axios.post("http://localhost:1234/projects/delete", toDeleteProject,
@@ -119,6 +131,7 @@ export default function EditProject(props) {
             const projectTemplate = {
                 projectId: props.match.params.projectId,
                 projectName: projectName,
+                picture: pictures,
                 tokenChain: tokenChain,
                 sDescription: shortDescription,
                 lDescription: longDescription,
@@ -165,6 +178,27 @@ export default function EditProject(props) {
                     <div className="card">
                         <label>Project name</label>
                         <input id="new-ProjectName" value={projectName} type="text" placeholder='z.B. "AI Roboterarm"' onChange={e => setProjectName(e.target.value)} />
+
+                        {/* {pictures.length < 1 &&
+                            <ImageUploader
+                                withIcon={true}
+                                singleImage={true}
+                                onChange={onDrop}
+                                imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                                maxFileSize={5242880}
+                            />
+                        } */}
+
+                       
+                            <>
+                                <div>
+                                    <button className="btn btn-danger" onClick={() => setPictures([])}>X</button>
+                                    <div>
+                                        <img id="imgViewer" />
+                                    </div>
+                                </div>
+                            </>
+                        
 
                         <div className="card-deck">
                             <div id="Ethereum" className="card cryptoCard">
@@ -253,10 +287,10 @@ export default function EditProject(props) {
                         <ErrorNotice message={error} clearError={() => setError(undefined)} />
                     )}
                     <div className="row">
-                        <input className="btn btn-primary" type="submit" onClick={ () => submit()} value="Edit Project" />
+                        <input className="btn btn-primary" type="submit" onClick={() => submit()} value="Edit Project" />
                     </div>
                 </form>
-                <button className="btn btn-danger" type="submit" onClick={ () => deleteProject()}>Delete Project</button>
+                <button className="btn btn-danger" type="submit" onClick={() => deleteProject()}>Delete Project</button>
             </>
             )
         }

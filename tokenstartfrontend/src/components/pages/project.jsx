@@ -5,6 +5,8 @@ import UserContext from "../../context/UserContext";
 import ProgressBar from '../misc/ProgressBar';
 import ProjectCarouselGuest from '../misc/ProjectCarouselGuest';
 import { BrowserRouter, RouteLink, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import ChainIcons from "../misc/chainIcon";
 
 
@@ -33,7 +35,7 @@ export default function Project(props) {
 
     if (projectInfo && userData.user) {
         if (projectInfo["Project"].projectOwnerID == userData.user.id) {
-            editLink = <Link to={"/edit/project/" + props.match.params.projectId}>Edit project</Link>;
+            editLink = <Link to={"/edit/project/" + props.match.params.projectId}><button className="btn btn-warning"><FontAwesomeIcon icon={faEdit}/> Edit project</button></Link>;
         }
     }
 
@@ -45,9 +47,9 @@ export default function Project(props) {
 
                 <div className="editLink">{editLink}</div>
 
-                <div className="col-6">
+                {/* <div className="col-6">
                     <Link to="/projects"> Go to projects overview</Link>
-                </div>
+                </div> */}
 
 
 
@@ -103,13 +105,13 @@ export default function Project(props) {
                 </div>
 
 
-                <div className="tableDiv col-10 margin0a card">
+                {/* <div className="tableDiv col-10 margin0a card">
                     <table className="table table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Owner</th>
-                                {/* <th scope="col">Description</th> */}
+                                {/* <th scope="col">Description</th> 
                                 <th scope="col">Creation Date</th>
                                 <th scope="col">Token Name</th>
                                 <th scope="col">Token Supply</th>
@@ -122,7 +124,7 @@ export default function Project(props) {
                                 <tr>
                                     <td>{projectInfo.Project.projectName}</td>
                                     <td>{projectInfo.Project.projectOwnerName}</td>
-                                    {/* <td>{projectInfo.Project.sDescription}</td> */}
+                                    {/* <td>{projectInfo.Project.sDescription}</td> 
                                     <td>{projectInfo.Project.date.slice(0, 10)}</td>
                                     <td>{projectInfo.Project.tokenName}</td>
                                     <td>{projectInfo.Project.tokenSupply}</td>
@@ -132,7 +134,8 @@ export default function Project(props) {
                             }
                         </tbody>
                     </table>
-                </div>
+                </div> */}
+
                 <div className="mb-2">
                     <h2>Project description</h2>
                     <p className="col-10 col-md-10 margin0a mb-3">

@@ -24,16 +24,6 @@ export default function CreateProject() {
     let user = undefined;
     localStorage.getItem("userData").length > 0 ? user = localStorage.getItem("userData") : user = "";
 
-
-
-
-    // function onDrop(picture) {
-    //     if (!pictures) {
-    //         setPictures([picture])
-    //     } else {
-    //         setPictures(picture)
-    //     }
-    // }
     const onDrop = (e, picture) => {
         console.log(e)
         console.log(picture)
@@ -214,19 +204,6 @@ export default function CreateProject() {
                                 </div>
                             </div>
                         </div>
-
-
-
-                        {/* <label for="exampleFormControlSelect1">Blockchain</label>
-                        <select className="form-control" id="exampleFormControlSelect1" onChange={e => setTokenChain(e.target.value)}>
-                            <option>Bitcoin</option>
-                            <option>Ethereum</option>
-                            <option>Ripple</option>
-                            <option>Solidity</option>
-                            <option>EOS.IO</option>
-                            <option>Tezos</option>
-                        </select> */}
-
 
                         <label>Short description</label>
                         <input id="new-ShortDescription" type="text" placeholder='z.B. "Cleaning of community gardens"' onChange={e => setShortDescription(e.target.value)} />
