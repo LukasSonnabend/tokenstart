@@ -128,6 +128,9 @@ export default function EditProject(props) {
     const submit = async (e) => {
         try {
             e.preventDefault();
+            if (!userData){
+                return setError([{msg: "Please set User Bio in Account Settings"}, "warning"])
+            }
             const projectTemplate = {
                 projectId: props.match.params.projectId,
                 projectName: projectName,
@@ -141,6 +144,7 @@ export default function EditProject(props) {
                 // smallestTradable: smallestTradable,
                 // toOwner: toOwner,
                 projectOwnerName: userData.user.displayname,
+                projectOwnerDescription: userData.user.userDescription,
                 projectOwnerID: userData.user.id,
 
             };
@@ -167,7 +171,7 @@ export default function EditProject(props) {
 
         } catch (err) {
             console.log("this is error: " + err)
-            err.response.data.msg && setError([err.response.data.msg, "warning"])
+            //err.response.data.msg && setError([err.response.data.msg, "warning"])
         }
     }
     return <div>

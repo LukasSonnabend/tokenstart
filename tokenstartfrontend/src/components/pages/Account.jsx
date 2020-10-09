@@ -8,6 +8,7 @@ export default function Account(){
 
     const {userData} = useContext(UserContext);
     const [password, setPassword] = useState();
+    const [userDescription, setUserDescription] = useState();
     const [error, setError] = useState();
     
     const token = userData.token;
@@ -44,7 +45,8 @@ export default function Account(){
         try {
             e.preventDefault();
             const updateUser = {
-                password: password
+                password: password,
+                userDescription: userDescription
             
             };
             const accessToken = await Axios.post("http://localhost:1234/users/refreshtokenisvalid",{},
@@ -53,7 +55,7 @@ export default function Account(){
                     "refresh-token": localStorage.getItem("refresh-token")
                 } 
             })
-            console.log(accessToken)
+            //console.log(accessToken)
             
             localStorage.setItem("auth-token", accessToken.data.AccessToken)
             console.log(accessToken.data.AccessToken);
@@ -81,6 +83,8 @@ export default function Account(){
                 <form className="col-10 margin0a" onSubmit={submit}>
                     <label>Display Name</label>
                     <input id="update-display-name" value={user.displayname} type="text"/>
+                    <label>User Bio</label>
+                    <textarea className="w-100" id="update-user-description" placeholder={user.userDescription} cols="25" type="text" onChange={e => setUserDescription(e.target.value)}/>
                     <label>Full Name</label>
                     <input id="update-full-name" value={user.fullname} type="text"/>
                     <label>Email</label>

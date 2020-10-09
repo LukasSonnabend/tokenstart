@@ -49,7 +49,7 @@ export default function CreateProject() {
     }
 
 
-    // let user = userData.user;
+    //user = userData.user;
     let imgUrl
     useEffect(() => {
         if (user == undefined) history.push("/login")
@@ -64,7 +64,7 @@ export default function CreateProject() {
             e.preventDefault();
             const newProject = {
                 projectName: projectName,
-                projectPicture: pictures,
+                projectPicture: "imgUrl",
                 tokenChain: tokenChain,
                 sDescription: shortDescription,
                 lDescription: longDescription,
@@ -74,6 +74,7 @@ export default function CreateProject() {
                 smallestTradable: smallestTradable,
                 toOwner: toOwner,
                 projectOwnerName: userData.user.displayname,
+                projectOwnerDescription: userData.user.userDescription,
                 projectOwnerID: userData.user.id,
 
             };

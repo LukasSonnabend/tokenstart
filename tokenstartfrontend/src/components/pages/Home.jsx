@@ -3,7 +3,6 @@ import {useHistory} from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import GetProjects from "../../components/misc/GetProjects";
 import ProjectCarouselGuest from '../misc/ProjectCarouselGuest';
-import Axios from "axios";
 
 function Home() {
 
