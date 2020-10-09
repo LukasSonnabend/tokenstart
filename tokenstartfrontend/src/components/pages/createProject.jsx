@@ -25,8 +25,8 @@ export default function CreateProject() {
     localStorage.getItem("userData").length > 0 ? user = localStorage.getItem("userData") : user = "";
 
     const onDrop = (e, picture) => {
-        console.log(e)
-        console.log(picture)
+        // console.log(e)
+        // console.log(picture)
         setPictures([...pictures, picture]);
     };
 
@@ -45,23 +45,6 @@ export default function CreateProject() {
             document.getElementById(chain).classList.add("selected");
             setTokenChain(chain);
         }
-
-
-        // if (document.getElementsByClassName("selected").length == 0) {
-        //     document.getElementById(chain).classList.add("selected");
-        //     setTokenChain(chain);
-
-
-
-        //     console.log(document.getElementsByClassName("selected")[chain])
-        // } else { //more than 0 are selected
-        //     if (document.getElementsByClassName("selected")[chain]) {
-        //         document.getElementById(chain).classList.remove("selected");
-        //         setTokenChain("");
-        //     }
-        // }
-
-
 
     }
 
