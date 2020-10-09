@@ -245,6 +245,16 @@ form input:focus {
   border-radius: 25px;
 }
 
+#carouselExampleControls > div > div > div {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.projectAction {
+  justify-content: space-evenly;
+}
+
+
 @media screen(max-width: 300px) {
   html {
     background: "red";
@@ -588,4 +598,9 @@ left: -500%;
 /* upload image */
 #imgViewer{
   max-width: 250px;
+}
+
+
+.textJustify{
+  text-align: justify;
 }

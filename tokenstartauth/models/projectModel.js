@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const projectSchema = new mongoose.Schema({
     projectName: {type: String, required: true, unique: true},
-    pictureURL: {type: String, required: true},
+    projectPicture: {type: String, required: true},
     tokenChain: {type: String, required: true},
     sDescription: {type: String, unique: true},
     lDescription: {type: String, unique: true},
@@ -13,6 +13,7 @@ const projectSchema = new mongoose.Schema({
     smallestTradable: {type: Number, required: true},
     toOwner: {type: Number, required: true},
     projectOwnerName: {type: String, required: true},
+    projectOwnerDescription: {type: String, required: true},
     projectOwnerID: {type: String, required: true}
 });
 

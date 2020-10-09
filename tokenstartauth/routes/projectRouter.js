@@ -11,8 +11,9 @@ const router = require("express").Router();
 //needs validation projectOwner musst be set automatically using jwt token route is logged in.
 router.post('/new', authOps, async (req, res) => {
     try {
-        const { projectName, projectPicture, tokenChain, sDescription, lDescription, tokenName, tokenShort, tokenSupply, smallestTradable, toOwner, projectOwnerID, projectOwnerName } = req.body;
-        if (!projectName || !projectPicture || !tokenChain || !sDescription || !lDescription || !tokenName || !tokenShort || !tokenSupply || !toOwner || !projectOwnerID || !smallestTradable)
+        console.log(req)
+        const { projectName, projectPicture, tokenChain, sDescription, lDescription, tokenName, tokenShort, tokenSupply, smallestTradable, toOwner, projectOwnerID, projectOwnerDescription, projectOwnerName } = req.body;
+        if (!projectName || !projectPicture || !tokenChain || !sDescription || !lDescription || !tokenName || !tokenShort || !tokenSupply || !toOwner || !projectOwnerID || !projectOwnerDescription || !smallestTradable)
             return res.status(400).json({ msg: "Insufficient Parameters" })
 
         if (parseInt(toOwner, 10) > parseInt(tokenSupply, 10)) {
@@ -26,21 +27,23 @@ router.post('/new', authOps, async (req, res) => {
                     { tokenName: tokenName }]
             })
 
-        console.log(projectPicture,)
-        let body = { body : projectPicture[0][0] }
-        await axios.post("http://freeimage.host/api/1/upload/?key=6d207e02198a847aa98d0a2a901485a5" , body)
-            .then(response => {
-                console.log(response.data.url);
-                console.log(response.data.explanation);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        console.log(projectPicture)
+
+        //let body = { body : projectPicture[0][0] }
+
+        // await axios.post("http://freeimage.host/api/1/upload/?key=6d207e02198a847aa98d0a2a901485a5" , body)
+        //     .then(response => {
+        //         console.log(response.data.url);
+        //         console.log(response.data.explanation);
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     });
 
 
         const newProject = new Project({
             projectName,
-            pictureURL,
+            projectPicture,
             tokenChain,
             sDescription,
             lDescription,
@@ -50,6 +53,7 @@ router.post('/new', authOps, async (req, res) => {
             smallestTradable,
             toOwner,
             projectOwnerName,
+            projectOwnerDescription, //set automatically
             projectOwnerID //set automatically
         });
 
