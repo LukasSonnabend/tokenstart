@@ -27,7 +27,7 @@ router.post('/new', authOps, async (req, res) => {
             })
 
         console.log(projectPicture,)
-        let body = { source : projectPicture[0][0] }
+        let body = { body : projectPicture[0][0] }
         await axios.post("http://freeimage.host/api/1/upload/?key=6d207e02198a847aa98d0a2a901485a5" , body)
             .then(response => {
                 console.log(response.data.url);
