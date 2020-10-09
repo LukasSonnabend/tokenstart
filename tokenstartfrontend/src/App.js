@@ -17,7 +17,7 @@ import FourOFour from './components/pages/FourOFour';
 import ProjectsOverview from './components/pages/ProjectsOverview';
 import Payment from './components/pages/payment';
 import ScrollTop from './components/misc/ScrollTop';
-
+import FAQs from './components/pages/FAQs';
 
 
 function App() {
@@ -78,6 +78,7 @@ function App() {
         <Route path="/account" component={Account}/>
         <Route path="/checkout" component={Payment}/>
         <Route path="/404" component={FourOFour}/>
+        <Route path="/FAQs" component={FAQs}/>
       </Switch>
     <Footer/>
     </UserContext.Provider>
