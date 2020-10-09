@@ -9,7 +9,7 @@ export default function About() {
         <h2>About us</h2>
         <p>
             TokenStart is founded by two German students with the vision of opening the world of tokenization
-            to crowdfunding. We utilize the benefits of tokens to create more flexibility and transparency for
+            to crowdfunding. At TokenStart we utilize the benefits of tokens and public blockchains to create more flexibility and transparency for
             donators and creators.
         </p>
         <div className="row col-11 col-md-12 margin0a centerCards">

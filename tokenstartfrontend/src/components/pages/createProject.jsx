@@ -149,7 +149,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                             <div id="TRON" className="card cryptoCard">
@@ -162,7 +162,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                             <div id="EOS" className="card cryptoCard">
@@ -173,7 +173,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                             <div id="Polkadot" className="card cryptoCard">
@@ -184,7 +184,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                         </div>
@@ -211,7 +211,7 @@ export default function CreateProject() {
                     {error && (
                         <ErrorNotice message={error} clearError={() => setError(undefined)} />
                     )}
-                    <input className="btn btn-primary" type="submit" value="Projekt erstellen" />
+                    <input className="btn btn-primary" type="submit" value="Create project" />
                 </form>
             </>
             )
