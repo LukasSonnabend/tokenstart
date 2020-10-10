@@ -167,10 +167,7 @@ export function Footer() {
                <Link to="FAQs">FAQs</Link>
               </li>
               <li>
-                <a href="#!">Help Center</a>
-              </li>
-              <li>
-                <a href="#!">Help for project owners</a>
+              <Link to="projectownerhelp">Help for project owners</Link>
               </li>
               <li>
                 <a href="#!">Help for donators</a>
