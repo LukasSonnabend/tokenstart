@@ -5,6 +5,8 @@ import UserContext from "../../context/UserContext";
 import ProgressBar from '../misc/ProgressBar';
 import ProjectCarouselGuest from '../misc/ProjectCarouselGuest';
 import { BrowserRouter, RouteLink, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import ChainIcons from "../misc/chainIcon";
 
 
@@ -33,27 +35,32 @@ export default function Project(props) {
 
     if (projectInfo && userData.user) {
         if (projectInfo["Project"].projectOwnerID == userData.user.id) {
-            editLink = <Link to={"/edit/project/" + props.match.params.projectId}>Edit project</Link>;
+            editLink = <Link to={"/edit/project/" + props.match.params.projectId}><button className="btn btn-warning"><FontAwesomeIcon icon={faEdit}/> Edit project</button></Link>;
         }
     }
 
 
     return <div>
-        {projectInfo == undefined ? (<p>Please Log in </p>) : (
+        {projectInfo === undefined ? (<p>Please Log in </p>) : (
             <>
                 {/* { userData.user.id == projectInfo._id  && <Link to={"/edit/project/" + props.match.params.projectId}>Edit project</Link> } */}
 
                 <div className="editLink">{editLink}</div>
 
-                <div className="col-6">
+                {/* <div className="col-6">
                     <Link to="/projects"> Go to projects overview</Link>
-                </div>
+                </div> */}
 
 
 
                 <div id="carouselExampleControls" className="carousel slide col-12 col-md-8 margin0a p-2" data-ride="carousel">
                     <div className="carousel-inner">
-                        <div className="carousel-item active">
+
+
+                       { !projectInfo.Project.projectPictureURL && 
+                       
+                       <>
+                       <div className="carousel-item active">
                             <div className="container">
                                 <img height="315" src="https://images.unsplash.com/photo-1580670029149-5c00eec8bb66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=560&q=80" alt="..." />
                             </div>
@@ -68,6 +75,21 @@ export default function Project(props) {
                                 <img height="315" src="https://images.unsplash.com/photo-1549070419-1a0fb71f1302?ixlib=rb-1.2.1&auto=format&fit=crop&w=560&q=80" alt="..." />
                             </div>
                         </div>
+                        </>
+                        }
+                        
+                        { projectInfo.Project.projectPictureURL && 
+                       
+                       <>
+                       <div className="carousel-item active">
+                            <div className="container">
+                                <img height="315" src={projectInfo.Project.projectPictureURL} alt="..." />
+                            </div>
+                        </div>
+                        </>
+                        }
+
+                        
                     </div>
                     <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -81,7 +103,9 @@ export default function Project(props) {
 
                 <ProgressBar tokenData={projectInfo.Project} />
 
-                <div  className="horizontalCard col-11 col-md-6 margin0a">
+
+                <div className="row projectAction">
+                <div  className="horizontalCard col-10 col-md-4">
                     <div className="horizontalCardLeftProject">
                         <div className="tokenModel1">
 
@@ -102,52 +126,7 @@ export default function Project(props) {
                     </div>
                 </div>
 
-
-                <div className="tableDiv col-10 margin0a card">
-                    <table className="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Owner</th>
-                                {/* <th scope="col">Description</th> */}
-                                <th scope="col">Creation Date</th>
-                                <th scope="col">Token Name</th>
-                                <th scope="col">Token Supply</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-
-
-                                <tr>
-                                    <td>{projectInfo.Project.projectName}</td>
-                                    <td>{projectInfo.Project.projectOwnerName}</td>
-                                    {/* <td>{projectInfo.Project.sDescription}</td> */}
-                                    <td>{projectInfo.Project.date.slice(0, 10)}</td>
-                                    <td>{projectInfo.Project.tokenName}</td>
-                                    <td>{projectInfo.Project.tokenSupply}</td>
-                                </tr>
-
-
-                            }
-                        </tbody>
-                    </table>
-                </div>
-                <div className="mb-2">
-                    <h2>Project description</h2>
-                    <p className="col-10 col-md-10 margin0a mb-3">
-                        {projectInfo.Project.lDescription}
-                    </p>
-                </div>
-                <div className="row col-md-11 margin0a mb-3">
-                    <div className="col-12 col-md-6">
-                        <h2>About the creator {projectInfo.Project.projectOwnerName}</h2>
-                        <p className="col-12">
-                            Is own and differentiates officer as and good alphabet odd farther of no we're and eager. Would the hologram over myself fresh before continues business approved he seven incurred about every so phase the long, and slide is actually person, away, because way. A of after their be more the.
-                    <br /><br />Intention he his shall gain, he entrance don't lamps, were more by they example, dreams, agreed few the practice a have live river and a takes hollow more the frequently the where the her self-interest, question. To you in such be affected shine. We of on word countries.
-                </p>
-                    </div>
-                    <div className="col-md-6">
+                <div className="col-10 col-md-4">
                         <h2>Project overview</h2>
                         <table className="table table-bordered margin0a mb-4">
 
@@ -170,6 +149,22 @@ export default function Project(props) {
                                     project: projectInfo.Project
                                 }
                         }} className="btn btn-primary">Buy Token</Link>
+                    </div>
+
+                    </div>
+
+                <div className="mb-2">
+                    <h2>Project description</h2>
+                    <p className="col-10 col-md-10 margin0a mb-3">
+                        {projectInfo.Project.lDescription}
+                    </p>
+                </div>
+                <div className="row col-md-11 margin0a mb-3">
+                    <div className="mb-2">
+                        <h4>About the creator {projectInfo.Project.projectOwnerName}</h4>
+                        <p className="col-10 col-md-11 margin0a mb-3 textJustify">
+                    { projectInfo.Project.projectOwnerDescription}
+                </p>
                     </div>
                 </div>
                 <div>

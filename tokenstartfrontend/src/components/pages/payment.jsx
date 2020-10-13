@@ -54,14 +54,14 @@ export default function Payment(props) {
                                         <div className="collapse" id={"collapseCard"}>
 
                                             <p>{projectInfo.project.lDescription}</p>
-
+                                            
                                         </div>
 
-
                                         <p>Created by {projectInfo.project.projectOwnerName}</p>
-                                        <button className="btn btn-primary" type="button" data-toggle="collapse" data-target={"#collapseCard"} aria-expanded="false" aria-controls={"collapseCard"} >
+                                        <p>Started {projectInfo.project.date.slice(0, 10)}</p>
+                                        {/* <button className="btn btn-primary" type="button" data-toggle="collapse" data-target={"#collapseCard"} aria-expanded="false" aria-controls={"collapseCard"} >
                                             More Info
-                                                </button>
+                                                </button> */}
                                     </div>
                                 </div>
                             </>
@@ -95,7 +95,7 @@ export default function Payment(props) {
                             </div> */}
 
                             <div className="form-group">
-                                <label for="exampleFormControlTextarea1">Investment</label>
+                                <label for="exampleFormControlTextarea1">Investment (Unit = {projectInfo.project.smallestTradable}) </label>
                                 <input className="form-control" type="number" onChange={e => setInvestment(e.target.value)} placeholder={"Smallest tradable unit " + projectInfo.project.smallestTradable} min={projectInfo.project.smallestTradable} step={projectInfo.project.smallestTradable}/>
                             </div>
                             <button className="btn btn-primary mb-3" onClick={e => {
@@ -110,12 +110,12 @@ export default function Payment(props) {
                         </form>
 
 
-                        { showQR && <QRCode className="mb-3 margin0a" 
-                        value={qrMessage}
-                        />}
       
                     </div>
 
+                    { showQR && <QRCode className="mb-3 margin0a" 
+                        value={qrMessage}
+                        />}
 
                 </div>
             </>

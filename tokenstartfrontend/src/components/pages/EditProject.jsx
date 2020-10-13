@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import Axios from "axios";
+import ImageUploader from 'react-images-upload';
 import ErrorNotice from '../misc/ErrorNotice';
 
 export default function EditProject(props) {
@@ -13,6 +14,7 @@ export default function EditProject(props) {
     const [tokenShort, setTokenShort] = useState();
     const [tokenSupply, setTokenSupply] = useState("Token Supply");
     const [smallestTradable, setSmallestTradable] = useState();
+    const [pictures, setPictures] = useState([]);
     const [toOwner, setToOwner] = useState();
     const [tokenOwner, setTokenOwner] = useState();
     const [error, setError] = useState();
@@ -22,6 +24,13 @@ export default function EditProject(props) {
 
     let user = undefined;
     localStorage.getItem("userData").length > 0 ? user = localStorage.getItem("userData") : user = "";
+
+
+    const onDrop = (e, picture) => {
+        console.log(e)
+        console.log(picture)
+        setPictures([...pictures, picture]);
+    };
 
     function setSelection(chain) {
         // 0 are selected
@@ -42,9 +51,12 @@ export default function EditProject(props) {
     useEffect(() => {
         if (user == undefined) history.push("/login")
 
+        if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
+
         async function getProjects() {
             const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
             setProjectName(projectRes.data.projectName);
+            setPictures(projectRes.data.picture)
             setTokenChain(projectRes.data.tokenChain);
             setShortDescription(projectRes.data.sDescription);
             setLongDescription(projectRes.data.lDescription);
@@ -58,17 +70,17 @@ export default function EditProject(props) {
 
             document.getElementById(projectRes.data.tokenChain).classList.add("selected");
 
-            if ( !userData.user ){
+            if (!userData.user) {
                 return history.push("/404")
             }
-            
+
         }
 
         getProjects();
         console.log(userData)
 
 
-      
+
 
         //document.getElementById(tokenChain).classList.add("selected");       
 
@@ -89,7 +101,7 @@ export default function EditProject(props) {
                         "refresh-token": localStorage.getItem("refresh-token")
                     }
                 })
-                
+
             localStorage.setItem("auth-token", accessToken.data.AccessToken)
 
             const deleteProject = await Axios.post("http://localhost:1234/projects/delete", toDeleteProject,
@@ -116,9 +128,13 @@ export default function EditProject(props) {
     const submit = async (e) => {
         try {
             e.preventDefault();
+            if (!userData){
+                return setError([{msg: "Please set User Bio in Account Settings"}, "warning"])
+            }
             const projectTemplate = {
                 projectId: props.match.params.projectId,
                 projectName: projectName,
+                picture: pictures,
                 tokenChain: tokenChain,
                 sDescription: shortDescription,
                 lDescription: longDescription,
@@ -128,6 +144,7 @@ export default function EditProject(props) {
                 // smallestTradable: smallestTradable,
                 // toOwner: toOwner,
                 projectOwnerName: userData.user.displayname,
+                projectOwnerDescription: userData.user.userDescription,
                 projectOwnerID: userData.user.id,
 
             };
@@ -154,7 +171,7 @@ export default function EditProject(props) {
 
         } catch (err) {
             console.log("this is error: " + err)
-            err.response.data.msg && setError([err.response.data.msg, "warning"])
+            //err.response.data.msg && setError([err.response.data.msg, "warning"])
         }
     }
     return <div>
@@ -163,8 +180,29 @@ export default function EditProject(props) {
                 <h2>Edit Token</h2>
                 <form className="col-10 margin0a" onSubmit={submit}>
                     <div className="card">
-                        <label>Projekt name</label>
+                        <label>Project name</label>
                         <input id="new-ProjectName" value={projectName} type="text" placeholder='z.B. "AI Roboterarm"' onChange={e => setProjectName(e.target.value)} />
+
+                        {/* {pictures.length < 1 &&
+                            <ImageUploader
+                                withIcon={true}
+                                singleImage={true}
+                                onChange={onDrop}
+                                imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                                maxFileSize={5242880}
+                            />
+                        } */}
+
+                       
+                            <>
+                                <div>
+                                    <button className="btn btn-danger" onClick={() => setPictures([])}>X</button>
+                                    <div>
+                                        <img id="imgViewer" />
+                                    </div>
+                                </div>
+                            </>
+                        
 
                         <div className="card-deck">
                             <div id="Ethereum" className="card cryptoCard">
@@ -230,33 +268,33 @@ export default function EditProject(props) {
                         </select> */}
 
 
-                        <label>Kurzbeschreibung</label>
+                        <label>Short description</label>
                         <input id="new-ShortDescription" value={shortDescription} type="text" placeholder='z.B. "Anteilstoken für Roboterarm"' onChange={e => setShortDescription(e.target.value)} />
-                        <label>Projektbeschreibung</label>
+                        <label>Project description</label>
                         <textarea id="new-LongDescription" value={longDescription} type="text" onChange={e => setLongDescription(e.target.value)} rows="3" />
-                        <label>Projektbesitzer</label>
+                        <label>Project owner</label>
                         <input id="new-ProjektOwner" type="text" value={tokenOwner} disabled />
                     </div>
                     <div className="card">
-                        <label>Token Name</label>
+                        <label>Token name</label>
                         <input id="new-TokenName" value={tokenName} type="text" disabled />
-                        <label>Token Abkürzung</label>
+                        <label>Token shortcut</label>
                         <input className="is-invalid" value={tokenShort} id="new-TokenShort" placeholder="Max. 3 Zeichen" type="text" onChange={e => setTokenShort(e.target.value)} disabled />
-                        <label>Anzahl an Token</label>
+                        <label>Total token amount</label>
                         <input id="new-TokenSupply" value={tokenSupply} type="number" disabled />
-                        <label>Kleinste handelbare Einheit</label>
+                        <label>Individual minimum contribution</label>
                         <input id="new-smallestTradable" value={smallestTradable} type="number" disabled />
-                        <label>Token an Besitzer</label>
+                        <label>Tokens owned by creator</label>
                         <input id="new-toOwner" value={toOwner} placeholder={"Max. " + tokenSupply} type="number" disabled />
                     </div>
                     {error && (
                         <ErrorNotice message={error} clearError={() => setError(undefined)} />
                     )}
                     <div className="row">
-                        <input className="btn btn-primary" type="submit" onClick={ () => submit()} value="Edit Project" />
+                        <input className="btn btn-primary" type="submit" onClick={() => submit()} value="Edit Project" />
                     </div>
                 </form>
-                <button className="btn btn-danger" type="submit" onClick={ () => deleteProject()}>Delete Project</button>
+                <button className="btn btn-danger" type="submit" onClick={() => deleteProject()}>Delete Project</button>
             </>
             )
         }
