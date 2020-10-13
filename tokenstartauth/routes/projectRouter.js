@@ -3,7 +3,9 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Project = require("../models/projectModel");
 const authOps = require("../middleware/authOps");
+const FormData = require('form-data');
 const axios = require('axios');
+const qs = require('querystring')
 
 
 const router = require("express").Router();
@@ -11,7 +13,9 @@ const router = require("express").Router();
 //needs validation projectOwner musst be set automatically using jwt token route is logged in.
 router.post('/new', authOps, async (req, res) => {
     try {
-        console.log(req)
+
+        let imgString = req.body.projectPicture[0].split('base64,')
+        //console.log(imgString[1])
         const { projectName, projectPicture, tokenChain, sDescription, lDescription, tokenName, tokenShort, tokenSupply, smallestTradable, toOwner, projectOwnerID, projectOwnerDescription, projectOwnerName } = req.body;
         if (!projectName || !projectPicture || !tokenChain || !sDescription || !lDescription || !tokenName || !tokenShort || !tokenSupply || !toOwner || !projectOwnerID || !projectOwnerDescription || !smallestTradable)
             return res.status(400).json({ msg: "Insufficient Parameters" })
@@ -27,23 +31,33 @@ router.post('/new', authOps, async (req, res) => {
                     { tokenName: tokenName }]
             })
 
-        console.log(projectPicture)
+    
+        let projectPictureURL; 
 
-        //let body = { body : projectPicture[0][0] }
+        const requestBody = {
+            image: imgString[1]
+          }
+          
+          const config = {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          }
 
-        // await axios.post("http://freeimage.host/api/1/upload/?key=6d207e02198a847aa98d0a2a901485a5" , body)
-        //     .then(response => {
-        //         console.log(response.data.url);
-        //         console.log(response.data.explanation);
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //     });
+
+        await axios.post("https://api.imgbb.com/1/upload?expiration=600&key=e75c6b7d56a8abd6ffe26b7b2a9722e0", qs.stringify(requestBody), config)
+            .then(response => {
+                //console.log(response.data.data.image.url)
+                projectPictureURL = response.data.data.image.url;
+            })
+            .catch(error => {
+                console.log(error);
+            });
 
 
         const newProject = new Project({
             projectName,
-            projectPicture,
+            projectPictureURL,
             tokenChain,
             sDescription,
             lDescription,
