@@ -118,7 +118,7 @@ export default function CreateProject() {
                                 singleImage={true}
                                 onChange={onDrop}
                                 imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-                                maxFileSize={5242880}
+                                maxFileSize={10485760}
                             />
                         }
 

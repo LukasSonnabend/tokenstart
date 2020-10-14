@@ -1,14 +1,27 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require('body-parser');
+
+
 var cors = require('cors');
 require("dotenv").config();
 
 //Express setup
 const app = express();
 //middleware
-app.use(express.json());
+app.use(express.json({limit: '10mb', 
+type:'application/json'}));
 
 const PORT = process.env.PORT|| 1234
+
+//set body parser
+  app.use(bodyParser.urlencoded({
+    limit: '10mb',
+    parameterLimit: 10000,
+    type:'application/x-www-form-urlencoded',
+    extended: true 
+  }));
+  
 
 //start server
 app.listen(PORT, () => console.log('Server Running on port: ' + PORT));
