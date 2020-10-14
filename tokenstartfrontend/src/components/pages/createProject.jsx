@@ -66,7 +66,7 @@ export default function CreateProject() {
             e.preventDefault();
             const newProject = {
                 projectName: projectName,
-                projectPicture: "imgUrl",
+                projectPicture: pictures[0],
                 tokenChain: tokenChain,
                 sDescription: shortDescription,
                 lDescription: longDescription,

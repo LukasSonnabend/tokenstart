@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const projectSchema = new mongoose.Schema({
     projectName: {type: String, required: true, unique: true},
-    projectPicture: {type: String, required: true},
+    projectPictureURL: {type: String, required: true},
     tokenChain: {type: String, required: true},
     sDescription: {type: String, unique: true},
     lDescription: {type: String, unique: true},

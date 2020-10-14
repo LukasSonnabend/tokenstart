@@ -41,7 +41,7 @@ export default function Project(props) {
 
 
     return <div>
-        {projectInfo == undefined ? (<p>Please Log in </p>) : (
+        {projectInfo === undefined ? (<p>Please Log in </p>) : (
             <>
                 {/* { userData.user.id == projectInfo._id  && <Link to={"/edit/project/" + props.match.params.projectId}>Edit project</Link> } */}
 
@@ -55,7 +55,12 @@ export default function Project(props) {
 
                 <div id="carouselExampleControls" className="carousel slide col-12 col-md-8 margin0a p-2" data-ride="carousel">
                     <div className="carousel-inner">
-                        <div className="carousel-item active">
+
+
+                       { !projectInfo.Project.projectPictureURL && 
+                       
+                       <>
+                       <div className="carousel-item active">
                             <div className="container">
                                 <img height="315" src="https://images.unsplash.com/photo-1580670029149-5c00eec8bb66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=560&q=80" alt="..." />
                             </div>
@@ -70,6 +75,21 @@ export default function Project(props) {
                                 <img height="315" src="https://images.unsplash.com/photo-1549070419-1a0fb71f1302?ixlib=rb-1.2.1&auto=format&fit=crop&w=560&q=80" alt="..." />
                             </div>
                         </div>
+                        </>
+                        }
+                        
+                        { projectInfo.Project.projectPictureURL && 
+                       
+                       <>
+                       <div className="carousel-item active">
+                            <div className="container">
+                                <img height="315" src={projectInfo.Project.projectPictureURL} alt="..." />
+                            </div>
+                        </div>
+                        </>
+                        }
+
+                        
                     </div>
                     <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
