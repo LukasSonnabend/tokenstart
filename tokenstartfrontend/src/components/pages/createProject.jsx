@@ -127,8 +127,8 @@ export default function CreateProject() {
                                 withIcon={true}
                                 singleImage={true}
                                 onChange={onDrop}
-                                label="Max file size: 10mb, accepted: jpg|gif|png"
-                                imgExtension={[".jpg", ".gif", ".png"]}
+                                label="Max file size: 10mb, accepted: jpg|gif|png|jpeg"
+                                imgExtension={[".jpg", ".gif", ".png", ".jpeg"]}
                                 maxFileSize={10485760}
                             />
                         }
