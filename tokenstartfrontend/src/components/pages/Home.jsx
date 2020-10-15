@@ -28,6 +28,7 @@ function Home() {
         <>
         <p>Please Log in to Create a Project</p>
         <ProjectCarouselGuest status="guest"></ProjectCarouselGuest>
+        <p></p>
         </>
         ) : (
             <>
