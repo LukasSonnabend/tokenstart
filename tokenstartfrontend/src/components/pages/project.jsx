@@ -53,7 +53,7 @@ export default function Project(props) {
 
 
 
-                <div id="carouselExampleControls" className="carousel slide col-12 col-md-8 margin0a p-2" data-ride="carousel">
+                <div id="carouselExampleControls" className="carousel slide col-12 col-md-5 col-lg-4 margin0a p-2" data-ride="carousel">
                     <div className="carousel-inner">
 
 
@@ -83,7 +83,7 @@ export default function Project(props) {
                             <>
                                 <div className="carousel-item active">
                                     <div className="container">
-                                        <img width="100%" src={projectInfo.Project.projectPictureURL} alt="..." />
+                                        <img classname="col-12 col-md-6 margin0a" width="100%" src={projectInfo.Project.projectPictureURL} alt="..." />
                                     </div>
                                 </div>
                             </>
@@ -105,7 +105,7 @@ export default function Project(props) {
 
 
                 <div className="row projectAction">
-                    <div className="horizontalCard col-10 col-md-4">
+                    <div className="horizontalCard col-10 col-md-5 margin0a">
                         <div className="horizontalCardLeftProject">
                             <div className="tokenModel1">
 

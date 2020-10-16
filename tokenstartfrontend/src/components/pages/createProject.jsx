@@ -117,9 +117,9 @@ export default function CreateProject() {
                                 withIcon={true}
                                 singleImage={true}
                                 onChange={onDrop}
-                                label="Max file size: 10mb, accepted: jpg|gif|png"
+                                label="Max file size: 5mb, accepted: jpg|gif|png"
                                 imgExtension={[".jpg", ".gif", ".png"]}
-                                maxFileSize={10485760}
+                                maxFileSize={5242880}
                             />
                         }
 
@@ -141,9 +141,7 @@ export default function CreateProject() {
 
                         <div className="card-deck">
                             <div id="Ethereum" className="card cryptoCard">
-                                <div className="cryptoCardImg">
-                                    <img className="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Ethereum_logo.svg" alt="Card image cap" />
-                                </div>
+                                    <img className="card-img-top cryptoCardImg" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Ethereum_logo.svg" alt="Card image cap" />
                                 <div className="card-body">
                                     <h5 className="card-title">Ethereum</h5>
                                     <button className="btn btn-primary" value="Ethereum" onClick={e => {
@@ -154,9 +152,7 @@ export default function CreateProject() {
                                 </div>
                             </div>
                             <div id="TRON" className="card cryptoCard">
-                                <div className="cryptoCardImg">
-                                    <img className="card-img-top" src="https://banner2.cleanpng.com/20180824/vuw/kisspng-cryptocurrency-blockchain-tron-logo-ethereum-top-2-ethereum-tokens-to-invest-in-bit-world-5b7f9cbfb1e3f4.7066100315350898557287.jpg" alt="Card image cap" />
-                                </div>
+                                    <img className="card-img-top cryptoCardImg" src="https://banner2.cleanpng.com/20180824/vuw/kisspng-cryptocurrency-blockchain-tron-logo-ethereum-top-2-ethereum-tokens-to-invest-in-bit-world-5b7f9cbfb1e3f4.7066100315350898557287.jpg" alt="Card image cap" />
                                 <div className="card-body">
                                     <h5 className="card-title">TRON</h5>
                                     <button className="btn btn-primary" value="TRON" onClick={e => {

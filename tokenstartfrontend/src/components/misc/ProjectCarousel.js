@@ -42,13 +42,13 @@ export default function ProjectCarousel(props) {
     }
 
     useEffect(() => {
-
+    
         //console.log(projectData)
         if (projectDataList) {
             console.log("running list")
             carousel = projectDataList.map((project, index) => {
                 return <div key={index} id="projectCard" className="card">
-                    <img className="card-img-top" src="https://images.unsplash.com/photo-1580670029149-5c00eec8bb66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=560&q=80" alt="Card image cap" />
+                    <div className="card-img-top" style={{background: "url(" + project.projectPictureURL + ")"}}></div>
                     <div className="card-body">
                         <h5 className="card-title">{project.projectName}</h5>
                         <p className="card-text">{project.sDescription}<br />Von: { project.projectOwnerName }</p>

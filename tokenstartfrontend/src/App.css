@@ -604,3 +604,13 @@ left: -500%;
 .textJustify{
   text-align: justify;
 }
+
+.card-img-top{
+  content: "";
+  background-size: cover!important;
+  background-repeat: no-repeat!important;
+  background-position-x: center;
+  min-height: 200px;
+  max-height: 200px;
+  min-width: 100%;
+}
