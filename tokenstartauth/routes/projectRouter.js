@@ -45,7 +45,7 @@ router.post('/new', authOps, async (req, res) => {
           }
 
 
-        await axios.post("https://api.imgbb.com/1/upload?expiration=600&key=e75c6b7d56a8abd6ffe26b7b2a9722e0", qs.stringify(requestBody), config)
+        await axios.post("https://api.imgbb.com/1/upload?key=e75c6b7d56a8abd6ffe26b7b2a9722e0", qs.stringify(requestBody), config)
             .then(response => {
                 //console.log(response.data.data.image.url)
                 projectPictureURL = response.data.data.image.url;
