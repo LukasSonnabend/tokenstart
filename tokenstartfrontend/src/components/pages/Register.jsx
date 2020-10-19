@@ -11,18 +11,19 @@ export default function Register(){
     const [displayname, setDisplayName] = useState();
     const [paymentPlan, setPaymentPlan] = useState();
     const [fullname, setFullName] = useState();
+    const [userDescription, setUserDescription] = useState();
     const [error, setError] = useState();
 
     const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
 
-    if(userData.user) history.push("/");
+    //if(userData.user) history.push("/");
 
     const submit = async (e) => {
         e.preventDefault();
         
         try {
-        const newUser = {email, password, passwordCheck, displayname, fullname};
+        const newUser = {email, password, passwordCheck, displayname, fullname, userDescription};
         console.log(newUser);
         
         await Axios.post("http://localhost:1234/users/register", newUser);
@@ -60,6 +61,8 @@ export default function Register(){
             <input id="password" placeholder="Passwort wiederholen" type="password" onChange={e => setPasswordCheck(e.target.value)}/>
             <label>Display Name</label>
             <input id="register-display-name" type="text" onChange={e => setDisplayName(e.target.value)}/>
+            <label>User Description</label>
+            <textarea id="register-user-description" style={{width: "100%"}} type="text" onChange={e => setUserDescription(e.target.value)} rows="3" />
             <label>Full Name</label>
             <input id="register-full-name" placeholder="Max Mustermann" type="text" onChange={e => setFullName(e.target.value)}/>
 

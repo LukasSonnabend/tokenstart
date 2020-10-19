@@ -22,7 +22,7 @@ export default function ProjectsOverview() {
 
     useEffect(() => {
         if (user == "") {
-            //     history.push("/login")
+                 history.push("/login")
         } else {
             async function getProjects() {
                 const projectRes = await Axios.get("http://localhost:1234/projects/")

@@ -28,7 +28,7 @@ export default function ProjectCarouselGuest() {
         if (!projectDataList){
         getProjects();}
 
-        if (projectDataList) {
+        if (projectDataList && !carousel) {
             console.log("running list")
             carousel = projectList.list.map((project, index) => {
                 return <div key={index} id="projectCard" className="card">

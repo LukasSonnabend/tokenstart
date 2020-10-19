@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import {useHistory} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 import UserContext from "../../context/UserContext";
 import Axios from "axios";
@@ -12,8 +13,8 @@ export default function AuthOptions(){
 
     const history = useHistory();
 
-    const register = () => history.push("/register")
-    const login = () => history.push("/login")
+    //const register = () => history.push("/register")
+    //const login = () => history.push("/login")
     const accSettings = () => history.push("/account")
     const logout = () => {
         setUserData({
@@ -43,9 +44,11 @@ export default function AuthOptions(){
                 </>
                 ) :
                 (
-                <>
-                    <button className="btn btn-info" onClick={register}>Register</button>
-                    <button className="btn btn-primary" onClick={login}>Login</button>
+                <> 
+                {/* <Link to="/register"><button className="btn btn-info" onClick={register}>Register</button></Link> */}
+                    <Link to="/register"><button className="btn btn-info">Register</button></Link>
+                    {/* <button className="btn btn-primary" onClick={login}>Login</button> */}
+                    <Link to="/login"><button className="btn btn-primary">Login</button></Link>
                 </>
                 )
             }   

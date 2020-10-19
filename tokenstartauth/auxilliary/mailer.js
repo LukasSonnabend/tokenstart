@@ -117,7 +117,7 @@ async function mailFunc(eMail, fullname) {
                                                     <th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
                                                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                             <tr>
-                                                                <td class="text-header" style="color:#475c77; font-family:'Muli', Arial,sans-serif; font-size:12px; line-height:16px; text-align:right;"><a href="#" target="_blank" class="link2" style="color:#475c77; text-decoration:none;"><span class="link2" style="color:#475c77; text-decoration:none;">Open in your browser</span></a></td>
+                                                                <td class="text-header" style="color:#475c77; font-family:'Muli', Arial,sans-serif; font-size:12px; line-height:16px; text-align:right;"><a href="https://tokenstart.herokuapp.com" target="_blank" class="link2" style="color:#475c77; text-decoration:none;"><span class="link2" style="color:#475c77; text-decoration:none;">Open in your browser</span></a></td>
                                                             </tr>
                                                         </table>
                                                     </th>

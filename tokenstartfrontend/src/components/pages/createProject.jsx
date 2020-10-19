@@ -21,8 +21,16 @@ export default function CreateProject() {
     const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
 
-    let user = undefined;
-    localStorage.getItem("userData").length > 0 ? user = localStorage.getItem("userData") : user = "";
+    let user = "";
+    localStorage.getItem("userData") ? user = localStorage.getItem("userData") : user = "";
+
+    useEffect(() => {
+        if (user == "") history.push("/login")
+
+
+        if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
+
+    }, [pictures])
 
     const onDrop = (e, picture) => {
         // console.log(e)
@@ -51,13 +59,6 @@ export default function CreateProject() {
 
     //user = userData.user;
     let imgUrl
-    useEffect(() => {
-        if (user == undefined) history.push("/login")
-
-
-        if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
-
-    }, [pictures])
 
     const submit = async (e) => {
         try {
@@ -104,7 +105,7 @@ export default function CreateProject() {
         }
     }
     return <div>
-        {user == undefined ? <p>Please Log in </p> :
+        {user == "" ? <p>Please Log in </p> :
             (<>
                 <h2>Create new token</h2>
                 <form className="col-10 margin0a" onSubmit={submit}>
