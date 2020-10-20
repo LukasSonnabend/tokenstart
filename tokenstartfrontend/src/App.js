@@ -17,7 +17,8 @@ import FourOFour from './components/pages/FourOFour';
 import ProjectsOverview from './components/pages/ProjectsOverview';
 import Payment from './components/pages/payment';
 import ScrollTop from './components/misc/ScrollTop';
-
+import FAQs from './components/pages/FAQs';
+import projectowner from './components/pages/projectOwnerHelp';
 
 
 function App() {
@@ -78,6 +79,8 @@ function App() {
         <Route path="/account" component={Account}/>
         <Route path="/checkout" component={Payment}/>
         <Route path="/404" component={FourOFour}/>
+        <Route path="/FAQs" component={FAQs}/>
+        <Route path="/projectownerhelp" component={projectowner}/>
       </Switch>
     <Footer/>
     </UserContext.Provider>

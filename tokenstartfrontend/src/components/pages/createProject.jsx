@@ -32,6 +32,8 @@ export default function CreateProject() {
 
     }, [pictures])
 
+  
+
     const onDrop = (e, picture) => {
         // console.log(e)
         // console.log(picture)
@@ -59,6 +61,15 @@ export default function CreateProject() {
 
     //user = userData.user;
     let imgUrl
+<<<<<<< HEAD
+=======
+    useEffect(() => {
+
+
+        if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
+
+    }, [pictures])
+>>>>>>> konstantin
 
     const submit = async (e) => {
         try {
@@ -104,8 +115,20 @@ export default function CreateProject() {
             err.response.data.msg && setError([err.response.data.msg, "warning"])
         }
     }
+    useEffect(() => {
+        if (localStorage.getItem("auth-token").length === 0) {
+            history.push("/login");
+            
+        }
+
+
+    }, []);
     return <div>
+<<<<<<< HEAD
         {user == "" ? <p>Please Log in </p> :
+=======
+        {localStorage.getItem("auth-token").length === 0 ? <p>Please Log in </p> :
+>>>>>>> konstantin
             (<>
                 <h2>Create new token</h2>
                 <form className="col-10 margin0a" onSubmit={submit}>
@@ -118,9 +141,15 @@ export default function CreateProject() {
                                 withIcon={true}
                                 singleImage={true}
                                 onChange={onDrop}
+<<<<<<< HEAD
                                 label="Max file size: 5mb, accepted: jpg|gif|png"
                                 imgExtension={[".jpg", ".gif", ".png"]}
                                 maxFileSize={5242880}
+=======
+                                label="Max file size: 10mb, accepted: jpg|gif|png|jpeg"
+                                imgExtension={[".jpg", ".gif", ".png", ".jpeg"]}
+                                maxFileSize={10485760}
+>>>>>>> konstantin
                             />
                         }
 
@@ -149,7 +178,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                             <div id="TRON" className="card cryptoCard">
@@ -160,7 +189,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                             <div id="EOS" className="card cryptoCard">
@@ -171,7 +200,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                             <div id="Polkadot" className="card cryptoCard">
@@ -182,7 +211,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +238,7 @@ export default function CreateProject() {
                     {error && (
                         <ErrorNotice message={error} clearError={() => setError(undefined)} />
                     )}
-                    <input className="btn btn-primary" type="submit" value="Projekt erstellen" />
+                    <input className="btn btn-primary" type="submit" value="Create project" />
                 </form>
             </>
             )

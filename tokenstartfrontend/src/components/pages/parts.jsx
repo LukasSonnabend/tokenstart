@@ -134,7 +134,7 @@ export function Footer() {
           <div className="col-md-3 mx-auto">
 
 
-            <h5 className="font-weight-bold text-uppercase mt-3 mb-4">ÜBER UNS</h5>
+            <h5 className="font-weight-bold text-uppercase mt-3 mb-4">ABOUT US</h5>
 
             <ul className="list-unstyled">
               <li>
@@ -164,13 +164,10 @@ export function Footer() {
 
             <ul className="list-unstyled">
               <li>
-                <a href="#!">FAQs</a>
+               <Link to="FAQs">FAQs</Link>
               </li>
               <li>
-                <a href="#!">Help Center</a>
-              </li>
-              <li>
-                <a href="#!">Help for project owners</a>
+              <Link to="projectownerhelp">Help for project owners</Link>
               </li>
               <li>
                 <a href="#!">Help for donators</a>

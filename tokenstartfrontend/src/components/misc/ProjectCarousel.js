@@ -4,12 +4,13 @@ import UserContext from "../../context/UserContext";
 import Axios from "axios";
 import {useHistory} from "react-router-dom";
 
+
 export default function ProjectCarousel(props) {
     const { userData, setUserData } = useContext(UserContext);
     const [projectList, setProjectList] = useState();
     const history = useHistory();
     console.log(props.data)
-    
+    const [projectInfo, setProjectInfo] = useState();
 
     var carousel;
     
@@ -27,6 +28,7 @@ export default function ProjectCarousel(props) {
         setProjectList({
             list: projectRes.data
         });
+    
         // setUserData({
         //     token: userData.token,
         //     user: userData.user,               
@@ -48,7 +50,11 @@ export default function ProjectCarousel(props) {
             console.log("running list")
             carousel = projectDataList.map((project, index) => {
                 return <div key={index} id="projectCard" className="card">
+<<<<<<< HEAD
                     <div className="card-img-top" style={{background: "url(" + project.projectPictureURL + ")"}}></div>
+=======
+                    <img className="card-img-top" src={project.projectPictureURL} alt="..." />
+>>>>>>> konstantin
                     <div className="card-body">
                         <h5 className="card-title">{project.projectName}</h5>
                         <p className="card-text">{project.sDescription}<br />Von: { project.projectOwnerName }</p>
