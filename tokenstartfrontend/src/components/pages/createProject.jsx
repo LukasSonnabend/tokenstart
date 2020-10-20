@@ -61,15 +61,12 @@ export default function CreateProject() {
 
     //user = userData.user;
     let imgUrl
-<<<<<<< HEAD
-=======
     useEffect(() => {
 
 
         if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
 
     }, [pictures])
->>>>>>> konstantin
 
     const submit = async (e) => {
         try {
@@ -124,11 +121,7 @@ export default function CreateProject() {
 
     }, []);
     return <div>
-<<<<<<< HEAD
         {user == "" ? <p>Please Log in </p> :
-=======
-        {localStorage.getItem("auth-token").length === 0 ? <p>Please Log in </p> :
->>>>>>> konstantin
             (<>
                 <h2>Create new token</h2>
                 <form className="col-10 margin0a" onSubmit={submit}>
@@ -141,15 +134,9 @@ export default function CreateProject() {
                                 withIcon={true}
                                 singleImage={true}
                                 onChange={onDrop}
-<<<<<<< HEAD
-                                label="Max file size: 5mb, accepted: jpg|gif|png"
-                                imgExtension={[".jpg", ".gif", ".png"]}
-                                maxFileSize={5242880}
-=======
-                                label="Max file size: 10mb, accepted: jpg|gif|png|jpeg"
+                                label="Max file size: 5mb, accepted: jpg|gif|png|jpeg"
                                 imgExtension={[".jpg", ".gif", ".png", ".jpeg"]}
-                                maxFileSize={10485760}
->>>>>>> konstantin
+                                maxFileSize={5242880}
                             />
                         }
 

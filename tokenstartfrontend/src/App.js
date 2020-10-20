@@ -15,9 +15,9 @@ import UserContext from "./context/UserContext";
 import CreateProject from './components/pages/createProject';
 import FourOFour from './components/pages/FourOFour';
 import ProjectsOverview from './components/pages/ProjectsOverview';
+import FAQs from './components/pages/FAQs';
 import Payment from './components/pages/payment';
 import ScrollTop from './components/misc/ScrollTop';
-import FAQs from './components/pages/FAQs';
 import projectowner from './components/pages/projectOwnerHelp';
 
 
