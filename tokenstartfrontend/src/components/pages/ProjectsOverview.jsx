@@ -44,8 +44,6 @@ export default function ProjectsOverview() {
             {projectList == undefined ? (
                 <>
                     <p>Please Log in to Create a Project</p>
-
-                    <p>Lit</p>
                 </>
             ) : (
                     <>
