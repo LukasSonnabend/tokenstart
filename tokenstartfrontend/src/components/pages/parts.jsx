@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import ProjectSearch from "../../components/misc/ProjectSearch";
 
+
 // export function NavBar() {
 //   const [searchInput, setSearchInput] = useState();
 
@@ -37,6 +38,7 @@ import ProjectSearch from "../../components/misc/ProjectSearch";
 //     </div>
 //   )
 // }
+
 
 export function NavBar() {
   const [searchInput, setSearchInput] = useState();
