@@ -82,7 +82,7 @@ export default function CreateProject() {
 
             console.log(newProject)
 
-            const accessToken = await Axios.post("http://localhost:1234/users/refreshtokenisvalid", {},
+            const accessToken = await Axios.post("https://tokenstart.herokuapp.com/users/refreshtokenisvalid", {},
                 {
                     headers: {
                         "refresh-token": localStorage.getItem("refresh-token")
@@ -91,7 +91,7 @@ export default function CreateProject() {
             localStorage.setItem("auth-token", accessToken.data.AccessToken)
 
 
-            const createNewProject = await Axios.post("http://localhost:1234/projects/new", newProject,
+            const createNewProject = await Axios.post("https://tokenstart.herokuapp.com/projects/new", newProject,
                 {
                     headers: { "auth-token": localStorage.getItem("auth-token") }
                 }

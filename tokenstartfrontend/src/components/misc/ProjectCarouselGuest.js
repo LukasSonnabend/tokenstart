@@ -20,7 +20,7 @@ export default function ProjectCarouselGuest() {
 
     useEffect(() => {
         async function getProjects(){
-            const projectRes = await Axios.get("http://127.0.0.1:1234/projects") 
+            const projectRes = await Axios.get("https://tokenstart.herokuapp.com/projects") 
             setProjectList({
                 list: projectRes.data
             });

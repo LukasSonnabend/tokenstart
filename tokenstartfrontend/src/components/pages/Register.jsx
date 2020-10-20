@@ -26,8 +26,8 @@ export default function Register(){
         const newUser = {email, password, passwordCheck, displayname, fullname, userDescription};
         console.log(newUser);
         
-        await Axios.post("http://localhost:1234/users/register", newUser);
-        const loginRes = await Axios.post("http://localhost:1234/users/login", {
+        await Axios.post("https://tokenstart.herokuapp.com/users/register", newUser);
+        const loginRes = await Axios.post("https://tokenstart.herokuapp.com/users/login", {
         email,
         password
         });

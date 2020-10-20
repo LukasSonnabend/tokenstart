@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 const bodyParser = require('body-parser');
 
 
@@ -8,6 +9,10 @@ require("dotenv").config();
 
 //Express setup
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'build')))
+
+
 //middleware
 app.use(express.json({limit: '10mb', 
 type:'application/json'}));
@@ -21,6 +26,7 @@ const PORT = process.env.PORT|| 1234
     type:'application/x-www-form-urlencoded',
     extended: true 
   }));
+  
   
 
 //start server
@@ -50,3 +56,7 @@ app.use(function(req, res, next) {
   
 app.use("/users", require("./routes/userRouter"));
 app.use("/projects", require("./routes/projectRouter"));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
+

@@ -1,4 +1,3 @@
-const { restart } = require("nodemon");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Project = require("../models/projectModel");

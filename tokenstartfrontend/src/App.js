@@ -38,13 +38,13 @@ function App() {
       }
       
       const tokenRes = await Axios.post(
-        "http://localhost:1234/users/refreshtokenisvalid",
+        "https://tokenstart.herokuapp.com/users/refreshtokenisvalid",
         null,
         { headers: { "refresh-token": localStorage.getItem("refresh-token") }}
         );
 
     if ( tokenRes.data != "Token not in DB") {
-      const userRes = await Axios.get("http://localhost:1234/users/",{
+      const userRes = await Axios.get("https://tokenstart.herokuapp.com/users/",{
         headers: {"refresh-token": token }, 
       });
         setUserData({
