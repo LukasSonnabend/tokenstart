@@ -1,5 +1,6 @@
 /tokenstartauth/node_modules
 /tokenstartfrontend/node_modules
+/tokenstartfrontend
 /tokenstartauth/.env
 /tokenstartfrontend/.env
 /node_modules
