@@ -32,6 +32,8 @@ export default function CreateProject() {
 
     }, [pictures])
 
+  
+
     const onDrop = (e, picture) => {
         // console.log(e)
         // console.log(picture)
@@ -59,6 +61,12 @@ export default function CreateProject() {
 
     //user = userData.user;
     let imgUrl
+    useEffect(() => {
+
+
+        if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
+
+    }, [pictures])
 
     const submit = async (e) => {
         try {
@@ -82,7 +90,7 @@ export default function CreateProject() {
 
             console.log(newProject)
 
-            const accessToken = await Axios.post("http://localhost:1234/users/refreshtokenisvalid", {},
+            const accessToken = await Axios.post("https://tokenstart.herokuapp.com/users/refreshtokenisvalid", {},
                 {
                     headers: {
                         "refresh-token": localStorage.getItem("refresh-token")
@@ -91,7 +99,7 @@ export default function CreateProject() {
             localStorage.setItem("auth-token", accessToken.data.AccessToken)
 
 
-            const createNewProject = await Axios.post("http://localhost:1234/projects/new", newProject,
+            const createNewProject = await Axios.post("https://tokenstart.herokuapp.com/projects/new", newProject,
                 {
                     headers: { "auth-token": localStorage.getItem("auth-token") }
                 }
@@ -104,6 +112,14 @@ export default function CreateProject() {
             err.response.data.msg && setError([err.response.data.msg, "warning"])
         }
     }
+    useEffect(() => {
+        if (localStorage.getItem("auth-token").length === 0) {
+            history.push("/login");
+            
+        }
+
+
+    }, []);
     return <div>
         {user == "" ? <p>Please Log in </p> :
             (<>
@@ -118,8 +134,8 @@ export default function CreateProject() {
                                 withIcon={true}
                                 singleImage={true}
                                 onChange={onDrop}
-                                label="Max file size: 5mb, accepted: jpg|gif|png"
-                                imgExtension={[".jpg", ".gif", ".png"]}
+                                label="Max file size: 5mb, accepted: jpg|gif|png|jpeg"
+                                imgExtension={[".jpg", ".gif", ".png", ".jpeg"]}
                                 maxFileSize={5242880}
                             />
                         }
@@ -149,7 +165,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                             <div id="TRON" className="card cryptoCard">
@@ -160,7 +176,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                             <div id="EOS" className="card cryptoCard">
@@ -171,7 +187,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                             <div id="Polkadot" className="card cryptoCard">
@@ -182,7 +198,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +225,7 @@ export default function CreateProject() {
                     {error && (
                         <ErrorNotice message={error} clearError={() => setError(undefined)} />
                     )}
-                    <input className="btn btn-primary" type="submit" value="Projekt erstellen" />
+                    <input className="btn btn-primary" type="submit" value="Create project" />
                 </form>
             </>
             )

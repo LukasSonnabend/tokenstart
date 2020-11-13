@@ -4,12 +4,13 @@ import UserContext from "../../context/UserContext";
 import Axios from "axios";
 import {useHistory} from "react-router-dom";
 
+
 export default function ProjectCarousel(props) {
     const { userData, setUserData } = useContext(UserContext);
     const [projectList, setProjectList] = useState();
     const history = useHistory();
     console.log(props.data)
-    
+    const [projectInfo, setProjectInfo] = useState();
 
     var carousel;
     
@@ -23,10 +24,11 @@ export default function ProjectCarousel(props) {
     let listItems;
 
     async function getProjects(){
-        const projectRes = await Axios.get("http://localhost:1234/projects") 
+        const projectRes = await Axios.get("https://tokenstart.herokuapp.com/projects") 
         setProjectList({
             list: projectRes.data
         });
+    
         // setUserData({
         //     token: userData.token,
         //     user: userData.user,               

@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext} from "react";
 import {useHistory} from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import GetProjects from "../../components/misc/GetProjects";
-import ProjectCarouselGuest from '../misc/ProjectCarouselGuest';
+import ProjectCarouselFeatured from '../misc/ProjectCarouselFeatured';
+import ProjectCarouselPOD from '../misc/ProjectCarouselPOD';
 
 function Home() {
 
@@ -27,12 +28,13 @@ function Home() {
         {user == "" ? (
         <>
         <p>Please Log in to Create a Project</p>
-        <ProjectCarouselGuest status="guest"></ProjectCarouselGuest>
-        <p>Lit</p>
+        <ProjectCarouselFeatured status="guest"></ProjectCarouselFeatured>
         </>
         ) : (
             <>
-            <p>Hello {JSON.parse(user).fullname}</p>
+            <ProjectCarouselFeatured status="guest"></ProjectCarouselFeatured>
+            <ProjectCarouselPOD status="guest"></ProjectCarouselPOD>
+            {/* <p>Hello {JSON.parse(user).fullname}</p>
 
             <h2>Featured Projects</h2>
             <div className="col-12 col-lg-10 margin0a">
@@ -40,8 +42,9 @@ function Home() {
             <GetProjects userID={JSON.parse(user).id}/>
             </div>
 
-            {/* <h2>Your backed Projects</h2>
-            {user.backedProjects} */}
+            {/* <h>Your backed Projects</h
+            2>
+            {user.backedProjects} */} 
             </>
         )
         }

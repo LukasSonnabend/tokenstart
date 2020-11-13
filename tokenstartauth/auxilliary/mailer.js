@@ -147,7 +147,7 @@ async function mailFunc(eMail, fullname) {
                                                                 <td align="center">
                                                                     <table class="center" border="0" cellspacing="0" cellpadding="0" style="text-align:center;">
                                                                         <tr>
-                                                                            <td class="pink-button text-button" style="background:#ff6666; color:#c1cddc; font-family:'Muli', Arial,sans-serif; font-size:14px; line-height:18px; padding:12px 30px; text-align:center; border-radius:0px 22px 22px 22px; font-weight:bold;"><a href="http://localhost:1234" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none;"><span class="link-white" style="color:#ffffff; text-decoration:none;">Jetzt investieren</span></a></td>
+                                                                            <td class="pink-button text-button" style="background:#ff6666; color:#c1cddc; font-family:'Muli', Arial,sans-serif; font-size:14px; line-height:18px; padding:12px 30px; text-align:center; border-radius:0px 22px 22px 22px; font-weight:bold;"><a href="https://tokenstart.herokuapp.com" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none;"><span class="link-white" style="color:#ffffff; text-decoration:none;">Jetzt investieren</span></a></td>
                                                                         </tr>
                                                                     </table>
                                                                 </td>

@@ -10,14 +10,15 @@ import Project from "./components/pages/project";
 import EditProject from "./components/pages/EditProject";
 import Goals from "./components/pages/Goals";
 import {Route, Link, BrowserRouter, Switch} from 'react-router-dom';
-import {NavBar, Footer} from './components/pages/parts';
+import {NavBar, Footer, Sidebar} from './components/pages/parts';
 import UserContext from "./context/UserContext";
 import CreateProject from './components/pages/createProject';
 import FourOFour from './components/pages/FourOFour';
 import ProjectsOverview from './components/pages/ProjectsOverview';
+import FAQs from './components/pages/FAQs';
 import Payment from './components/pages/payment';
 import ScrollTop from './components/misc/ScrollTop';
-
+import projectowner from './components/pages/projectOwnerHelp';
 
 
 function App() {
@@ -38,13 +39,13 @@ function App() {
       }
       
       const tokenRes = await Axios.post(
-        "http://localhost:1234/users/refreshtokenisvalid",
+        "https://tokenstart.herokuapp.com/users/refreshtokenisvalid",
         null,
         { headers: { "refresh-token": localStorage.getItem("refresh-token") }}
         );
 
     if ( tokenRes.data != "Token not in DB") {
-      const userRes = await Axios.get("http://localhost:1234/users/",{
+      const userRes = await Axios.get("https://tokenstart.herokuapp.com/users/",{
         headers: {"refresh-token": token }, 
       });
         setUserData({
@@ -64,7 +65,8 @@ function App() {
       <BrowserRouter>
       <ScrollTop/>
       <UserContext.Provider value={{ userData, setUserData }}>
-      <NavBar/>
+      <Sidebar className="sidebside"/>
+      <NavBar className="sidebside"/>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/login" component={Login}/>
@@ -78,6 +80,8 @@ function App() {
         <Route path="/account" component={Account}/>
         <Route path="/checkout" component={Payment}/>
         <Route path="/404" component={FourOFour}/>
+        <Route path="/FAQs" component={FAQs}/>
+        <Route path="/projectownerhelp" component={projectowner}/>
       </Switch>
     <Footer/>
     </UserContext.Provider>

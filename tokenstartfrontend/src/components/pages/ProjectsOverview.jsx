@@ -25,7 +25,7 @@ export default function ProjectsOverview() {
                  history.push("/login")
         } else {
             async function getProjects() {
-                const projectRes = await Axios.get("http://localhost:1234/projects/")
+                const projectRes = await Axios.get("https://tokenstart.herokuapp.com/projects/")
                 let allProjectsList = projectRes.data;
                 setProjectList({
                     allProjects: allProjectsList
@@ -44,8 +44,6 @@ export default function ProjectsOverview() {
             {projectList == undefined ? (
                 <>
                     <p>Please Log in to Create a Project</p>
-
-                    <p>Lit</p>
                 </>
             ) : (
                     <>
@@ -64,8 +62,6 @@ export default function ProjectsOverview() {
                                         
                                         <th scope="col">In circulation</th>
                                         <th scope="col">Token Supply</th>
-                                        <th scope="col">Token Name</th>
-                                        
                                         <th scope="col">Token Name</th>
                                         <th scope="col">Creator</th>
                                         <th scope="col">Creation Date</th>
