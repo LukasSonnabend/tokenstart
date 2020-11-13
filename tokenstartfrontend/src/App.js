@@ -10,7 +10,7 @@ import Project from "./components/pages/project";
 import EditProject from "./components/pages/EditProject";
 import Goals from "./components/pages/Goals";
 import {Route, Link, BrowserRouter, Switch} from 'react-router-dom';
-import {NavBar, Footer} from './components/pages/parts';
+import {NavBar, Footer, Sidebar} from './components/pages/parts';
 import UserContext from "./context/UserContext";
 import CreateProject from './components/pages/createProject';
 import FourOFour from './components/pages/FourOFour';
@@ -65,7 +65,8 @@ function App() {
       <BrowserRouter>
       <ScrollTop/>
       <UserContext.Provider value={{ userData, setUserData }}>
-      <NavBar/>
+      <Sidebar className="sidebside"/>
+      <NavBar className="sidebside"/>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/login" component={Login}/>
