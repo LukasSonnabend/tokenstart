@@ -5,14 +5,14 @@ import Konstantin from '../../imgs/Founder_Konstantin.png';
 import Lukas from '../../imgs/Founder_Lukas.jpg';
 
 export default function About() {
-    return <div className="col-11 col-md-9 col-xl-6 margin0a">
+    return <div>
         <h2>About us</h2>
         <p>
              is founded by two German students with the vision of opening the world of tokenization
             to crowdfunding. At TokenStart we utilize the benefits of tokens and public blockchains to create greater flexibility and transparency for
             donators and creators.
         </p>
-        <div className="row col-11 col-md-12 margin0a centerCards">
+        <div className="row d-flex">
 
             <div className="card">
                 <img class="card-img-top founderImg" src={Konstantin} alt="Founder Konstantin" />

@@ -55,7 +55,7 @@ export default function ProjectCarouselFeatured() {
             {!projectData ? <p>No Data {listItems}</p> : (
                 <>
                     <div id="Featured Projects">
-                        <h2 className="mt-2">TokenStart picks</h2>
+                        <h2>TokenStart picks</h2>
                         <div className="projectCarousel" id="projectCarouselfeatured"></div>
                         {carousel}
                     </div>

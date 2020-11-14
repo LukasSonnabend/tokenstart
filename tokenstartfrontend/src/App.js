@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
-import './App.css';
+import './App.scss';
 import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
@@ -68,6 +68,7 @@ function App() {
       <Sidebar className="sidebside"/>
       <NavBar className="sidebside"/>
       <Switch>
+        <div className="main-view">
         <Route exact path="/" component={Home}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
@@ -82,6 +83,7 @@ function App() {
         <Route path="/404" component={FourOFour}/>
         <Route path="/FAQs" component={FAQs}/>
         <Route path="/projectownerhelp" component={projectowner}/>
+        </div>
       </Switch>
     <Footer/>
     </UserContext.Provider>

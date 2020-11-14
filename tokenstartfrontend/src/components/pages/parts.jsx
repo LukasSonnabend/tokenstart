@@ -145,10 +145,10 @@ export function Footer() {
 
   return <div className="footer">
 
-    <footer className="page-footer font-small indigo">
+    <footer className="page-footer font-small">
 
 
-      <div className="container text-center text-md-left">
+      <div className="container text-center text-md-left  mb-2">
 
 
         <div className="row">
@@ -226,7 +226,7 @@ export function Footer() {
 
       </div>
 
-      <div className="footer-copyright text-center py-3">© 2020 Copyright:
+      <div className="footer-copyright text-center">© 2020 Copyright:
     <a href="https://tokenstart.io/"> tokenstart.io</a>
       </div>
 
