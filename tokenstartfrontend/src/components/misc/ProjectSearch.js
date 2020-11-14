@@ -26,7 +26,7 @@ export default function GetProjects() {
         //get project names + ids
 
         async function getProjects() {
-            const projectRes = await Axios.get("http://localhost:1234/projects/")
+            const projectRes = await Axios.get("https://tokenstart.herokuapp.com/projects/")
             let allProjectsList = projectRes.data;
 
 

@@ -2,30 +2,195 @@ html,
 body,
 #root,
 .App {
-  width: 100%;
+  max-width: 100vw;
   height: 100%;
   background: #f8f9fa!important;
+  text-align: center;
+  overflow: hidden;
 }
 
+h2 {
+  text-align: center;
+}
+
+/* Tokenstart 2.0 */
+.App {
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 48px auto 100px;
+}
+
+.navbar {
+  background-color: rgb(226, 226, 226);
+}
+
+.navs {
+    display: inline-flex;
+}
+
+button, .btn{
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+
+}
+
+
+
+
+.sidebar {
+  background-color: rgb(226, 226, 226);
+  grid-row: 1 / 3;
+  height: 100vh;
+}
+
+.sidebar-user-image{
+  max-height: 105px;
+  max-width: 105px;
+  border-radius: 50%;
+  
+
+}
+
+.sidebside {
+  display: inline-flex;
+}
+
+.sidebar-menu{
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Search */
+
+.searchField{
+  position: relative;
+  z-index: 3;
+  width: 20em;
+  text-align: center;
+}
+
+.searchResults{
+  width: 20em;
+  list-style: none;
+  background-color: white;
+  z-index: 4;
+}
+
+.searchResults li{
+  list-style: none;
+  border-bottom: 2px solid black;
+  text-align: left;
+  padding: 0.5em;
+}
+
+.searchResults li:hover{
+  background-color: lightgrey;
+}
+
+.searchResults ul{
+  padding-left: 0;
+}
+
+.focusCatch {
+  position: absolute;
+left: -500%;
+    right: -500%;
+    height: 200vh;
+  margin-top: -200px;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.desktopSearch {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 20em;
+}
+
+
+
+/* Allgemeine Klassen */
+.spaceBetween {
+  justify-content: space-between;
+}
+
+.footer {
+  grid-row: 4;
+  grid-column: 2;
+  background-color: rgb(226, 226, 226);
+}
+
+.card-img-top{
+  content: "";
+  background-size: cover!important;
+  background-repeat: no-repeat!important;
+  background-position-x: center;
+  min-height: 200px;
+  max-height: 200px;
+  min-width: 100%;
+
+  position: relative;
+}
+.carousel-card-body{
+  background: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+#projectCard {
+  min-width: 20rem;
+}
+
+#Featured\ Projects{
+  text-align: left;
+}
+
+.projectCarousel {
+  max-width: calc(100vw - 200px);
+  cursor: grab; 
+  display: flex;
+  overflow-x: auto;
+  text-align: center;
+  justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 p {
   overflow-wrap: anywhere;
 }
 
 
 @media only screen and (min-width: 600px){
-/* Nav Bar */
+/* Nav Bar 
 #desktopNavigationBar{
   display: inline-flex!important;
 }
 
 }
 
-#root>div {
+/* #root>div {
   min-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-columns: 100%;
-}
+} 
 
 #root>div>div:nth-child(1)>nav.navbar.bg-light.\.justify-content-center {
   border-bottom: 1px solid black;
@@ -50,11 +215,13 @@ p {
 }
 
 #root>div>div:nth-child(1)>nav.navbar.bg-light.\.justify-content-center>a>p>span {
-  color: rgb(15, 104, 77);
+  color: rgb(16, 124, 34);
 }
 
 #root>div>div:nth-child(1)>nav.navbar.bg-light.\.justify-content-center>a>p {
-  font-size: 25px;
+  font-size: 50px;
+  font-family: 'UbuntuItalic'; 
+    color: rgb(0, 0, 0);
 }
 
 .margin0a {
@@ -78,12 +245,12 @@ p {
 }
 
 .App-header {
-  /* background-color: #282c34; */
+  /* background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
+  /* justify-content: center; 
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -147,14 +314,14 @@ h1 {
 #featuredProject {
   /* grid-column: 2;
   grid-row: 2; */
-  /* margin: 0 auto; */
+  /* margin: 0 auto; 
   background: white;
   color: black;
 }
 
 #recommendation-list {
   /* grid-row: 2;
-  grid-column: 3; */
+  grid-column: 3; 
   text-align: left;
   min-height: 250px;
 }
@@ -175,7 +342,7 @@ h1 {
   border-right: 1px solid white;
 }
 
-/* Project Page */
+/* Project Page 
 #root>div>div>div.projectInfo>div:nth-child(4) {
   border: 0.5px solid black;
 }
@@ -201,12 +368,12 @@ h1 {
   justify-content: space-evenly !important;
 }
 
-/* Project Info type nav */
+/* Project Info type nav 
 #navbarNavDropdown>ul {
   justify-content: space-around;
 }
 
-/* Form style */
+/* Form style 
 form label,
 .form input {
   display: block;
@@ -238,7 +405,7 @@ form input:focus {
   overflow-x: auto;
 }
 
-/* Project Page */
+/* Project Page 
 #carouselExampleControls>div {
   background: #dcdcdc;
   border: 2px solid #dcdcdc;
@@ -261,17 +428,17 @@ form input:focus {
   }
 }
 
-/* Project Carousel */
+/* Project Carousel 
 
 #projectCard {
   width: 18rem;
   margin: 0 auto;
-  /* max-height: 400px; */
+  /* max-height: 400px; 
   overflow-x: hidden;
 }
 
 #projectCarousel {
-  /* cursor: grab; */
+  /* cursor: grab; 
   display: inline-flex;
   overflow-x: scroll;
   max-width: 100%;
@@ -281,7 +448,7 @@ form input:focus {
   min-width: 20rem;
 }
 
-/* Crypto Card */
+/* Crypto Card 
 
 .cryptoCardImg {
   max-height: 10rem;
@@ -341,6 +508,7 @@ form input:focus {
   min-width: 250px;
 }
 
+*/
 .col,
 .col-1,
 .col-10,
@@ -415,7 +583,7 @@ form input:focus {
   padding-right: 0;
 }
 
-/* horizontal Cards */
+/* horizontal Cards 
 
 .horizontalCardLeftProject{
   display: grid;
@@ -436,7 +604,7 @@ form input:focus {
   padding: 0.5em;
   border-left: 2px solid green;
   border: 1px solid grey;
-  box-shadow: /* 0px 2px .5em black; */
+  box-shadow: /* 0px 2px .5em black; 
           5px 2px .7em black;
 }
 
@@ -496,7 +664,7 @@ form input:focus {
   line-height: 2em;
   font-weight: bold;
   margin: 0;
-} */
+} 
 
 .noMargin {
   margin: 0;
@@ -519,7 +687,7 @@ form input:focus {
 .wrapper {
   position: relative;
   overflow: auto;
-  /* border: 1px solid black; */
+  /* border: 1px solid black; 
   white-space: nowrap;
 }
 
@@ -544,7 +712,7 @@ form input:focus {
   left: 100px;
 }
 
-/* Search */
+/* Search 
 
 .searchField{
   position: relative;
@@ -595,7 +763,7 @@ left: -500%;
   width: 20em;
 }
 
-/* upload image */
+/* upload image 
 #imgViewer{
   max-width: 250px;
 }
@@ -604,3 +772,21 @@ left: -500%;
 .textJustify{
   text-align: justify;
 }
+
+.card-img-top{
+  content: "";
+  background-size: cover!important;
+  background-repeat: no-repeat!important;
+  background-position-x: center;
+  min-height: 200px;
+  max-height: 200px;
+  min-width: 100%;
+}
+
+
+
+
+
+
+ */
+

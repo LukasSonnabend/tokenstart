@@ -18,15 +18,15 @@ export default function Project(props) {
     let editLink = "";
 
     useEffect(() => {
-        if (!Project._id){
-        getProjects();
+        if (!Project._id) {
+            getProjects();
         }
 
 
     }, [props.match.params.projectId]);
 
     async function getProjects() {
-        const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
+        const projectRes = await Axios.post("https://tokenstart.herokuapp.com/projects/" + props.match.params.projectId)
         setProjectInfo({
             Project: projectRes.data
         });
@@ -35,7 +35,7 @@ export default function Project(props) {
 
     if (projectInfo && userData.user) {
         if (projectInfo["Project"].projectOwnerID == userData.user.id) {
-            editLink = <Link to={"/edit/project/" + props.match.params.projectId}><button className="btn btn-warning"><FontAwesomeIcon icon={faEdit}/> Edit project</button></Link>;
+            editLink = <Link to={"/edit/project/" + props.match.params.projectId}><button className="btn btn-warning"><FontAwesomeIcon icon={faEdit} /> Edit project</button></Link>;
         }
     }
 
@@ -53,43 +53,43 @@ export default function Project(props) {
 
 
 
-                <div id="carouselExampleControls" className="carousel slide col-12 col-md-8 margin0a p-2" data-ride="carousel">
+                <div id="carouselExampleControls" className="carousel slide col-12 col-md-5 col-lg-4 margin0a p-2" data-ride="carousel">
                     <div className="carousel-inner">
 
 
-                       { !projectInfo.Project.projectPictureURL && 
-                       
-                       <>
-                       <div className="carousel-item active">
-                            <div className="container">
-                                <img height="315" src="https://images.unsplash.com/photo-1580670029149-5c00eec8bb66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=560&q=80" alt="..." />
-                            </div>
-                        </div>
-                        <div className="carousel-item">
-                            <div className="container">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/0ZrzQYzWq68" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                            </div>
-                        </div>
-                        <div className="carousel-item">
-                            <div className="container">
-                                <img height="315" src="https://images.unsplash.com/photo-1549070419-1a0fb71f1302?ixlib=rb-1.2.1&auto=format&fit=crop&w=560&q=80" alt="..." />
-                            </div>
-                        </div>
-                        </>
-                        }
-                        
-                        { projectInfo.Project.projectPictureURL && 
-                       
-                       <>
-                       <div className="carousel-item active">
-                            <div className="container">
-                                <img height="315" src={projectInfo.Project.projectPictureURL} alt="..." />
-                            </div>
-                        </div>
-                        </>
+                        {!projectInfo.Project.projectPictureURL &&
+
+                            <>
+                                <div className="carousel-item active">
+                                    <div className="container">
+                                        <img height="315" src="https://images.unsplash.com/photo-1580670029149-5c00eec8bb66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=560&q=80" alt="..." />
+                                    </div>
+                                </div>
+                                <div className="carousel-item">
+                                    <div className="container">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/0ZrzQYzWq68" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                    </div>
+                                </div>
+                                <div className="carousel-item">
+                                    <div className="container">
+                                        <img height="315" src="https://images.unsplash.com/photo-1549070419-1a0fb71f1302?ixlib=rb-1.2.1&auto=format&fit=crop&w=560&q=80" alt="..." />
+                                    </div>
+                                </div>
+                            </>
                         }
 
-                        
+                        {projectInfo.Project.projectPictureURL &&
+
+                            <>
+                                <div className="carousel-item active">
+                                    <div className="container">
+                                        <img classname="col-12 col-md-6 margin0a" width="100%" src={projectInfo.Project.projectPictureURL} alt="..." />
+                                    </div>
+                                </div>
+                            </>
+                        }
+
+
                     </div>
                     <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -105,28 +105,28 @@ export default function Project(props) {
 
 
                 <div className="row projectAction">
-                <div  className="horizontalCard col-10 col-md-4">
-                    <div className="horizontalCardLeftProject">
-                        <div className="tokenModel1">
+                    <div className="horizontalCard col-10 col-md-5 margin0a">
+                        <div className="horizontalCardLeftProject">
+                            <div className="tokenModel1">
 
-                            {ChainIcons(projectInfo.Project.tokenChain)}
-                        </div>
-                        
-                    </div>
-                    <div className="text-left horizontalCardRightProject pl-2">
-                        <div className="mt-2">
-                        <p>{projectInfo.Project.projectName} <span style={{ fontWeight: "bold" }}>{projectInfo.Project.tokenShort}</span></p>
-                        <p className="mb-0">{projectInfo.Project.sDescription}</p>
-                        <span>
-                        <p className="noMargin">Token Supply: {projectInfo.Project.tokenSupply}</p>
-                        <p className="noMargin">Creation Date: {projectInfo.Project.date.slice(0, 10)}</p>
-                        <p className="noMargin">Funding Deadline: 2020-25-01</p>
-                        </span>
-                        </div>
-                    </div>
-                </div>
+                                {ChainIcons(projectInfo.Project.tokenChain)}
+                            </div>
 
-                <div className="col-10 col-md-4">
+                        </div>
+                        <div className="text-left horizontalCardRightProject pl-2">
+                            <div className="mt-2">
+                                <p>{projectInfo.Project.projectName} <span style={{ fontWeight: "bold" }}>{projectInfo.Project.tokenShort}</span></p>
+                                <p className="mb-0">{projectInfo.Project.sDescription}</p>
+                                <span>
+                                    <p className="noMargin">Token Supply: {projectInfo.Project.tokenSupply}</p>
+                                    <p className="noMargin">Creation Date: {projectInfo.Project.date.slice(0, 10)}</p>
+                                    <p className="noMargin">Funding Deadline: 2020-25-01</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-10 col-md-4">
                         <h2>Project overview</h2>
                         <table className="table table-bordered margin0a mb-4">
 
@@ -144,14 +144,14 @@ export default function Project(props) {
                             </tr>
                         </table>
                         <Link to={{
-                                pathname: '/checkout',
-                                projectProps: {
-                                    project: projectInfo.Project
-                                }
+                            pathname: '/checkout',
+                            projectProps: {
+                                project: projectInfo.Project
+                            }
                         }} className="btn btn-primary">Buy Token</Link>
                     </div>
 
-                    </div>
+                </div>
 
                 <div className="mb-2">
                     <h2>Project description</h2>
@@ -163,8 +163,8 @@ export default function Project(props) {
                     <div className="mb-2">
                         <h4>About the creator {projectInfo.Project.projectOwnerName}</h4>
                         <p className="col-10 col-md-11 margin0a mb-3 textJustify">
-                    { projectInfo.Project.projectOwnerDescription}
-                </p>
+                            {projectInfo.Project.projectOwnerDescription}
+                        </p>
                     </div>
                 </div>
                 <div>
@@ -174,7 +174,7 @@ export default function Project(props) {
             </>
 
         )
-}
+        }
 
 
     </div >

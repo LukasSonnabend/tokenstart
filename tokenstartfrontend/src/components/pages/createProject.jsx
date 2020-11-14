@@ -21,8 +21,18 @@ export default function CreateProject() {
     const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
 
-    let user = undefined;
-    localStorage.getItem("userData").length > 0 ? user = localStorage.getItem("userData") : user = "";
+    let user = "";
+    localStorage.getItem("userData") ? user = localStorage.getItem("userData") : user = "";
+
+    useEffect(() => {
+        if (user == "") history.push("/login")
+
+
+        if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
+
+    }, [pictures])
+
+  
 
     const onDrop = (e, picture) => {
         // console.log(e)
@@ -52,7 +62,6 @@ export default function CreateProject() {
     //user = userData.user;
     let imgUrl
     useEffect(() => {
-        if (user == undefined) history.push("/login")
 
 
         if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
@@ -81,7 +90,7 @@ export default function CreateProject() {
 
             console.log(newProject)
 
-            const accessToken = await Axios.post("http://localhost:1234/users/refreshtokenisvalid", {},
+            const accessToken = await Axios.post("https://tokenstart.herokuapp.com/users/refreshtokenisvalid", {},
                 {
                     headers: {
                         "refresh-token": localStorage.getItem("refresh-token")
@@ -90,7 +99,7 @@ export default function CreateProject() {
             localStorage.setItem("auth-token", accessToken.data.AccessToken)
 
 
-            const createNewProject = await Axios.post("http://localhost:1234/projects/new", newProject,
+            const createNewProject = await Axios.post("https://tokenstart.herokuapp.com/projects/new", newProject,
                 {
                     headers: { "auth-token": localStorage.getItem("auth-token") }
                 }
@@ -103,8 +112,16 @@ export default function CreateProject() {
             err.response.data.msg && setError([err.response.data.msg, "warning"])
         }
     }
+    useEffect(() => {
+        if (localStorage.getItem("auth-token").length === 0) {
+            history.push("/login");
+            
+        }
+
+
+    }, []);
     return <div>
-        {user == undefined ? <p>Please Log in </p> :
+        {user == "" ? <p>Please Log in </p> :
             (<>
                 <h2>Create new token</h2>
                 <form className="col-10 margin0a" onSubmit={submit}>
@@ -117,7 +134,8 @@ export default function CreateProject() {
                                 withIcon={true}
                                 singleImage={true}
                                 onChange={onDrop}
-                                imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                                label="Max file size: 5mb, accepted: jpg|gif|png|jpeg"
+                                imgExtension={[".jpg", ".gif", ".png", ".jpeg"]}
                                 maxFileSize={5242880}
                             />
                         }
@@ -140,29 +158,25 @@ export default function CreateProject() {
 
                         <div className="card-deck">
                             <div id="Ethereum" className="card cryptoCard">
-                                <div className="cryptoCardImg">
-                                    <img className="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Ethereum_logo.svg" alt="Card image cap" />
-                                </div>
+                                    <img className="card-img-top cryptoCardImg" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Ethereum_logo.svg" alt="Card image cap" />
                                 <div className="card-body">
                                     <h5 className="card-title">Ethereum</h5>
                                     <button className="btn btn-primary" value="Ethereum" onClick={e => {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                             <div id="TRON" className="card cryptoCard">
-                                <div className="cryptoCardImg">
-                                    <img className="card-img-top" src="https://banner2.cleanpng.com/20180824/vuw/kisspng-cryptocurrency-blockchain-tron-logo-ethereum-top-2-ethereum-tokens-to-invest-in-bit-world-5b7f9cbfb1e3f4.7066100315350898557287.jpg" alt="Card image cap" />
-                                </div>
+                                    <img className="card-img-top cryptoCardImg" src="https://banner2.cleanpng.com/20180824/vuw/kisspng-cryptocurrency-blockchain-tron-logo-ethereum-top-2-ethereum-tokens-to-invest-in-bit-world-5b7f9cbfb1e3f4.7066100315350898557287.jpg" alt="Card image cap" />
                                 <div className="card-body">
                                     <h5 className="card-title">TRON</h5>
                                     <button className="btn btn-primary" value="TRON" onClick={e => {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                             <div id="EOS" className="card cryptoCard">
@@ -173,7 +187,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                             <div id="Polkadot" className="card cryptoCard">
@@ -184,7 +198,7 @@ export default function CreateProject() {
                                         e.preventDefault();
                                         setSelection(e.target.value);
                                     }
-                                    }>wählen</button>
+                                    }>select</button>
                                 </div>
                             </div>
                         </div>
@@ -211,7 +225,7 @@ export default function CreateProject() {
                     {error && (
                         <ErrorNotice message={error} clearError={() => setError(undefined)} />
                     )}
-                    <input className="btn btn-primary" type="submit" value="Projekt erstellen" />
+                    <input className="btn btn-primary" type="submit" value="Create project" />
                 </form>
             </>
             )

@@ -2,112 +2,137 @@ import React, { useState, useContext } from 'react';
 import AuthOptions from '../auth/authOptions.js';
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl';
 import ProjectSearch from "../../components/misc/ProjectSearch";
-
-// export function NavBar() {
-//   const [searchInput, setSearchInput] = useState();
-
-//   return (
-//     <div>
-//       <div className="alert alert-warning" role="alert">
-//         Currently under construction
-//       </div>
-//       <nav className="navbar bg-light .justify-content-center">
-//         <a href="/"><p><span>T</span>oken<span>S</span>tart</p></a>
-//       </nav>
-
-//       <nav className="navbar navbar-expand navbar-light bg-light">
-
-//         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-//           <ul className="navbar-nav w-100">
-//             <li className="nav-item active">
-//             <Link to="/projects"><button className="btn btn-primary"> Go to projects overview</button></Link> 
-//             <Link to="/projects/new"><button className="btn btn-primary">Start project</button></Link>  
-//             </li>
-//             {/* <li className="nav-item ml-auto">
-//                 <a className="nav-link" href="#" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">🔍</a>
-//             </li> */}
-//             <input placeholder="Search for tokens" onChange={e => setSearchInput(e.target.value)} />
-//             <li className="nav-item">
-//               <AuthOptions />
-//             </li>
-//           </ul>
-//         </div>
-//       </nav>
-//     </div>
-//   )
-// }
 
 export function NavBar() {
   const [searchInput, setSearchInput] = useState();
 
-  return (
-    <div>
-      <div className="alert alert-warning" role="alert">
-        Currently under construction
-        </div>
-      <nav className="navbar bg-light .justify-content-center">
-        <a href="/"><p><span>T</span>oken<span>S</span>tart</p></a>
-      </nav>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="d-block d-sm-none">
-          <AuthOptions />
-        </div>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+  return (<div className="">
+    <Navbar expand="xl">
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="m-0 w-100 d-flex spaceBetween">
+          <Nav.Link href="/technology">Technology</Nav.Link>
+          <Nav.Link href="#link">Games</Nav.Link>
+          <Nav.Link href="#link">Music</Nav.Link>
+          <Nav.Link href="#link">Journalism</Nav.Link>
+          <Nav.Link href="#link">Design</Nav.Link>
+          <Nav.Link href="#link">Film & Video</Nav.Link>
+          <Nav.Link href="#link">Fashion</Nav.Link>
+          <Nav.Link href="#link">Publishing</Nav.Link>
 
-          {/* Mobile Navigation */}
-          <div className="d-block d-sm-none">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link to="/projects/new" className="nav-link text-dark">Start project</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/projects" className="nav-link text-dark">Projects overview</Link>
-              </li>
-            </ul>        <form className="form-inline my-2 my-lg-0">
-              <li style={{ listStyle: "none" }} className="nav-item">
-                <ProjectSearch />
-              </li>
-            </form>
 
-          </div>
-
-          {/* Desktop Navigation */}
-          <div id="desktopNavigationBar" className="col-12 d-none d-sm-block">
-            <ul className="nav navbar-nav pull-sm-left">
-              <li className="nav-item">
-                <Link to="/projects/new" className="nav-link text-dark"><button className="btn btn-outline-dark">Start project</button></Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/projects" className="nav-link text-dark"><button className="btn btn-outline-dark">Projects overview</button></Link>
-              </li>
-            </ul>
-            <ul className="nav navbar-nav">
-              <form className="form-inline my-2 my-lg-0">
-                <li className="nav-item desktopSearch">
-                  <ProjectSearch />
-                </li>
-              </form>
-            </ul>
-            <ul className="nav navbar-nav ml-auto">
-              <form className="form-inline my-2 my-lg-0">
-                <li style={{ listStyle: "none" }} className="nav-item">
-                  <AuthOptions />
-                </li>
-              </form>
-            </ul>
-          </div>
+          <Form inline>
+          <li className="nav-item desktopSearch">
+                 <ProjectSearch />
+               </li>
+            {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
+            <Button variant="outline-success">Search</Button>
+          </Form>
+          {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+          </NavDropdown> */}
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
 
 
 
-        </div>
-      </nav>
 
-    </div>
+
+    {/* //   <div className="alert alert-warning" role="alert">
+    //     Currently under construction
+    //     </div>
+    //   <nav className="navbar bg-light .justify-content-center">
+    //     <a href="/"><p><span>T</span>oken<span>S</span>tart</p></a>
+    //   </nav>
+    //   <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    //     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    //       <span className="navbar-toggler-icon"></span>
+    //     </button>
+    //     <div className="d-block d-sm-none">
+    //       <AuthOptions />
+    //     </div>
+    //     <div className="collapse navbar-collapse" id="navbarSupportedContent">
+
+    //       {/* Mobile Navigation 
+    //       <div className="d-block d-sm-none">
+    //         <ul className="navbar-nav mr-auto">
+    //           <li className="nav-item">
+    //             <Link to="/projects/new" className="nav-link text-dark">Start project</Link>
+    //           </li>
+    //           <li className="nav-item">
+    //             <Link to="/projects" className="nav-link text-dark">Projects overview</Link>
+    //           </li>
+    //         </ul>        <form className="form-inline my-2 my-lg-0">
+    //           <li style={{ listStyle: "none" }} className="nav-item">
+    //             <ProjectSearch />
+    //           </li>
+    //         </form>
+
+    //       </div>
+
+    //       {/* Desktop Navigation 
+    //       <div id="desktopNavigationBar" className="col-10 d-none d-sm-block">
+    //         <ul className="nav navbar-nav pull-sm-left">
+    //           <li className="nav-item">
+    //             <Link to="/projects/new" className="nav-link text-dark"><button className="btn btn-outline-dark">Start project</button></Link>
+    //           </li>
+    //           <li className="nav-item">
+    //             <Link to="/projects" className="nav-link text-dark"><button className="btn btn-outline-dark">Projects overview</button></Link>
+    //           </li>
+    //         </ul>
+    //         <ul className="nav navbar-nav">
+    //           <form className="form-inline my-2 my-lg-0">
+    //             <li className="nav-item desktopSearch">
+    //               <ProjectSearch />
+    //             </li>
+    //           </form>
+    //         </ul>
+    //         <ul className="nav navbar-nav ml-auto">
+    //           <form className="form-inline my-2 my-lg-0">
+    //             <li style={{ listStyle: "none" }} className="nav-item">
+    //               <AuthOptions />
+    //             </li>
+    //           </form>
+    //         </ul>
+    //       </div>
+
+
+
+    //     </div>
+    //   </nav> */}
+
+  </div>
   )
+}
+
+export function Sidebar() {
+
+  return <div className="sidebar d-none d-lg-block">
+
+    <Nav.Link className="text-dark" href="/"><h3>TokenStart</h3></Nav.Link>
+    <div><img className="sidebar-user-image" src="https://images.unsplash.com/photo-1605256801693-882832f5d2de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80" /></div>
+    <ul className="sidebar-menu mt-2">
+          <Nav.Link className="text-dark" href="leaderboard">Leaderboard</Nav.Link>
+          <Nav.Link className="text-dark" href="exchange">Exchange</Nav.Link>
+          <Nav.Link className="text-dark" href="project-list">Project List</Nav.Link>
+          <Nav.Link className="text-dark" href="project-new">Start Project</Nav.Link>
+    </ul>
+
+
+
+
+  </div>
 }
 
 
@@ -132,7 +157,7 @@ export function Footer() {
           <div className="col-md-3 mx-auto">
 
 
-            <h5 className="font-weight-bold text-uppercase mt-3 mb-4">ÜBER UNS</h5>
+            <h5 className="font-weight-bold text-uppercase mt-3 mb-4">ABOUT US</h5>
 
             <ul className="list-unstyled">
               <li>
@@ -162,13 +187,10 @@ export function Footer() {
 
             <ul className="list-unstyled">
               <li>
-                <a href="#!">FAQs</a>
+                <Link to="FAQs">FAQs</Link>
               </li>
               <li>
-                <a href="#!">Help Center</a>
-              </li>
-              <li>
-                <a href="#!">Help for project owners</a>
+                <Link to="projectownerhelp">Help for project owners</Link>
               </li>
               <li>
                 <a href="#!">Help for donators</a>

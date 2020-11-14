@@ -54,7 +54,7 @@ export default function EditProject(props) {
         if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
 
         async function getProjects() {
-            const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
+            const projectRes = await Axios.post("https://tokenstart.herokuapp.com/projects/" + props.match.params.projectId)
             setProjectName(projectRes.data.projectName);
             setPictures(projectRes.data.picture)
             setTokenChain(projectRes.data.tokenChain);
@@ -95,7 +95,7 @@ export default function EditProject(props) {
 
             };
 
-            const accessToken = await Axios.post("http://localhost:1234/users/refreshtokenisvalid", {},
+            const accessToken = await Axios.post("https://tokenstart.herokuapp.com/users/refreshtokenisvalid", {},
                 {
                     headers: {
                         "refresh-token": localStorage.getItem("refresh-token")
@@ -104,7 +104,7 @@ export default function EditProject(props) {
 
             localStorage.setItem("auth-token", accessToken.data.AccessToken)
 
-            const deleteProject = await Axios.post("http://localhost:1234/projects/delete", toDeleteProject,
+            const deleteProject = await Axios.post("https://tokenstart.herokuapp.com/projects/delete", toDeleteProject,
                 {
                     headers: { "auth-token": localStorage.getItem("auth-token") }
                 }
@@ -151,7 +151,7 @@ export default function EditProject(props) {
 
             console.log(projectTemplate)
 
-            const accessToken = await Axios.post("http://localhost:1234/users/refreshtokenisvalid", {},
+            const accessToken = await Axios.post("https://tokenstart.herokuapp.com/users/refreshtokenisvalid", {},
                 {
                     headers: {
                         "refresh-token": localStorage.getItem("refresh-token")
@@ -160,7 +160,7 @@ export default function EditProject(props) {
             localStorage.setItem("auth-token", accessToken.data.AccessToken)
 
 
-            const editedProject = await Axios.post("http://localhost:1234/projects/update", projectTemplate,
+            const editedProject = await Axios.post("https://tokenstart.herokuapp.com/projects/update", projectTemplate,
                 {
                     headers: { "auth-token": localStorage.getItem("auth-token") }
                 }

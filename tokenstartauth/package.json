@@ -2,8 +2,10 @@
   "name": "tokenstartauth",
   "version": "1.0.0",
   "description": "",
+  "proxy": "http://localhost:3000",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "devStart": "nodemon server.js",
     "devStartAuth": "nodemon authServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -4,12 +4,13 @@ import UserContext from "../../context/UserContext";
 import Axios from "axios";
 import {useHistory} from "react-router-dom";
 
+
 export default function ProjectCarousel(props) {
     const { userData, setUserData } = useContext(UserContext);
     const [projectList, setProjectList] = useState();
     const history = useHistory();
     console.log(props.data)
-    
+    const [projectInfo, setProjectInfo] = useState();
 
     var carousel;
     
@@ -23,10 +24,11 @@ export default function ProjectCarousel(props) {
     let listItems;
 
     async function getProjects(){
-        const projectRes = await Axios.get("http://localhost:1234/projects") 
+        const projectRes = await Axios.get("https://tokenstart.herokuapp.com/projects") 
         setProjectList({
             list: projectRes.data
         });
+    
         // setUserData({
         //     token: userData.token,
         //     user: userData.user,               
@@ -42,13 +44,13 @@ export default function ProjectCarousel(props) {
     }
 
     useEffect(() => {
-
+    
         //console.log(projectData)
         if (projectDataList) {
             console.log("running list")
             carousel = projectDataList.map((project, index) => {
                 return <div key={index} id="projectCard" className="card">
-                    <img className="card-img-top" src="https://images.unsplash.com/photo-1580670029149-5c00eec8bb66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=560&q=80" alt="Card image cap" />
+                    <div className="card-img-top" style={{background: "url(" + project.projectPictureURL + ")"}}></div>
                     <div className="card-body">
                         <h5 className="card-title">{project.projectName}</h5>
                         <p className="card-text">{project.sDescription}<br />Von: { project.projectOwnerName }</p>
