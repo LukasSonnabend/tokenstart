@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext} from "react";
+import ReactDOM from 'react-dom';
 import {useHistory} from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import GetProjects from "../../components/misc/GetProjects";
 import ProjectCarouselFeatured from '../misc/ProjectCarouselFeatured';
 import ProjectCarouselPOD from '../misc/ProjectCarouselPOD';
+import Alert from 'react-bootstrap/Alert';
 
 function Home() {
-
     const [projectList, setProjectList] = useState();
         const {userData} = useContext(UserContext);
         const history = useHistory();
@@ -32,6 +33,15 @@ function Home() {
         </>
         ) : (
             <>
+            <Alert variant="primary">primary</Alert>
+            <Alert variant="secondary">secondary</Alert>
+            <Alert variant="success">success</Alert>
+            <Alert variant="danger">danger</Alert>
+            <Alert variant="warning">warning</Alert>
+            <Alert variant="info">info</Alert>
+            <Alert variant="light">light</Alert>
+            <Alert variant="dark">dark</Alert>
+
             <ProjectCarouselFeatured status="guest"></ProjectCarouselFeatured>
             <ProjectCarouselPOD status="guest"></ProjectCarouselPOD>
             {/* <p>Hello {JSON.parse(user).fullname}</p>
