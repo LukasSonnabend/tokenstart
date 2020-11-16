@@ -43,6 +43,7 @@ export default function Login(){
         } catch (err){
             err.response.data.msg && setError([err.response.data.msg, "danger"])
         }
+        window.location.reload(true)
     }
 
 

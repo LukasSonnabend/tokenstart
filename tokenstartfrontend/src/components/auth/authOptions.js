@@ -13,6 +13,13 @@ export default function AuthOptions(){
 
     const history = useHistory();
 
+
+    let user = undefined;
+    localStorage.getItem("userData").length > 0 ? user = JSON.parse(localStorage.getItem("userData")) : user = "";
+
+
+
+
     //const register = () => history.push("/register")
     //const login = () => history.push("/login")
     const accSettings = () => history.push("/account")
@@ -37,7 +44,7 @@ export default function AuthOptions(){
     return (
         <div>
             {
-                userData.user ? (
+                user ? (
                 <>
                 <button className="btn btn-danger mr-2" onClick={logout}><FontAwesomeIcon icon={faSignOutAlt} /></button>
                 <button className="btn btn-info" onClick={accSettings}><FontAwesomeIcon icon={faUserCircle} /></button>
