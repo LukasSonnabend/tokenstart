@@ -5,6 +5,7 @@ import UserContext from "../../context/UserContext";
 import GetProjects from "../../components/misc/GetProjects";
 import ProjectCarouselFeatured from '../misc/ProjectCarouselFeatured';
 import ProjectCarouselPOD from '../misc/ProjectCarouselPOD';
+import InvestorShowcase from '../misc/InvestorShowcase'
 import Alert from 'react-bootstrap/Alert';
 
 function Home() {
@@ -33,16 +34,17 @@ function Home() {
         </>
         ) : (
             <>
-            <Alert variant="primary">primary</Alert>
+            {/* <Alert variant="primary">primary</Alert>
             <Alert variant="secondary">secondary</Alert>
             <Alert variant="success">success</Alert>
             <Alert variant="danger">danger</Alert>
             <Alert variant="warning">warning</Alert>
             <Alert variant="info">info</Alert>
             <Alert variant="light">light</Alert>
-            <Alert variant="dark">dark</Alert>
+            <Alert variant="dark">dark</Alert> */}
 
             <ProjectCarouselFeatured status="guest"></ProjectCarouselFeatured>
+            <InvestorShowcase></InvestorShowcase>
             <ProjectCarouselPOD status="guest"></ProjectCarouselPOD>
             {/* <p>Hello {JSON.parse(user).fullname}</p>
 

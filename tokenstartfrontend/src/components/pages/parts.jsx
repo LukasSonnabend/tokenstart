@@ -117,11 +117,12 @@ export function NavBar() {
 }
 
 export function Sidebar() {
+  let userImage = "https://images.unsplash.com/photo-1605256801693-882832f5d2de"
 
   return <div className="sidebar d-none d-lg-block">
 
     <Nav.Link className="text-dark" href="/"><h3>TokenStart</h3></Nav.Link>
-    <div><img className="sidebar-user-image" src="https://images.unsplash.com/photo-1605256801693-882832f5d2de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80" /></div>
+    <div className="sidebarUserImage" style={{backgroundImage: "url(" + userImage + ")"}}></div>
     <ul className="sidebar-menu mt-2">
           <Nav.Link className="text-dark" href="leaderboard">Leaderboard</Nav.Link>
           <Nav.Link className="text-dark" href="exchange">Exchange</Nav.Link>

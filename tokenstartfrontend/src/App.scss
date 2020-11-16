@@ -6,6 +6,8 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins/breakpoints";
 
+$insetShadow : inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 
 html,
 body,
@@ -44,7 +46,7 @@ button, .btn{
 }
 
 .main-view {
-  min-height: 600px;
+  //min-height: 600px;
   margin-top: 1em;
   grid-row: 2 / 4;
 }
@@ -59,10 +61,15 @@ button, .btn{
   grid-row: 1 / 5;
 }
 
-.sidebar-user-image{
-  max-height: 105px;
-  max-width: 105px;
-  border-radius: 50%;
+.sidebarUserImage{
+  background-image: url(https://images.unsplash.com/photo-1573878221136-9b03f3d976b7);
+  background-position: center;
+  height: 105px;
+  width: 105px;
+  margin: 0 auto;
+  border-radius: 100%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-size: cover;
   
 
 }
@@ -126,6 +133,27 @@ left: -500%;
   text-align: center;
   width: 20em;
 }
+
+// Investor showcase
+
+.investorShowcaseWrapper {
+  background: #66fcf1;
+  box-shadow: $insetShadow;
+  .investorShowcase {
+    display: flex;
+    justify-content: space-around;
+    .investorShowcaseImage {
+      background-image: url(https://images.unsplash.com/photo-1573878221136-9b03f3d976b7);
+      background-position: center;
+      height: 200px;
+      width: 200px;
+      border-radius: 100%;
+      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+      background-size: cover;
+    }
+  }
+}
+
 
 
 
