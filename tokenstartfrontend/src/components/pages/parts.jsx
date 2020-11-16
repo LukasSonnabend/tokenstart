@@ -32,7 +32,7 @@ export function NavBar() {
                  <ProjectSearch />
                </li>
             {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
-            <Button variant="outline-success">Search</Button>
+            
           </Form>
           {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -41,6 +41,7 @@ export function NavBar() {
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
           </NavDropdown> */}
+          <li className="nav-item"> <AuthOptions /> </li>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
