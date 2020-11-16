@@ -31,6 +31,8 @@ function Home() {
         <>
         <p>Please Log in to Create a Project</p>
         <ProjectCarouselFeatured status="guest"></ProjectCarouselFeatured>
+        <InvestorShowcase></InvestorShowcase>
+            <ProjectCarouselPOD status="guest"></ProjectCarouselPOD>
         </>
         ) : (
             <>
