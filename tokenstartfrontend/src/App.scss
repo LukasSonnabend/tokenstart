@@ -32,7 +32,7 @@ h2 {
 }
 
 .navbar {
-  background-color: rgb(226, 226, 226);
+  background-color: $lightgrey;
 }
 
 .navs {
@@ -57,7 +57,7 @@ button, .btn{
 
 
 .sidebar {
-  background-color: rgb(226, 226, 226);
+  background-color: $lightgrey;
   grid-row: 1 / 5;
 }
 
@@ -110,7 +110,7 @@ button, .btn{
 }
 
 .searchResults li:hover{
-  background-color: lightgrey;
+  background-color: $lightgrey;
 }
 
 .searchResults ul{
@@ -137,7 +137,7 @@ left: -500%;
 // Investor showcase
 
 .investorShowcaseWrapper {
-  background: #66fcf1;
+  background: $orange;
   box-shadow: $insetShadow;
   .investorShowcase {
     display: flex;
@@ -165,7 +165,7 @@ left: -500%;
 .footer {
   grid-row: 4;
   grid-column: 2;
-  background-color: rgb(226, 226, 226);
+  background-color: $lightgrey;
 }
 
 .card-img-top{
