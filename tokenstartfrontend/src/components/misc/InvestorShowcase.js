@@ -56,7 +56,7 @@ export default function InvestorsShowcase() {
             invShowCase = investors.map((investor, index) => {
                 return <div key={index} id="investorPic" className="mx-3 my-4">
                         <div class="investorShowcaseImage" style={{backgroundImage: "url(" + investor.image + ")"}}></div>
-                        <h2>{investor.name}🍔🔥</h2>
+                        <h3>{investor.name}🍔🔥</h3>
                 </div>
             });
         }

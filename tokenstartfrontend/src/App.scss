@@ -17,6 +17,7 @@ body,
   height: 100%;
   background: #f8f9fa!important;
   text-align: center;
+  overflow-x: hidden;
  
 }
 
@@ -34,6 +35,9 @@ h2 {
 .navbar {
   background-color: $lightgrey;
   border-bottom: 2px solid black;
+  .nav-link {
+    font-weight: 800;
+  }
 }
 
 .navs {
@@ -215,11 +219,39 @@ left: -500%;
 
 
 
+// Project Page
+.projectHero {
+  justify-content: space-evenly;
+  h4 {
+    margin-left: 10px;
+    text-align: left;
+  }
+  p {
+    text-align: right;
+  }
+}
 
 
+.progress-bar-wrapper{
+  content: " ";
+}
 
+.progress-bar {
+  background-color: $orange;
+  height: 20px;
+  max-width: 233px;
+  content: " ";
+}
 
+.margin0a{
+  margin: 0 auto;
+}
 
+.projectBottomSection{
+  display: flex;
+  overflow-x: scroll;
+  max-width: calc(100vw - 210px);
+}
 
 
 

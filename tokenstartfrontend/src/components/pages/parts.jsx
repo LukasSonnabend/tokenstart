@@ -18,8 +18,8 @@ export function NavBar() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="m-0 w-100 d-flex spaceBetween">
           <Nav.Link href="/technology">Technology</Nav.Link>
-          <Nav.Link href="#link">Games</Nav.Link>
-          <Nav.Link href="#link">Music</Nav.Link>
+          <Nav.Link href="/games">Games</Nav.Link>
+          <Nav.Link href="/music">Music</Nav.Link>
           <Nav.Link href="#link">Journalism</Nav.Link>
           <Nav.Link href="#link">Design</Nav.Link>
           <Nav.Link href="#link">Film & Video</Nav.Link>

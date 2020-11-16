@@ -52,9 +52,9 @@ export default function ProjectCarouselGuest() {
         <div>
             {!projectData ? <p>No Data {listItems}</p> : (
                 <>
-                    <div id="Featured Projects">
+                    <div>
 
-                        <div id="projectCarousel"></div>
+                        <div className="d-flex" className="projectBottomSection" id="projectCarousel"></div>
                         {carousel}
                     </div>
                 </>

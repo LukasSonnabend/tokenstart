@@ -52,8 +52,8 @@ export default function Project(props) {
                 </div> */}
 
 
-
-                <div id="carouselExampleControls" className="carousel slide col-12 col-md-5 col-lg-4 margin0a p-2" data-ride="carousel">
+                <div className="projectHero d-flex py-2">
+                <div id="carouselExampleControls" className="carousel slide col-5" data-ride="carousel">
                     <div className="carousel-inner">
 
 
@@ -83,7 +83,7 @@ export default function Project(props) {
                             <>
                                 <div className="carousel-item active">
                                     <div className="container">
-                                        <img classname="col-12 col-md-6 margin0a" width="100%" src={projectInfo.Project.projectPictureURL} alt="..." />
+                                        <img className="" width="100%" src={projectInfo.Project.projectPictureURL} alt="..." />
                                     </div>
                                 </div>
                             </>
@@ -91,29 +91,58 @@ export default function Project(props) {
 
 
                     </div>
-                    <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    {/* <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span className="sr-only">Previous</span>
                     </a>
                     <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                         <span className="carousel-control-next-icon" aria-hidden="true"></span>
                         <span className="sr-only">Next</span>
-                    </a>
+                    </a> */}
+                </div>
+                <div className="col-5">
+                <ProgressBar tokenData={projectInfo.Project} />
+                <div className="projectHeroInfo">
+                                <span>
+                                    <h4>Tokens available: <p>{projectInfo.Project.tokenSupply - projectInfo.Project.toOwner}</p></h4>
+                                    <h4>Total Supply: <p>{projectInfo.Project.tokenSupply}</p></h4>
+                                    <h4>Token Price: <p>{Math.ceil(Math.random() * 400)+100} €</p></h4>
+                                    <h4>Funding Deadline: <p>2020-25-01</p></h4>
+                                </span>
+                <div className="d-flex w-50 margin0a justify-content-between">
+                        <button className="btn btn-warning">Bookmark</button>
+                        <Link to={{
+                            pathname: '/checkout',
+                            projectProps: {
+                                project: projectInfo.Project
+                            }
+                        }} className="btn btn-success">Invest</Link>
+                    </div>
+                </div>
+                    </div>
                 </div>
 
-                <ProgressBar tokenData={projectInfo.Project} />
-
-
+                <div className="mb-2">
+                    <h2>Project description</h2>
+                    <p className="col-10 col-md-10 margin0a">
+                        {projectInfo.Project.lDescription}
+                    </p>
+                </div>
+                <div className="row col-md-11 mb-3">
+                    <div className="mb-2">
+                        <h4>About the creator {projectInfo.Project.projectOwnerName}</h4>
+                        <p className="col-10 col-md-11 mb-3 margin0a">
+                            {projectInfo.Project.projectOwnerDescription}
+                        </p>
+                    </div>
+                </div>
                 <div className="row projectAction">
-                    <div className="horizontalCard col-10 col-md-5 margin0a">
-                        <div className="horizontalCardLeftProject">
-                            <div className="tokenModel1">
-
+                    <div className="horizontalCard col-10 col-md-5">
+                            {/* <div className="tokenModel1">
+                                
                                 {ChainIcons(projectInfo.Project.tokenChain)}
-                            </div>
-
-                        </div>
-                        <div className="text-left horizontalCardRightProject pl-2">
+                            </div> */}
+                        {/* <div className="text-left horizontalCardRightProject pl-2">
                             <div className="mt-2">
                                 <p>{projectInfo.Project.projectName} <span style={{ fontWeight: "bold" }}>{projectInfo.Project.tokenShort}</span></p>
                                 <p className="mb-0">{projectInfo.Project.sDescription}</p>
@@ -123,50 +152,10 @@ export default function Project(props) {
                                     <p className="noMargin">Funding Deadline: 2020-25-01</p>
                                 </span>
                             </div>
-                        </div>
-                    </div>
-
-                    <div className="col-10 col-md-4">
-                        <h2>Project overview</h2>
-                        <table className="table table-bordered margin0a mb-4">
-
-                            <tr>
-                                <th>Available supply</th>
-                                <td>{projectInfo.Project.tokenSupply - projectInfo.Project.toOwner}</td>
-                            </tr>
-                            <tr>
-                                <th>Project start</th>
-                                <td>{projectInfo.Project.date.slice(0, 10)}</td>
-                            </tr>
-                            <tr>
-                                <th>Token price</th>
-                                <td>50$</td>
-                            </tr>
-                        </table>
-                        <Link to={{
-                            pathname: '/checkout',
-                            projectProps: {
-                                project: projectInfo.Project
-                            }
-                        }} className="btn btn-primary">Buy Token</Link>
-                    </div>
-
-                </div>
-
-                <div className="mb-2">
-                    <h2>Project description</h2>
-                    <p className="col-10 col-md-10 margin0a mb-3">
-                        {projectInfo.Project.lDescription}
-                    </p>
-                </div>
-                <div className="row col-md-11 margin0a mb-3">
-                    <div className="mb-2">
-                        <h4>About the creator {projectInfo.Project.projectOwnerName}</h4>
-                        <p className="col-10 col-md-11 margin0a mb-3 textJustify">
-                            {projectInfo.Project.projectOwnerDescription}
-                        </p>
+                        </div> */}
                     </div>
                 </div>
+
                 <div>
                     <h2>Suggested projects for you</h2>
                     <ProjectCarouselGuest></ProjectCarouselGuest>

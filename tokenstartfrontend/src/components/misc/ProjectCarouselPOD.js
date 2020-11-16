@@ -33,7 +33,7 @@ export default function ProjectCarouselPOD() {
             carousel = projectList.list.map((project, index) => {
                 if (index >= 4)
                 return <div key={index} id="projectCard" className="card mx-3 my-4">
-                    <a href={"./" + project._id} className="text-dark">
+                    <a href={"./project/" + project._id} className="text-dark">
                     <div className="card-img-top" style={{background: "url(" + project.projectPictureURL + ")"}}>
                     <div className="carousel-card-body">
                         <h5 className="card-title pt-1 mb-0">{project.projectName}</h5>
