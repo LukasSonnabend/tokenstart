@@ -21,17 +21,17 @@ export default function InvestorsShowcase() {
         {
             "name":"Big Mama",
             "_id":"djhd83838hnfiehi",
-            "image":"https://images.unsplash.com/photo-1573878221136-9b03f3d976b7"
+            "image":"https://i.ibb.co/sRPw3rp/photo-1573878221136-9b03f3d976b7.jpg"
         },
         {
             "name":"Uncle Jeff",
             "_id":"ijd9j8j9j9fd",
-            "image":"https://images.unsplash.com/photo-1573879030843-d4b38a33131d"
+            "image":"https://i.ibb.co/NTY8zrZ/photo-1573878416776-932ce6911da2.jpg"
         },
         {
             "name":"Mia Anderson",
-            "_id":"ijd9j8j9j9fd",
-            "image":"https://images.unsplash.com/photo-1565125177606-32fdffcb85a3"
+            "_id":"ijd9mai9j9fd",
+            "image":"https://i.ibb.co/GCBSYmD/photo-1565128936512-e7333b8325ce.jpg"
         }
     ]
 
@@ -55,7 +55,9 @@ export default function InvestorsShowcase() {
             console.log("running list")
             invShowCase = investors.map((investor, index) => {
                 return <div key={index} id="investorPic" className="mx-3 my-4">
+                        <a href={"/user/" + investor._id}>
                         <div class="investorShowcaseImage" style={{backgroundImage: "url(" + investor.image + ")"}}></div>
+                        </a>
                         <h3>{investor.name}🍔🔥</h3>
                 </div>
             });

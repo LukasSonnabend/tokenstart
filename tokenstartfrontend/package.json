@@ -17,6 +17,7 @@
     "qrcode.react": "^1.0.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.4.0",
+    "react-charts": "^2.0.0-beta.7",
     "react-dom": "^16.13.1",
     "react-faq-component": "^1.2.0",
     "react-images-upload": "^1.2.8",

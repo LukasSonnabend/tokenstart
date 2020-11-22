@@ -7,7 +7,9 @@ import Register from "./components/pages/Register";
 import About from "./components/pages/About";
 import Account from "./components/pages/Account";
 import Project from "./components/pages/project";
+import Exchange from "./components/pages/Exchange";
 import EditProject from "./components/pages/EditProject";
+import ViewUser from "./components/pages/ViewUser";
 import Goals from "./components/pages/Goals";
 import {Route, Link, BrowserRouter, Switch} from 'react-router-dom';
 import {NavBar, Footer, Sidebar} from './components/pages/parts';
@@ -76,7 +78,9 @@ function App() {
         <Route path="/ourgoal" component={Goals}/>
         <Route path="/projects/new" component={CreateProject}/>
         <Route path="/projects" component={ProjectsOverview}/>
+        <Route path="/exchange" component={Exchange}/>
         <Route path="/project/:projectId" component={Project}/>
+        <Route path="/user/:userId" component={ViewUser}/>
         <Route path="/edit/project/:projectId" component={EditProject}/>
         <Route path="/account" component={Account}/>
         <Route path="/checkout" component={Payment}/>

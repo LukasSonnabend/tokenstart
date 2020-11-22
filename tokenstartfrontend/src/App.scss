@@ -26,12 +26,13 @@ h2 {
 }
 
 /* Tokenstart 2.0 */
+@include media-breakpoint-up(lg){
 .App {
   display: grid;
   grid-template-columns: 200px auto;
   grid-template-rows: 48px auto 100px;
 }
-
+}
 .navbar {
   background-color: $lightgrey;
   border-bottom: 2px solid black;
@@ -142,28 +143,59 @@ left: -500%;
 
 // Investor showcase
 
+.investorShowcaseImage {
+  background-image: url(https://images.unsplash.com/photo-1573878221136-9b03f3d976b7);
+  background-position: center;
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-size: cover;
+}
+
 .investorShowcaseWrapper {
   background: $orange;
   box-shadow: $insetShadow;
   .investorShowcase {
     display: flex;
     justify-content: space-around;
-    .investorShowcaseImage {
-      background-image: url(https://images.unsplash.com/photo-1573878221136-9b03f3d976b7);
-      background-position: center;
-      height: 200px;
-      width: 200px;
-      border-radius: 100%;
-      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-      background-size: cover;
-    }
+    // .investorShowcaseImage {
+    //   background-image: url(https://images.unsplash.com/photo-1573878221136-9b03f3d976b7);
+    //   background-position: center;
+    //   height: 200px;
+    //   width: 200px;
+    //   border-radius: 100%;
+    //   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    //   background-size: cover;
+    // }
   }
+}
+
+//User Page
+.ourBox {
+  background: #C4C4C4;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.investor-profile-box-wrapper{
+  .investor-profile-box{
+    background: #FFFFFF;
+  }
+}
+
+.ReactChart {
+  background: whitesmoke;
 }
 
 
 
 
+
+
 /* Allgemeine Klassen */
+.tal{
+  text-align: left;
+}
 .spaceBetween {
   justify-content: space-between;
 }
@@ -214,8 +246,37 @@ left: -500%;
   text-align: center;
   justify-content: space-between;
 }
+
+.projectBottomSection{
+  max-width: calc(100vw - 210px);
 }
 
+
+}
+.projectBottomSection{
+  display: flex;
+  overflow-x: scroll;
+}
+
+// Exchange Page
+table {
+  background: white;
+}
+
+.last-offer-cell{
+  .up{
+    color: green;
+    &:after{
+      content: " ↑";
+    }
+  }
+  .down {
+    color: red;
+    &:after{
+      content: " ↓";
+    }
+  }
+}
 
 
 
@@ -247,12 +308,17 @@ left: -500%;
   margin: 0 auto;
 }
 
-.projectBottomSection{
-  display: flex;
-  overflow-x: scroll;
-  max-width: calc(100vw - 210px);
+
+//Projects List
+.tokenIcon {
+  max-height: 45px;
 }
 
+.iconCell {
+  padding: 0 !important;
+  display: grid;
+  place-items: center !important;
+}
 
 
 
