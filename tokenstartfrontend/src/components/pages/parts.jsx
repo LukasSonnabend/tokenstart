@@ -28,7 +28,7 @@ export function NavBar() {
 
 
           <Form inline>
-          <li className="nav-item desktopSearch">
+          <li className="nav-item desktopSearch d-none d-xl-block">
                  <ProjectSearch />
                </li>
             {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
@@ -125,10 +125,10 @@ export function Sidebar() {
     <Nav.Link className="text-dark" href="/"><h3>TokenStart</h3></Nav.Link>
     <div className="sidebarUserImage" style={{backgroundImage: "url(" + userImage + ")"}}></div>
     <ul className="sidebar-menu mt-2">
-          <Nav.Link className="text-dark" href="leaderboard">Leaderboard</Nav.Link>
-          <Nav.Link className="text-dark" href="exchange">Exchange</Nav.Link>
+          <Nav.Link className="text-dark" href="/leaderboard">Leaderboard</Nav.Link>
+          <Nav.Link className="text-dark" href="/exchange">Exchange</Nav.Link>
           <Nav.Link className="text-dark" href="/projects">Project List</Nav.Link>
-          <Nav.Link className="text-dark" href="/project/new">Start Project</Nav.Link>
+          <Nav.Link className="text-dark" href="/project-new">Start Project</Nav.Link>
     </ul>
 
 
