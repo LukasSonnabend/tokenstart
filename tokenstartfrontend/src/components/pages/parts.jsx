@@ -128,11 +128,8 @@ export function Sidebar() {
           <Nav.Link className="text-dark" href="/leaderboard">Leaderboard</Nav.Link>
           <Nav.Link className="text-dark" href="/exchange">Exchange</Nav.Link>
           <Nav.Link className="text-dark" href="/projects">Project List</Nav.Link>
-<<<<<<< HEAD
           <Nav.Link className="text-dark" href="/project/new">Start Project</Nav.Link>
-=======
           <Nav.Link className="text-dark" href="/project-new">Start Project</Nav.Link>
->>>>>>> 09091f170ed3276a3b7250cf03ab0e2e12a29257
     </ul>
 
 
