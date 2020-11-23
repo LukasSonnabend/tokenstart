@@ -4,6 +4,11 @@ import UserContext from "../../context/UserContext";
 import Axios from "axios";
 import ImageUploader from 'react-images-upload';
 import ErrorNotice from '../misc/ErrorNotice';
+import ProgressBar from '../misc/ProgressBar';
+import { BrowserRouter, RouteLink, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import ChainIcons from "../misc/chainIcon";
 
 export default function CreateProject() {
     const [projectName, setProjectName] = useState();
@@ -18,7 +23,7 @@ export default function CreateProject() {
     const [toOwner, setToOwner] = useState();
     const [error, setError] = useState();
 
-    const { userData, setUserData } = useContext(UserContext);
+    const { userData} = useContext(UserContext);
     const history = useHistory();
 
     let user = "";
@@ -113,7 +118,7 @@ export default function CreateProject() {
         }
     }
     useEffect(() => {
-        if (localStorage.getItem("auth-token").length === 0) {
+        if (user == "") {
             history.push("/login");
             
         }
@@ -121,7 +126,7 @@ export default function CreateProject() {
 
     }, []);
     return <div>
-        {user == "" ? <p>Please Log in </p> :
+        {user == "" ? history.push("/login") :
             (<>
                 <h2>Create new token</h2>
                 <form className="col-10 margin0a" onSubmit={submit}>
