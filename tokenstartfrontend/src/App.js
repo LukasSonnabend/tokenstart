@@ -76,7 +76,7 @@ function App() {
         <Route path="/register" component={Register}/>
         <Route path="/about" component={About}/>
         <Route path="/ourgoal" component={Goals}/>
-        <Route path="/projects/new" component={CreateProject}/>
+        <Route path="/project/new" component={CreateProject}/>
         <Route path="/projects" component={ProjectsOverview}/>
         <Route path="/exchange" component={Exchange}/>
         <Route path="/project/:projectId" component={Project}/>
