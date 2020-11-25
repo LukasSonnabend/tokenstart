@@ -1,10 +1,7 @@
 Add User Page
 Add Mock Exchange
-DONE:Add Project Category to Create Page
 
-Project Overview Page / Add space in DB for this too
-
-Add Category Overview Page
+DONE: Add Project Category to Create Page /Project Overview Page / Add space in DB for this too / Add Category Overview Page
 
 DONE: Wenn nicht eingeloggt passt nicht alles oben in die Kopfzeile, search field kleiner machen
 Q: Soll sie noch kleiner hab auch mobile menu angefangen

@@ -69,8 +69,9 @@ function App() {
       <UserContext.Provider value={{ userData, setUserData }}>
       <Sidebar className="sidebside"/>
       <NavBar className="sidebside"/>
+      <div className="main-view">
       <Switch>
-        <div className="main-view">
+        
         <Route exact path="/" component={Home}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
@@ -88,8 +89,8 @@ function App() {
         <Route path="/FAQs" component={FAQs}/>
         <Route path="/category/:catName" component={ProjectsOverview}></Route>
         <Route path="/projectownerhelp" component={projectowner}/>
-        </div>
       </Switch>
+      </div>
     <Footer/>
     </UserContext.Provider>
     </BrowserRouter>

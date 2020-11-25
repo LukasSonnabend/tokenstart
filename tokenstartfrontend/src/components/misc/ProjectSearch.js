@@ -46,7 +46,6 @@ export default function GetProjects() {
     return <div className="mb-0" >
 
          { showSearch &&<div className="focusCatch" onClick={(e) => setShowSearch(false)}>
-        LIt
         </div>}
 
         <input id="searchField" className="searchField mb-0" type="text" placeholder="Search 🔎" onChange={(e) => SetSearchTerm(e.target.value)} />
