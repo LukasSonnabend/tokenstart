@@ -40,7 +40,7 @@ export default function InvestorsShowcase() {
 
     useEffect(() => {
         // async function getProjects(){
-        //     const projectRes = await Axios.get("https://tokenstart.herokuapp.com/projects") 
+        //     const projectRes = await Axios.get("http://localhost:1234/projects") 
         //     setProjectList({
         //         list: projectRes.data
         //     });
@@ -56,7 +56,7 @@ export default function InvestorsShowcase() {
             invShowCase = investors.map((investor, index) => {
                 return <div key={index} id="investorPic" className="mx-3 my-4">
                         <a href={"/user/" + investor._id}>
-                        <div class="investorShowcaseImage" style={{backgroundImage: "url(" + investor.image + ")"}}></div>
+                        <div className="investorShowcaseImage" style={{backgroundImage: "url(" + investor.image + ")"}}></div>
                         </a>
                         <h3>{investor.name}🍔🔥</h3>
                 </div>

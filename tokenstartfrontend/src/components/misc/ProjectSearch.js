@@ -26,7 +26,7 @@ export default function GetProjects() {
         //get project names + ids
 
         async function getProjects() {
-            const projectRes = await Axios.get("https://tokenstart.herokuapp.com/projects/")
+            const projectRes = await Axios.get("http://localhost:1234/projects/")
             let allProjectsList = projectRes.data;
 
 
@@ -49,7 +49,7 @@ export default function GetProjects() {
         LIt
         </div>}
 
-        <input id="searchField" className="searchField mb-0" type="text" placeholder="Search TokenStart Projects" onChange={(e) => SetSearchTerm(e.target.value)} />
+        <input id="searchField" className="searchField mb-0" type="text" placeholder="Search 🔎" onChange={(e) => SetSearchTerm(e.target.value)} />
         <div className="col-12 searchResults position-absolute">
             <ul className="my-0">
                 { showSearch &&

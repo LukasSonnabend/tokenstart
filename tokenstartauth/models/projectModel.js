@@ -4,6 +4,7 @@ const projectSchema = new mongoose.Schema({
     projectName: {type: String, required: true, unique: true},
     projectPictureURL: {type: String, required: true},
     tokenChain: {type: String, required: true},
+    category: {type: String, required: true},
     sDescription: {type: String, unique: true},
     lDescription: {type: String, unique: true},
     date: {type: Date, default : Date.now},
@@ -17,4 +18,4 @@ const projectSchema = new mongoose.Schema({
     projectOwnerID: {type: String, required: true}
 });
 
-module.exports = User = mongoose.model("projects", projectSchema);
+module.exports = Project = mongoose.model("projects", projectSchema);

@@ -16,6 +16,7 @@ export default function CreateProject() {
     const [shortDescription, setShortDescription] = useState();
     const [longDescription, setLongDescription] = useState();
     const [tokenName, setTokenName] = useState();
+    const [category, setCategory] = useState();
     const [tokenShort, setTokenShort] = useState();
     const [tokenSupply, setTokenSupply] = useState("Token Supply");
     const [smallestTradable, setSmallestTradable] = useState();
@@ -23,7 +24,7 @@ export default function CreateProject() {
     const [toOwner, setToOwner] = useState();
     const [error, setError] = useState();
 
-    const { userData} = useContext(UserContext);
+    const { userData } = useContext(UserContext);
     const history = useHistory();
 
     let user = "";
@@ -37,7 +38,6 @@ export default function CreateProject() {
 
     }, [pictures])
 
-  
 
     const onDrop = (e, picture) => {
         // console.log(e)
@@ -80,6 +80,7 @@ export default function CreateProject() {
                 projectName: projectName,
                 projectPicture: pictures[0],
                 tokenChain: tokenChain,
+                category: category,
                 sDescription: shortDescription,
                 lDescription: longDescription,
                 tokenName: tokenName,
@@ -95,7 +96,7 @@ export default function CreateProject() {
 
             console.log(newProject)
 
-            const accessToken = await Axios.post("https://tokenstart.herokuapp.com/users/refreshtokenisvalid", {},
+            const accessToken = await Axios.post("http://localhost:1234/users/refreshtokenisvalid", {},
                 {
                     headers: {
                         "refresh-token": localStorage.getItem("refresh-token")
@@ -104,7 +105,7 @@ export default function CreateProject() {
             localStorage.setItem("auth-token", accessToken.data.AccessToken)
 
 
-            const createNewProject = await Axios.post("https://tokenstart.herokuapp.com/projects/new", newProject,
+            const createNewProject = await Axios.post("http://localhost:1234/projects/new", newProject,
                 {
                     headers: { "auth-token": localStorage.getItem("auth-token") }
                 }
@@ -120,7 +121,7 @@ export default function CreateProject() {
     useEffect(() => {
         if (user == "") {
             history.push("/login");
-            
+
         }
 
 
@@ -146,14 +147,14 @@ export default function CreateProject() {
                         }
 
                         {pictures.length > 0 &&
-                        <>
-                            <div>
-                            <button className="btn btn-danger" onClick={ () => setPictures([])}>X</button>
-                            <div>
-                                <img id="imgViewer" />
-                            </div>
-                            </div>
-                        </>
+                            <>
+                                <div>
+                                    <button className="btn btn-danger" onClick={() => setPictures([])}>X</button>
+                                    <div>
+                                        <img id="imgViewer" />
+                                    </div>
+                                </div>
+                            </>
 
                         }
 
@@ -163,7 +164,7 @@ export default function CreateProject() {
 
                         <div className="card-deck">
                             <div id="Ethereum" className="card cryptoCard">
-                                    <img className="card-img-top cryptoCardImg" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Ethereum_logo.svg" alt="Card image cap" />
+                                <img className="card-img-top cryptoCardImg" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Ethereum_logo.svg" alt="Card image cap" />
                                 <div className="card-body">
                                     <h5 className="card-title">Ethereum</h5>
                                     <button className="btn btn-primary" value="Ethereum" onClick={e => {
@@ -174,7 +175,7 @@ export default function CreateProject() {
                                 </div>
                             </div>
                             <div id="TRON" className="card cryptoCard">
-                                    <img className="card-img-top cryptoCardImg" src="https://banner2.cleanpng.com/20180824/vuw/kisspng-cryptocurrency-blockchain-tron-logo-ethereum-top-2-ethereum-tokens-to-invest-in-bit-world-5b7f9cbfb1e3f4.7066100315350898557287.jpg" alt="Card image cap" />
+                                <img className="card-img-top cryptoCardImg" src="https://banner2.cleanpng.com/20180824/vuw/kisspng-cryptocurrency-blockchain-tron-logo-ethereum-top-2-ethereum-tokens-to-invest-in-bit-world-5b7f9cbfb1e3f4.7066100315350898557287.jpg" alt="Card image cap" />
                                 <div className="card-body">
                                     <h5 className="card-title">TRON</h5>
                                     <button className="btn btn-primary" value="TRON" onClick={e => {
@@ -207,7 +208,17 @@ export default function CreateProject() {
                                 </div>
                             </div>
                         </div>
-
+                        <select name="cars" id="cars" onChange={e => setCategory(e.target.value)}>
+                        <option value="" disabled selected>Select Category</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Games">Games</option>
+                            <option value="Music">Music</option>
+                            <option value="Journalism">Journalism</option>
+                            <option value="Technology">Design</option>
+                            <option value="Games">Film & Video</option>
+                            <option value="Music">Fashion</option>
+                            <option value="Journalism">Publishing</option>
+                        </select>
                         <label>Short description</label>
                         <input id="new-ShortDescription" type="text" placeholder='z.B. "Cleaning of community gardens"' onChange={e => setShortDescription(e.target.value)} />
                         <label>Project description</label>
@@ -216,9 +227,10 @@ export default function CreateProject() {
                         <input id="new-ProjektOwner" type="text" value={JSON.parse(user).displayname} disabled />
                     </div>
                     <div className="card">
+                        
                         <label>Token name</label>
                         <input id="new-TokenName" type="text" onChange={e => setTokenName(e.target.value)} />
-                        <label>Token shortcut</label>
+                        <label>Token Short (e.g. BTC)</label>
                         <input className="is-invalid" id="new-TokenShort" placeholder="Max. 3 signs" type="text" onChange={e => setTokenShort(e.target.value)} />
                         <label>Total token amount</label>
                         <input id="new-TokenSupply" type="number" onChange={e => setTokenSupply(parseInt(e.target.value))} />

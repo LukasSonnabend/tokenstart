@@ -9,6 +9,30 @@
 $insetShadow : inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 
+//mobile temp fixes 
+@include media-breakpoint-down(sm){
+
+.projectCarousel{
+  display: flex;
+  overflow: scroll;
+
+}
+.investorShowcaseWrapper .investorShowcase {
+  overflow-x: scroll;
+  justify-content: start!important;
+ }
+
+}
+
+
+
+
+
+
+
+
+
+
 html,
 body,
 #root,
@@ -34,6 +58,7 @@ h2 {
 }
 }
 .navbar {
+  z-index: 1;
   background-color: $lightgrey;
   border-bottom: 2px solid black;
   .nav-link {
@@ -57,9 +82,9 @@ button, .btn{
   grid-row: 2 / 4;
 }
 
-.card {
-  max-width: 20em;
-}
+// .card {
+//   max-width: 20em;
+// }
 
 
 .sidebar {
@@ -92,10 +117,16 @@ button, .btn{
 
 /* Search */
 
+
+.navbar {
+  form {
+    max-width: 10em;
+  }
+}
 .searchField{
   position: relative;
   z-index: 3;
-  width: 20em;
+  width: 10em;
   text-align: center;
 }
 

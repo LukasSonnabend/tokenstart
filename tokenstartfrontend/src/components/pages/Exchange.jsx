@@ -26,7 +26,7 @@ export default function Exchange() {
     useEffect(() => {
 
         async function getProjects() {
-            const projectRes = await Axios.get("https://tokenstart.herokuapp.com/projects/")
+            const projectRes = await Axios.get("http://localhost:1234/projects/")
             setProjectList(projectRes.data);
 
         }
@@ -82,7 +82,7 @@ export default function Exchange() {
     // }, [props.match.params.projectId]);
 
     // async function getProjects() {
-    //     const projectRes = await Axios.post("https://tokenstart.herokuapp.com/projects/" + props.match.params.projectId)
+    //     const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
     //     setProjectInfo({
     //         Project: projectRes.data
     //     });

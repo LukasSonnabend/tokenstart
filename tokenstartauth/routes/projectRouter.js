@@ -15,9 +15,12 @@ router.post('/new', authOps, async (req, res) => {
 
         let imgString = req.body.projectPicture[0].split('base64,')
         //console.log(imgString[1])
-        const { projectName, projectPicture, tokenChain, sDescription, lDescription, tokenName, tokenShort, tokenSupply, smallestTradable, toOwner, projectOwnerID, projectOwnerDescription, projectOwnerName } = req.body;
-        if (!projectName || !projectPicture || !tokenChain || !sDescription || !lDescription || !tokenName || !tokenShort || !tokenSupply || !toOwner || !projectOwnerID || !projectOwnerDescription || !smallestTradable)
+        const { projectName, projectPicture, tokenChain, category, sDescription, lDescription, tokenName, tokenShort, tokenSupply, smallestTradable, toOwner, projectOwnerID, projectOwnerDescription, projectOwnerName } = req.body;
+        if (!projectName || !projectPicture || !tokenChain || !category || !sDescription || !lDescription || !tokenName || !tokenShort || !tokenSupply || !toOwner || !projectOwnerID || !projectOwnerDescription || !smallestTradable)
             return res.status(400).json({ msg: "Insufficient Parameters" })
+
+            console.log(category)
+
 
         if (parseInt(toOwner, 10) > parseInt(tokenSupply, 10)) {
             return res.status(400).json({ msg: "Amount to Owner musst be smaller than total token supply" })
@@ -58,6 +61,7 @@ router.post('/new', authOps, async (req, res) => {
             projectName,
             projectPictureURL,
             tokenChain,
+            category,
             sDescription,
             lDescription,
             tokenName,
@@ -112,6 +116,7 @@ router.post("/update", authOps, async (req, res) => {
                     {
                         $set: {
                             "projectName": req.body.projectName,
+                            "category": req.body.category,
                             "tokenChain": req.body.tokenChain,
                             "sDescription": req.body.sDescription,
                             "lDescription": req.body.lDescription,

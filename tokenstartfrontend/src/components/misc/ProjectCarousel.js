@@ -24,7 +24,7 @@ export default function ProjectCarousel(props) {
     let listItems;
 
     async function getProjects(){
-        const projectRes = await Axios.get("https://tokenstart.herokuapp.com/projects") 
+        const projectRes = await Axios.get("http://localhost:1234/projects") 
         setProjectList({
             list: projectRes.data
         });

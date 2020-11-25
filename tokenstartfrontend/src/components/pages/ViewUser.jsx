@@ -59,7 +59,7 @@ export default function ViewUser(props) {
     // }, [props.match.params.projectId]);
 
     // async function getProjects() {
-    //     const projectRes = await Axios.post("https://tokenstart.herokuapp.com/projects/" + props.match.params.projectId)
+    //     const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
     //     setProjectInfo({
     //         Project: projectRes.data
     //     });
@@ -86,7 +86,7 @@ export default function ViewUser(props) {
 
                 <div className="">
                     <div className="investor-profile-box-wrapper ourBox d-flex col-10 margin0a my-2">
-                    <div className="investor-profile-box d-flex m-3">
+                    <div className="investor-profile-box d-md-flex m-3">
                     <div className="investor-img-wrapper">
                     <div className="investorShowcaseImage m-1" style={{backgroundImage: "url(" + currentUser.image + ")"}}></div>
                     </div>

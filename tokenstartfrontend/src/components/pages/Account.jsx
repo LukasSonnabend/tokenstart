@@ -26,7 +26,7 @@ export default function Account(){
         if(user === "") history.push("/login");
 
         async function validateRefreshToken(){
-        const accessToken = await Axios.post("https://tokenstart.herokuapp.com/users/refreshtokenisvalid",{},
+        const accessToken = await Axios.post("http://localhost:1234/users/refreshtokenisvalid",{},
         {
             headers: { "refresh-token": localStorage.getItem("refresh-token") } 
         })
@@ -49,7 +49,7 @@ export default function Account(){
                 userDescription: userDescription
             
             };
-            const accessToken = await Axios.post("https://tokenstart.herokuapp.com/users/refreshtokenisvalid",{},
+            const accessToken = await Axios.post("http://localhost:1234/users/refreshtokenisvalid",{},
             {
                 headers: { 
                     "refresh-token": localStorage.getItem("refresh-token")
@@ -60,7 +60,7 @@ export default function Account(){
             localStorage.setItem("auth-token", accessToken.data.AccessToken)
             console.log(accessToken.data.AccessToken);
 
-            const updateUserFunc = await Axios.post("https://tokenstart.herokuapp.com/users/update", updateUser,
+            const updateUserFunc = await Axios.post("http://localhost:1234/users/update", updateUser,
             {
                 headers: { "auth-token": localStorage.getItem("auth-token") } 
             }

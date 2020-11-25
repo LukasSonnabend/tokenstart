@@ -10,6 +10,7 @@ export default function EditProject(props) {
     const [tokenChain, setTokenChain] = useState();
     const [shortDescription, setShortDescription] = useState();
     const [longDescription, setLongDescription] = useState();
+    const [category, setCategory] = useState();
     const [tokenName, setTokenName] = useState();
     const [tokenShort, setTokenShort] = useState();
     const [tokenSupply, setTokenSupply] = useState("Token Supply");
@@ -54,9 +55,10 @@ export default function EditProject(props) {
         if (pictures.length > 0) document.getElementById("imgViewer").src = pictures[0]
 
         async function getProjects() {
-            const projectRes = await Axios.post("https://tokenstart.herokuapp.com/projects/" + props.match.params.projectId)
+            const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
             setProjectName(projectRes.data.projectName);
             setPictures(projectRes.data.picture)
+            if (projectRes.data.category) setCategory(projectRes.data.category);
             setTokenChain(projectRes.data.tokenChain);
             setShortDescription(projectRes.data.sDescription);
             setLongDescription(projectRes.data.lDescription);
@@ -95,7 +97,7 @@ export default function EditProject(props) {
 
             };
 
-            const accessToken = await Axios.post("https://tokenstart.herokuapp.com/users/refreshtokenisvalid", {},
+            const accessToken = await Axios.post("http://localhost:1234/users/refreshtokenisvalid", {},
                 {
                     headers: {
                         "refresh-token": localStorage.getItem("refresh-token")
@@ -104,7 +106,7 @@ export default function EditProject(props) {
 
             localStorage.setItem("auth-token", accessToken.data.AccessToken)
 
-            const deleteProject = await Axios.post("https://tokenstart.herokuapp.com/projects/delete", toDeleteProject,
+            const deleteProject = await Axios.post("http://localhost:1234/projects/delete", toDeleteProject,
                 {
                     headers: { "auth-token": localStorage.getItem("auth-token") }
                 }
@@ -136,6 +138,7 @@ export default function EditProject(props) {
                 projectName: projectName,
                 picture: pictures,
                 tokenChain: tokenChain,
+                category: category,
                 sDescription: shortDescription,
                 lDescription: longDescription,
                 // tokenName: tokenName,
@@ -151,7 +154,7 @@ export default function EditProject(props) {
 
             console.log(projectTemplate)
 
-            const accessToken = await Axios.post("https://tokenstart.herokuapp.com/users/refreshtokenisvalid", {},
+            const accessToken = await Axios.post("http://localhost:1234/users/refreshtokenisvalid", {},
                 {
                     headers: {
                         "refresh-token": localStorage.getItem("refresh-token")
@@ -160,7 +163,7 @@ export default function EditProject(props) {
             localStorage.setItem("auth-token", accessToken.data.AccessToken)
 
 
-            const editedProject = await Axios.post("https://tokenstart.herokuapp.com/projects/update", projectTemplate,
+            const editedProject = await Axios.post("http://localhost:1234/projects/update", projectTemplate,
                 {
                     headers: { "auth-token": localStorage.getItem("auth-token") }
                 }
@@ -254,7 +257,17 @@ export default function EditProject(props) {
                                 </div>
                             </div>
                         </div>
-
+                        <select name="cars" id="cars" onChange={e => setCategory(e.target.value)}>
+                        <option value="" disabled selected>Select Category</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Games">Games</option>
+                            <option value="Music">Music</option>
+                            <option value="Journalism">Journalism</option>
+                            <option value="Technology">Design</option>
+                            <option value="Games">Film & Video</option>
+                            <option value="Music">Fashion</option>
+                            <option value="Journalism">Publishing</option>
+                        </select>
 
 
                         {/* <label for="exampleFormControlSelect1">Blockchain</label>

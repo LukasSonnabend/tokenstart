@@ -17,18 +17,28 @@ export function NavBar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="m-0 w-100 d-flex spaceBetween">
-          <Nav.Link href="/technology">Technology</Nav.Link>
-          <Nav.Link href="/games">Games</Nav.Link>
-          <Nav.Link href="/music">Music</Nav.Link>
-          <Nav.Link href="#link">Journalism</Nav.Link>
-          <Nav.Link href="#link">Design</Nav.Link>
-          <Nav.Link href="#link">Film & Video</Nav.Link>
-          <Nav.Link href="#link">Fashion</Nav.Link>
-          <Nav.Link href="#link">Publishing</Nav.Link>
-
+          <Nav.Link className="text-dark 	d-lg-none" href="/">Home</Nav.Link>
+          <Nav.Link className="text-dark" href="/category/technology">Technology</Nav.Link>
+          <Nav.Link className="text-dark" href="/category/games">Games</Nav.Link>
+          <Nav.Link className="text-dark" href="/category/music">Music</Nav.Link>
+          <Nav.Link className="text-dark" href="/category/journalism">Journalism</Nav.Link>
+          <Nav.Link className="text-dark" href="/category/design">Design</Nav.Link>
+          <Nav.Link className="text-dark" href="/category/film_video">Film & Video</Nav.Link>
+          <Nav.Link className="text-dark" href="/category/fashion">Fashion</Nav.Link>
+          <Nav.Link className="text-dark" href="/category/publishing">Publishing</Nav.Link>
+          {/* Mobile Options */}
+          <div className="mobile-traders-section 	d-lg-none">
+          <label>Traders Section</label>
+          <Nav.Link className="text-dark" href="/leaderboard">Leaderboard</Nav.Link>
+          <Nav.Link className="text-dark" href="/exchange">Exchange</Nav.Link>
+          <Nav.Link className="text-dark" href="/projects">Project List</Nav.Link>
+          <Nav.Link className="text-dark" href="/project/new">Start Project</Nav.Link>
+          </div>
+          {/* Mobile Options End */}
 
           <Form inline>
-          <li className="nav-item desktopSearch d-none d-xl-block">
+          {/* <li className="nav-item desktopSearch d-none d-xl-block"> */}
+          <li>
                  <ProjectSearch />
                </li>
             {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
@@ -129,7 +139,6 @@ export function Sidebar() {
           <Nav.Link className="text-dark" href="/exchange">Exchange</Nav.Link>
           <Nav.Link className="text-dark" href="/projects">Project List</Nav.Link>
           <Nav.Link className="text-dark" href="/project/new">Start Project</Nav.Link>
-          <Nav.Link className="text-dark" href="/project-new">Start Project</Nav.Link>
     </ul>
 
 

@@ -28,7 +28,7 @@ export default function AuthOptions(){
             token: undefined,
             user: undefined
         })
-        Axios.post("https://tokenstart.herokuapp.com/users/logout", {}, 
+        Axios.post("http://localhost:1234/users/logout", {}, 
         {
             headers: { "refresh-token": localStorage.getItem("refresh-token") } 
         })

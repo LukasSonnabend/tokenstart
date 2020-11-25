@@ -26,7 +26,7 @@ export default function Project(props) {
     }, [props.match.params.projectId]);
 
     async function getProjects() {
-        const projectRes = await Axios.post("https://tokenstart.herokuapp.com/projects/" + props.match.params.projectId)
+        const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
         setProjectInfo({
             Project: projectRes.data
         });
@@ -108,6 +108,7 @@ export default function Project(props) {
                                     <h4>Total Supply: <p>{projectInfo.Project.tokenSupply}</p></h4>
                                     <h4>Token Price: <p>{Math.ceil(Math.random() * 400)+100} €</p></h4>
                                     <h4>Funding Deadline: <p>2020-25-01</p></h4>
+                <h4>Category: <p>{projectInfo.Project.category}</p></h4>
                                 </span>
                 <div className="d-flex w-50 margin0a justify-content-between">
                         <button className="btn btn-warning">Bookmark</button>

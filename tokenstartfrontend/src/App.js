@@ -41,13 +41,13 @@ function App() {
       }
       
       const tokenRes = await Axios.post(
-        "https://tokenstart.herokuapp.com/users/refreshtokenisvalid",
+        "http://localhost:1234/users/refreshtokenisvalid",
         null,
         { headers: { "refresh-token": localStorage.getItem("refresh-token") }}
         );
 
     if ( tokenRes.data != "Token not in DB") {
-      const userRes = await Axios.get("https://tokenstart.herokuapp.com/users/",{
+      const userRes = await Axios.get("http://localhost:1234/users/",{
         headers: {"refresh-token": token }, 
       });
         setUserData({
@@ -86,6 +86,7 @@ function App() {
         <Route path="/checkout" component={Payment}/>
         <Route path="/404" component={FourOFour}/>
         <Route path="/FAQs" component={FAQs}/>
+        <Route path="/category/:catName" component={ProjectsOverview}></Route>
         <Route path="/projectownerhelp" component={projectowner}/>
         </div>
       </Switch>

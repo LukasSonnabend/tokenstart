@@ -5,7 +5,7 @@ import Axios from "axios";
 import { Link } from 'react-router-dom';
 import ChainIcons from "../misc/chainIcon";
 
-export default function ProjectsOverview() {
+export default function ProjectsOverview(props) {
 
     const [projectList, setProjectList] = useState();
     const { userData } = useContext(UserContext);
@@ -20,12 +20,13 @@ export default function ProjectsOverview() {
 
     }
 
+
     useEffect(() => {
         if (user == "") {
                  history.push("/login")
         } else {
             async function getProjects() {
-                const projectRes = await Axios.get("https://tokenstart.herokuapp.com/projects/")
+                const projectRes = await Axios.get("http://localhost:1234/projects/")
                 let allProjectsList = projectRes.data;
                 setProjectList({
                     allProjects: allProjectsList
@@ -43,13 +44,17 @@ export default function ProjectsOverview() {
         <div>
             {projectList == undefined ? (
                 <>
-                    <p>Please Log in to Create a Project</p>
+                    <p>Cannot load Projects</p>
                 </>
             ) : (
                     <>
-                        <h4>Projects Overview</h4>
-                        <div class="view">
-                        <div class="wrapper">
+                        
+
+
+
+                        <h4>{ props.match.params.catName ?  props.match.params.catName[0].toUpperCase() + props.match.params.catName.slice(1) + " Projects Overview"   : "Projects Overview"      }</h4>
+                        <div className="view">
+                        <div className="wrapper">
                         <div style={{ overflowY: "scroll" }} className="col-12 margin0a">
                             <table className="table table-striped">
                                 <thead>
@@ -68,7 +73,31 @@ export default function ProjectsOverview() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {
+                                    {   props.match.params.catName ? React.Children.toArray(
+                                            projectList.allProjects.filter( projects => projects.category == (props.match.params.catName[0].toUpperCase() + props.match.params.catName.slice(1)) ).map(
+                                                (item, i) =>
+                                                    <>
+                                                        <tr>
+                                                        <td  className="iconCell sticky-col first-col">{ChainIcons(item.tokenChain)}</td>
+                                                            {/* <td><Link to={"/edit/project/" + item._id}><FontAwesomeIcon icon={faEdit} /></Link></td> */}
+                                                            <td className="" style={{ color: "blue" }} onClick={() => goToProject(item._id)}>{item.projectName}</td>
+                                                            
+                                                            {/* <td>{item.sDescription}</td> */}
+                                                            
+                                                            <td>{item.tokenSupply - item.toOwner}</td>
+                                                            <td>{item.tokenSupply}</td>
+                                                           
+                                                            <td>{item.tokenName}</td>
+                                                            <td onClick={() => goToUser(item.projectOwnerName)}>{item.projectOwnerName}</td>
+                                                            <td>{item.date.slice(0, 10)}</td>
+                                                        </tr>
+                                                    </>
+                                            )
+                                        )
+                                    
+                                    
+                                    
+                                    :
                                         React.Children.toArray(
                                             projectList.allProjects.map(
                                                 (item, i) =>
@@ -84,6 +113,7 @@ export default function ProjectsOverview() {
                                                             <td>{item.tokenSupply}</td>
                                                            
                                                             <td>{item.tokenName}</td>
+                                                            <td>{item.category ? item.category : "Technology"}</td>
                                                             <td onClick={() => goToUser(item.projectOwnerName)}>{item.projectOwnerName}</td>
                                                             <td>{item.date.slice(0, 10)}</td>
                                                         </tr>
