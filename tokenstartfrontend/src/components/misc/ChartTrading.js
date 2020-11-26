@@ -3,13 +3,12 @@ import React from 'react'
 import { Chart } from 'react-charts'
 
 
-export default function MyChart(props) {
-
+export default function MyChart() {
     const data =  React.useMemo(
       () => [
         {
           label: 'Series 1',
-          data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7], [5, 3], [6, 1], [7, 5], [8, 6], [9, 10] , [10, 11] ]
+          data: [[0, Math.random() * 5], [1, Math.random() * 10], [2, 4], [3, Math.random() * 10], [4, Math.random() * 10], [5, 3], [6, Math.random() * 10], [7, Math.random() * 10], [8, Math.random() * 10], [9, Math.random() * 10] , [10, Math.random() * 10], [11, Math.random() * 10]   ]
         },
         // {
         //   label: 'Series 2',

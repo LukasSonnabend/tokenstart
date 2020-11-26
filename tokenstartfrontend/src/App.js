@@ -15,6 +15,7 @@ import {Route, Link, BrowserRouter, Switch} from 'react-router-dom';
 import {NavBar, Footer, Sidebar} from './components/pages/parts';
 import UserContext from "./context/UserContext";
 import CreateProject from './components/pages/createProject';
+import Trading from './components/pages/Trading';
 import FourOFour from './components/pages/FourOFour';
 import ProjectsOverview from './components/pages/ProjectsOverview';
 import FAQs from './components/pages/FAQs';
@@ -80,6 +81,7 @@ function App() {
         <Route path="/project/new" component={CreateProject}/>
         <Route path="/projects" component={ProjectsOverview}/>
         <Route path="/exchange" component={Exchange}/>
+        <Route path="/trade/:projectId" component={Trading}/>
         <Route path="/project/:projectId" component={Project}/>
         <Route path="/user/:userId" component={ViewUser}/>
         <Route path="/edit/project/:projectId" component={EditProject}/>
