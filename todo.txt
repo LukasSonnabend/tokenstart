@@ -1,6 +1,12 @@
 Add User Page
 Add Mock Exchange
 
+Wenn nicht eingeloggt sind die Kategorien der Projekte nicht freigeschaltet.
+
+About us verzerrt
+
+To do Konstantin -->Alle Seiten unten Texte überarbeiten
+
 DONE: Add Project Category to Create Page /Project Overview Page / Add space in DB for this too / Add Category Overview Page
 
 DONE: Wenn nicht eingeloggt passt nicht alles oben in die Kopfzeile, search field kleiner machen
