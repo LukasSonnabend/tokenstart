@@ -1,11 +1,14 @@
-Add User Page
-Add Mock Exchange
 
-Wenn nicht eingeloggt sind die Kategorien der Projekte nicht freigeschaltet.
 
-About us verzerrt
+
 
 To do Konstantin -->Alle Seiten unten Texte überarbeiten
+To do Lukas --> 
+                Wenn nicht eingeloggt sind die Kategorien der Projekte nicht freigeschaltet.
+                Add User Page
+                Add Mock Exchange
+                About us verzerrt
+
 
 DONE: Add Project Category to Create Page /Project Overview Page / Add space in DB for this too / Add Category Overview Page
 

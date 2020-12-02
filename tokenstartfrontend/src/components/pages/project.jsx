@@ -129,7 +129,7 @@ export default function Project(props) {
                         {projectInfo.Project.lDescription}
                     </p>
                 </div>
-                <div className="row col-md-11 mb-3">
+                <div className="col-md-10 mb-3 margin0a">
                     <div className="mb-2">
                         <h4>About the creator {projectInfo.Project.projectOwnerName}</h4>
                         <p className="col-10 col-md-11 mb-3 margin0a">

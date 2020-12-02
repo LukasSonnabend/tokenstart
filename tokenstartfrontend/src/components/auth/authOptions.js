@@ -15,10 +15,11 @@ export default function AuthOptions(){
 
 
     let user = undefined;
-    localStorage.getItem("userData").length > 0 ? user = JSON.parse(localStorage.getItem("userData")) : user = "";
+    if (localStorage.getItem(userData)) localStorage.getItem("userData").length > 0 ? user = JSON.parse(localStorage.getItem("userData")) : user = "";
 
-
-
+    if (localStorage.getItem("userData")) {
+        user = JSON.parse(localStorage.getItem("userData"))
+    }
 
     //const register = () => history.push("/register")
     //const login = () => history.push("/login")
