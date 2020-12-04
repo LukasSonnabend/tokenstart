@@ -23,9 +23,9 @@ export function NavBar() {
           <Nav.Link className="text-dark" href="/category/music">Music</Nav.Link>
           <Nav.Link className="text-dark" href="/category/journalism">Journalism</Nav.Link>
           <Nav.Link className="text-dark" href="/category/design">Design</Nav.Link>
-          <Nav.Link className="text-dark" href="/category/film_video">Film & Video</Nav.Link>
+          <Nav.Link className="text-dark" href="/category/film_video">Film</Nav.Link>
           <Nav.Link className="text-dark" href="/category/fashion">Fashion</Nav.Link>
-          <Nav.Link className="text-dark" href="/category/publishing">Publishing</Nav.Link>
+          <Nav.Link class="equity_heading" href="/category/EquityToken">Equity Token</Nav.Link>
           {/* Mobile Options */}
           <div className="mobile-traders-section 	d-lg-none">
           <label>Traders Section</label>
@@ -128,7 +128,7 @@ export function NavBar() {
 }
 
 export function Sidebar() {
-  let userImage = "https://images.unsplash.com/photo-1605256801693-882832f5d2de"
+  let userImage = "https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
 
   return <div className="sidebar d-none d-lg-block">
 
@@ -138,7 +138,7 @@ export function Sidebar() {
           <Nav.Link className="text-dark" href="/leaderboard">Leaderboard</Nav.Link>
           <Nav.Link className="text-dark" href="/exchange">Exchange</Nav.Link>
           <Nav.Link className="text-dark" href="/projects">Project List</Nav.Link>
-          <Nav.Link className="text-dark" href="/project/new">Start Project</Nav.Link>
+          <Nav.Link className="text-dark" href="/project/new">Create Project</Nav.Link>
     </ul>
 
 
@@ -176,10 +176,10 @@ export function Footer() {
                 <Link to="about">About us</Link>
               </li>
               <li>
-                <Link to="ourgoal">Our goal</Link>
+                <Link to="howitworks_investors">How it works! -Investors</Link>
               </li>
               <li>
-                <a href="#!">Statistics</a>
+              <Link to="howitworks_creators">How it works! -Creators</Link>
               </li>
               <li>
                 <a href="#!">Press</a>
