@@ -226,6 +226,12 @@ left: -500%;
 /* Allgemeine Klassen */
 .tal{
   text-align: left;
+  margin-left:20px;
+  margin-right:20px
+}
+
+.equity_heading{
+ color: rgb(248, 252, 248);
 }
 .spaceBetween {
   justify-content: space-between;
@@ -246,6 +252,19 @@ left: -500%;
   min-height: 200px;
   max-height: 200px;
   min-width: 100%;
+
+  position: relative;
+}
+
+.card{
+  content: "";
+  background-size: cover!important;
+  background-repeat: no-repeat!important;
+  background-position-x: center;
+  max-height:300px;
+  max-width: 300px;;
+  width: auto;
+  height: auto;
 
   position: relative;
 }
