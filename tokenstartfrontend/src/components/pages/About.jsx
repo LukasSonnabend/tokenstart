@@ -7,15 +7,25 @@ import Lukas from '../../imgs/Founder_Lukas.jpg';
 export default function About() {
     return <div>
         <h2>About us</h2>
-        <p>
-             is founded by two German students with the vision of opening the world of tokenization
-            to crowdfunding. At TokenStart we utilize the benefits of tokens and public blockchains to create greater flexibility and transparency for
-            donators and creators.
+         <div class="tal"> 
+         <p>
+            TokenStart gives you the liquidity you deserve! <br></br>
+            Invest easily in the crowdfunding projects of your choice. <br></br>
+            Grow your token portfolio and stay up to date with experienced TokenStart traders.<br></br>
+            </p>  
+            <p>
+            TokenStart is founded by two German students. We realized that the existing crowdfunding platforms provide no opportunity trade your investment after a succesful funding.
+            This creates liquidity problems, the longer a creator needs to accomplish his or her goal. The tokens issued for each project solve these issues as they represent vouchers for the creators products.<br></br>
+            The blockchain gives investors the opportunity to withdraw their tokens from the platform and trade them globally.
         </p>
+        </div>
+
+        <div> Stay connected with us and join us on our journey!</div>
+
         <div className="row d-flex">
 
             <div className="card">
-                <img class="card-img-top founderImg" src={Konstantin} alt="Founder Konstantin" />
+                <img class="card" src={Konstantin} alt="Founder Konstantin" />
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item founderCard">
                         <div>
@@ -26,9 +36,9 @@ export default function About() {
                     </li>
                 </ul>
             </div>
-
+            
             <div className="card">
-                <img class="card-img-top founderImg" src={Lukas} alt="Founder Konstantin" />
+                <img class="card" src={Lukas} alt="Founder Konstantin" />
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item founderCard">
                         <div>

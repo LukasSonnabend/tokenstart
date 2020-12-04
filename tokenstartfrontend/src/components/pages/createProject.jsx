@@ -129,7 +129,7 @@ export default function CreateProject() {
     return <div>
         {user == "" ? history.push("/login") :
             (<>
-                <h2>Create new token</h2>
+                <h2>Create new project</h2>
                 <form className="col-10 margin0a" onSubmit={submit}>
                     <div className="card">
                         <label>Project name</label>
