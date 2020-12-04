@@ -7,7 +7,12 @@ To do Lukas -->
                 Wenn nicht eingeloggt sind die Kategorien der Projekte nicht freigeschaltet.
                 Add User Page
                 Add Mock Exchange
-                About us verzerrt
+                About us verzerrt -->ich habe es versucht, jetzt ist es nur noch unten in der Leiste
+                Gucken ob die Einstellung für den tal style in App.scss passen
+                Schriftgröße in appscss etwas größer um die Seiten about us... besser lesen zu können
+                Oben anstatt Publishing eine Seite mit Equity Token, Equity token soll rot sein, habe eine class angelegt in app.scss aber es geht nicht
+                Neues FAQ template
+                
 
 
 DONE: Add Project Category to Create Page /Project Overview Page / Add space in DB for this too / Add Category Overview Page
