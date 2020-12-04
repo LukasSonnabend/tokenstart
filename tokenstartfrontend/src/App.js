@@ -10,7 +10,8 @@ import Project from "./components/pages/project";
 import Exchange from "./components/pages/Exchange";
 import EditProject from "./components/pages/EditProject";
 import ViewUser from "./components/pages/ViewUser";
-import Goals from "./components/pages/Goals";
+import howitworks_investors from "./components/pages/howitworks_investors";
+import howitworks_creators from "./components/pages/howitworks_creators";
 import {Route, Link, BrowserRouter, Switch} from 'react-router-dom';
 import {NavBar, Footer, Sidebar} from './components/pages/parts';
 import UserContext from "./context/UserContext";
@@ -77,7 +78,8 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/about" component={About}/>
-        <Route path="/ourgoal" component={Goals}/>
+        <Route path="/howitworks_investors" component={howitworks_investors}/>
+        <Route path="/howitworks_creators" component={howitworks_creators}/>
         <Route path="/project/new" component={CreateProject}/>
         <Route path="/projects" component={ProjectsOverview}/>
         <Route path="/exchange" component={Exchange}/>
