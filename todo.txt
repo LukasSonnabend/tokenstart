@@ -5,7 +5,7 @@
 To do Konstantin -->Alle Seiten unten Texte überarbeiten
 To do Lukas --> 
                 Wenn nicht eingeloggt sind die Kategorien der Projekte nicht freigeschaltet.
-                Add User Page
+                Done Add User Page
                 Add Mock Exchange
                 About us verzerrt -->ich habe es versucht, jetzt ist es nur noch unten in der Leiste
                 Gucken ob die Einstellung für den tal style in App.scss passen

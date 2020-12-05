@@ -58,7 +58,7 @@ export default function InvestorsShowcase() {
                         <a href={"/user/" + investor._id}>
                         <div className="investorShowcaseImage" style={{backgroundImage: "url(" + investor.image + ")"}}></div>
                         </a>
-                        <h3>{investor.name}🍔🔥</h3>
+                        <h3>{investor.name}📈🔥</h3>
                 </div>
             });
         }

@@ -25,7 +25,7 @@ export function NavBar() {
           <Nav.Link className="text-dark" href="/category/design">Design</Nav.Link>
           <Nav.Link className="text-dark" href="/category/film_video">Film</Nav.Link>
           <Nav.Link className="text-dark" href="/category/fashion">Fashion</Nav.Link>
-          <Nav.Link class="equity_heading" href="/category/EquityToken">Equity Token</Nav.Link>
+          <Nav.Link class="text-dark" id="equity-heading" href="/category/equity">Equity Token</Nav.Link>
           {/* Mobile Options */}
           <div className="mobile-traders-section 	d-lg-none">
           <label>Traders Section</label>

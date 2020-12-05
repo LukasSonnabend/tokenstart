@@ -48,7 +48,9 @@ export default function ProjectsOverview(props) {
                 </>
             ) : (
                     <>
-                        
+                        {props.match.params.catName == "equity" ? (<div class="alert alert-warning" role="alert">
+                        Hopefully coming soon,  😌
+</div>) : (<></>)} 
 
 
 

@@ -86,6 +86,15 @@ button, .btn{
 //   max-width: 20em;
 // }
 
+//create Project Page
+form{
+  .card {
+    max-width: none;
+  }
+}
+
+
+
 
 .sidebar {
   background-color: $lightgrey;
@@ -116,8 +125,6 @@ button, .btn{
 }
 
 /* Search */
-
-
 .navbar {
   form {
     max-width: 10em;
@@ -230,8 +237,8 @@ left: -500%;
   margin-right:20px
 }
 
-.equity_heading{
- color: rgb(248, 252, 248);
+#equity-heading{
+ color: rgb(230, 24, 24);
 }
 .spaceBetween {
   justify-content: space-between;
