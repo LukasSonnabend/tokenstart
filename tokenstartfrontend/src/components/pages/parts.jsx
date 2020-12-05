@@ -128,7 +128,7 @@ export function NavBar() {
 }
 
 export function Sidebar() {
-  let userImage = "https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
+  let userImage = "https://i.ibb.co/12s6djB/iconfinder-00-ELASTOFONT-STORE-READY-user-circle-2703062.webp";
 
   return <div className="sidebar d-none d-lg-block">
 

@@ -19,19 +19,19 @@ export default function InvestorsShowcase() {
     //mock hoe
     let investors = [
         {
-            "name":"Big Mama",
+            "name":"LucyTS",
             "_id":"djhd83838hnfiehi",
-            "image":"https://i.ibb.co/sRPw3rp/photo-1573878221136-9b03f3d976b7.jpg"
+            "image":"https://i.ibb.co/zbmj03w/linkedin-sales-navigator-p-Mqs-NUZlz-CY-unsplash-min-1.jpg"
         },
         {
             "name":"Uncle Jeff",
             "_id":"ijd9j8j9j9fd",
-            "image":"https://i.ibb.co/NTY8zrZ/photo-1573878416776-932ce6911da2.jpg"
+            "image":"https://i.ibb.co/bHc4gZV/photo-1562788869-4ed32648eb72.jpg"
         },
         {
-            "name":"Mia Anderson",
+            "name":"Invest24/7",
             "_id":"ijd9mai9j9fd",
-            "image":"https://i.ibb.co/GCBSYmD/photo-1565128936512-e7333b8325ce.jpg"
+            "image":"https://i.ibb.co/cXw5khJ/photo-1514222709107-a180c68d72b4.jpg"
         }
     ]
 

@@ -249,7 +249,7 @@ left: -500%;
   background-size: cover!important;
   background-repeat: no-repeat!important;
   background-position-x: center;
-  min-height: 200px;
+  min-height: 250px;
   max-height: 200px;
   min-width: 100%;
 
@@ -261,7 +261,7 @@ left: -500%;
   background-size: cover!important;
   background-repeat: no-repeat!important;
   background-position-x: center;
-  max-height:300px;
+  //max-height:300px;
   max-width: 300px;;
   width: auto;
   height: auto;
@@ -306,6 +306,7 @@ left: -500%;
 .projectBottomSection{
   display: flex;
   overflow-x: scroll;
+  min-height: 400px;
 }
 
 // Exchange Page
