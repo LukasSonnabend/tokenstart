@@ -14,6 +14,8 @@ import ChainIcons from "../misc/chainIcon";
 export default function ViewUser(props) {
     const { userData } = useContext(UserContext);
 
+    const [projectList, setProjectList] = useState();
+    const [carouselList, setCarouselList] = useState([]);
 
     let investors = {
         "djhd83838hnfiehi":{
@@ -63,9 +65,8 @@ export default function ViewUser(props) {
         }
     }
 
-    const [projectList, setProjectList] = useState();
 
-    var carousel;
+    var carousel ="";
     let projectData = [projectList];
 
     let projectDataList = projectData[0];
@@ -87,6 +88,7 @@ export default function ViewUser(props) {
         if (!projectDataList){
         getProjects();}
 
+            
         if (projectDataList && !carousel) {
             console.log("running list")
             carousel = projectList.list.filter(project => project.projectOwnerID === props.match.params.userId).map((project, index) => {
@@ -101,10 +103,12 @@ export default function ViewUser(props) {
                     </a>
                 </div>
             })
+            setCarouselList(carousel)
         }
 
         //renders carousel to dom
         ReactDOM.render(carousel, document.getElementById('projectCarouselfeatured'));
+        
         // document.getElementById("projectCarousel").innerHTML = carousel;
     }, [projectDataList]);
 
@@ -140,8 +144,8 @@ export default function ViewUser(props) {
                         <h5>Portfolio Performance</h5>
                                 <Chart className="investor-profile-box col-12"></Chart>
                     </div>
-                    {console.log(projectData)}
-                    { !projectData[0] ? "" : ( <h2>{currentUser.name.split(" ")[0]}'s Projects</h2>
+                    {console.log(carousel.length)}
+                    { carouselList.length == 0 ? "" : ( <h2>{currentUser.name.split(" ")[0]}'s Projects</h2>
 
                         
                         
