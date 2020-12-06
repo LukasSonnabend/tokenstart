@@ -15,10 +15,10 @@ export default function Login(){
     const history = useHistory();
 
 
-    if(userData.user) {
-        history.push("/");
+    // if(userData.user) {
+    //     history.push("/");
     
-    }
+    // }
 
     const submit = async (e) => {
 
