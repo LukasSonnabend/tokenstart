@@ -153,7 +153,6 @@ export function Footer() {
 
   const history = useHistory();
 
-  const about = () => history.push("/about")
 
   return <div className="footer">
 
@@ -173,13 +172,13 @@ export function Footer() {
 
             <ul className="list-unstyled">
               <li>
-                <Link to="about">About us</Link>
+                <Link to="/about">About us</Link>
               </li>
               <li>
-                <Link to="howitworks_investors">How it works! -Investors</Link>
+                <Link to="/howitworks_investors">How it works! -Investors</Link>
               </li>
               <li>
-              <Link to="howitworks_creators">How it works! -Creators</Link>
+              <Link to="/howitworks_creators">How it works! -Creators</Link>
               </li>
               <li>
                 <a href="#!">Press</a>
@@ -199,10 +198,10 @@ export function Footer() {
 
             <ul className="list-unstyled">
               <li>
-                <Link to="FAQs">FAQs</Link>
+                <Link to="/FAQs">FAQs</Link>
               </li>
               <li>
-                <Link to="projectownerhelp">Help for project owners</Link>
+                <Link to="/projectownerhelp">Help for project owners</Link>
               </li>
               <li>
                 <a href="#!">Help for donators</a>

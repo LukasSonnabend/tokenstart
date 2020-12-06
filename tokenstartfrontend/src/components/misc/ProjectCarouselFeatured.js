@@ -37,7 +37,7 @@ export default function ProjectCarouselFeatured() {
                     <div className="card-img-top" style={{background: "url(" + project.projectPictureURL + ")"}}>
                     <div className="carousel-card-body">
                         <h5 className="card-title pt-1 mb-0">{project.projectName}</h5>
-                        <p className="m-0"><a className="text-dark" href={"./user/" + project.projectOwnerName.split(" ").join("")} >Created by: {project.projectOwnerName}</a></p>
+                        <p className="m-0"><a className="text-dark" href={"./user/" + project.projectOwnerID} >Created by: {project.projectOwnerName}</a></p>
                     </div>
                     </div>
                     </a>

@@ -23,7 +23,7 @@ export default function GetProjects(props) {
     });
 
 
-    const goToUser = (userName) => history.push("/showuser/" + userName);
+    const goToUser = (userName) => history.push("/user/" + userName);
 
     if (props.userID != "undefined") {
         const userID = props.userID

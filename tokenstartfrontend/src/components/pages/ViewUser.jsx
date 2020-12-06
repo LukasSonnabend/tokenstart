@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-
+import Axios from "axios";
+import ReactDOM from 'react-dom';
 import UserContext from "../../context/UserContext";
 import Chart from '../misc/Chart';
 import ProjectCarouselGuest from '../misc/ProjectCarouselGuest';
-import { BrowserRouter, RouteLink, Link } from 'react-router-dom';
+import { useHistory, BrowserRouter, RouteLink, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import ChainIcons from "../misc/chainIcon";
@@ -12,7 +13,7 @@ import ChainIcons from "../misc/chainIcon";
 
 export default function ViewUser(props) {
     const { userData } = useContext(UserContext);
-    const [projectInfo, setProjectInfo] = useState();
+
 
     let investors = {
         "djhd83838hnfiehi":{
@@ -41,39 +42,140 @@ export default function ViewUser(props) {
             Andouille sausage. Pork chop quis cupim, chicken picanha non aliquip sirloin lorem in. Pig pastrami. 
             Shankle anim velit. Ham incididunt shank anim t-bone fatback dolor frankfurter spare ribs landjaeger 
             occaecat nulla ball tip. Cupim sausage proident..` 
+        },
+        "5f577182f8249b0004465e4e":{
+            "name": "Lukas Sonnabend",
+            "_id:":"5f577182f8249b0004465e4e",
+            "image":"/static/media/Founder_Lukas.91916898.jpg",
+            "description": `Spicy jalapeno bacon ipsum dolor amet shank picanha frankfurter nostrud, aliqua nulla quis.
+            Andouille sausage. Pork chop quis cupim, chicken picanha non aliquip sirloin lorem in. Pig pastrami. 
+            Shankle anim velit. Ham incididunt shank anim t-bone fatback dolor frankfurter spare ribs landjaeger 
+            occaecat nulla ball tip. Cupim sausage proident..`,
+        },
+        "5f578e1af8249b0004465ea0":{
+            "name": "Konstantin Klein",
+            "_id:":"5f577182f8249b0004465e4e",
+            "image":"/static/media/Founder_Konstantin.2b201eff.png",
+            "description": `Spicy jalapeno bacon ipsum dolor amet shank picanha frankfurter nostrud, aliqua nulla quis.
+            Andouille sausage. Pork chop quis cupim, chicken picanha non aliquip sirloin lorem in. Pig pastrami. 
+            Shankle anim velit. Ham incididunt shank anim t-bone fatback dolor frankfurter spare ribs landjaeger 
+            occaecat nulla ball tip. Cupim sausage proident..`,
         }
     }
 
+    const [projectList, setProjectList] = useState();
 
+    var carousel;
+    let projectData = [projectList];
+
+    let projectDataList = projectData[0];
+
+    const history = useHistory();
 
 
     let currentUser = investors[props.match.params.userId]
 
+    let listItems;
+
+    useEffect(() => {
+        async function getProjects(){
+            const projectRes = await Axios.get("http://localhost:1234/projects") 
+            setProjectList({
+                list: projectRes.data
+            });
+        }
+        if (!projectDataList){
+        getProjects();}
+
+        if (projectDataList && !carousel) {
+            console.log("running list")
+            carousel = projectList.list.filter(project => project.projectOwnerID === props.match.params.userId).map((project, index) => {
+                return <div key={index} id="projectCard" className="card mx-3 my-4">
+                    <a href={"./project/" + project._id} className="text-dark">
+                    <div className="card-img-top" style={{background: "url(" + project.projectPictureURL + ")"}}>
+                    <div className="carousel-card-body">
+                        <h5 className="card-title pt-1 mb-0">{project.projectName}</h5>
+                        <p className="m-0"><a className="text-dark" href={"./user/" + project.projectOwnerID} >Created by: {project.projectOwnerName}</a></p>
+                    </div>
+                    </div>
+                    </a>
+                </div>
+            })
+        }
+
+        //renders carousel to dom
+        ReactDOM.render(carousel, document.getElementById('projectCarouselfeatured'));
+        // document.getElementById("projectCarousel").innerHTML = carousel;
+    }, [projectDataList]);
 
 
-    // let editLink = "";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // useEffect(() => {
-    //     if (!Project._id) {
-    //         getProjects();
+
+    //     async function getProjects() {
+    //         const projectRes = await Axios.get("http://localhost:1234/projects/")
+    //         let allProjectsList = projectRes.data;
+
+
+    //         setProjectList({
+    //             ownProjects: allProjectsList.filter(project => project.projectOwnerID === props.match.params.userId),
+    //         });
+    //     }
+
+    //     getProjects();
+
+        
+    //     for (let project in projectList) {
+    //         if (projectList[project].projectOwnerID === props.userID) {
+    //             ownedProjects.push(projectList[project].projectOwnerID)
+    //         }
     //     }
 
 
-    // }, [props.match.params.projectId]);
-
-    // async function getProjects() {
-    //     const projectRes = await Axios.post("http://localhost:1234/projects/" + props.match.params.projectId)
-    //     setProjectInfo({
-    //         Project: projectRes.data
-    //     });
-
-    // }
-
-    // if (projectInfo && userData.user) {
-    //     if (projectInfo["Project"].projectOwnerID == userData.user.id) {
-    //         editLink = <Link to={"/edit/project/" + props.match.params.projectId}><button className="btn btn-warning"><FontAwesomeIcon icon={faEdit} /> Edit project</button></Link>;
+    //     if (projectList && !carousel) {
+    //         console.log("running list")
+    //         carousel = projectList.ownProjects.map((project, index) => {
+    //             if (index <= 2)
+    //             return <div key={index} id="projectCard" className="card mx-3 my-4">
+    //                 <a href={"./project/" + project._id} className="text-dark">
+    //                 <div className="card-img-top" style={{background: "url(" + project.projectPictureURL + ")"}}>
+    //                 <div className="carousel-card-body">
+    //                     <h5 className="card-title pt-1 mb-0">{project.projectName}</h5>
+    //                     <p className="m-0"><a className="text-dark" href={"./user/" + project.projectOwnerID} >Created by: {project.projectOwnerName}</a></p>
+    //                 </div>
+    //                 </div>
+    //                 </a>
+    //             </div>
+    //         })
     //     }
-    // }
+
+
+
+
+    //     ReactDOM.render(carousel, document.getElementById('projectCarouselfeatured'));
+
+
+
+
+    // }, []);    
+
+
+
+
 
 
     return <div>
@@ -87,7 +189,7 @@ export default function ViewUser(props) {
                 </div> */}
 
 
-                <div className="">
+                <div className="userProfile">
                     <div className="investor-profile-box-wrapper ourBox d-flex col-10 margin0a my-2">
                     <div className="investor-profile-box d-md-flex m-3">
                     <div className="investor-img-wrapper">
@@ -104,6 +206,14 @@ export default function ViewUser(props) {
                         <h5>Portfolio Performance</h5>
                                 <Chart className="investor-profile-box col-12"></Chart>
                     </div>
+                    { !projectList ? "" : ( <h2>{currentUser.name.split(" ")[0]}'s Projects</h2>
+
+                        
+                        
+                    )
+
+                    }
+<div className="projectCarousel" id="projectCarouselfeatured"></div>
 
                     <h2>Projects {currentUser.name.split(" ")[0]} invested in:</h2>
                     <ProjectCarouselGuest></ProjectCarouselGuest>

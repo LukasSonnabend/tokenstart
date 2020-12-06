@@ -11,12 +11,12 @@ export default function ProjectsOverview(props) {
     const { userData } = useContext(UserContext);
     const history = useHistory();
     const goToProject = (id) => history.push("/project/"+id);
-    const goToUser = (userName) => history.push("/showuser/" + userName);
+    const goToUser = (userName) => history.push("/user/" + userName);
 
 
     let user = "";
     if (localStorage.getItem("userData")) {
-        localStorage.getItem("userData") ? user = localStorage.getItem("userData") : user = "";
+        localStorage.getItem("userData") ? user = localStorage.getItem("userData") : user = ""; 
 
     }
 
@@ -90,7 +90,7 @@ export default function ProjectsOverview(props) {
                                                             <td>{item.tokenSupply}</td>
                                                            
                                                             <td>{item.tokenName}</td>
-                                                            <td onClick={() => goToUser(item.projectOwnerName)}>{item.projectOwnerName}</td>
+                                                            <td onClick={() => goToUser(item.projectOwnerID)}>{item.projectOwnerName}</td>
                                                             <td>{item.date.slice(0, 10)}</td>
                                                         </tr>
                                                     </>
@@ -116,7 +116,7 @@ export default function ProjectsOverview(props) {
                                                            
                                                             <td>{item.tokenName}</td>
                                                             <td>{item.category ? item.category : "Technology"}</td>
-                                                            <td onClick={() => goToUser(item.projectOwnerName)}>{item.projectOwnerName}</td>
+                                                            <td onClick={() => goToUser(item.projectOwnerID)}>{item.projectOwnerName}</td>
                                                             <td>{item.date.slice(0, 10)}</td>
                                                         </tr>
                                                     </>
