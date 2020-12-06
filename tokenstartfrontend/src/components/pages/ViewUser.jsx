@@ -112,72 +112,6 @@ export default function ViewUser(props) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    // useEffect(() => {
-
-    //     async function getProjects() {
-    //         const projectRes = await Axios.get("http://localhost:1234/projects/")
-    //         let allProjectsList = projectRes.data;
-
-
-    //         setProjectList({
-    //             ownProjects: allProjectsList.filter(project => project.projectOwnerID === props.match.params.userId),
-    //         });
-    //     }
-
-    //     getProjects();
-
-        
-    //     for (let project in projectList) {
-    //         if (projectList[project].projectOwnerID === props.userID) {
-    //             ownedProjects.push(projectList[project].projectOwnerID)
-    //         }
-    //     }
-
-
-    //     if (projectList && !carousel) {
-    //         console.log("running list")
-    //         carousel = projectList.ownProjects.map((project, index) => {
-    //             if (index <= 2)
-    //             return <div key={index} id="projectCard" className="card mx-3 my-4">
-    //                 <a href={"./project/" + project._id} className="text-dark">
-    //                 <div className="card-img-top" style={{background: "url(" + project.projectPictureURL + ")"}}>
-    //                 <div className="carousel-card-body">
-    //                     <h5 className="card-title pt-1 mb-0">{project.projectName}</h5>
-    //                     <p className="m-0"><a className="text-dark" href={"./user/" + project.projectOwnerID} >Created by: {project.projectOwnerName}</a></p>
-    //                 </div>
-    //                 </div>
-    //                 </a>
-    //             </div>
-    //         })
-    //     }
-
-
-
-
-    //     ReactDOM.render(carousel, document.getElementById('projectCarouselfeatured'));
-
-
-
-
-    // }, []);    
-
-
-
-
-
-
     return <div>
         {currentUser === undefined ? (<h1>Error 404: We could not find your user</h1>) : (
             <>
@@ -206,7 +140,8 @@ export default function ViewUser(props) {
                         <h5>Portfolio Performance</h5>
                                 <Chart className="investor-profile-box col-12"></Chart>
                     </div>
-                    { !projectList ? "" : ( <h2>{currentUser.name.split(" ")[0]}'s Projects</h2>
+                    {console.log(projectData)}
+                    { !projectData[0] ? "" : ( <h2>{currentUser.name.split(" ")[0]}'s Projects</h2>
 
                         
                         
