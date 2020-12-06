@@ -6,8 +6,8 @@ export default function howitworks_investors() {
         <h2>How it works! -Investors</h2>
         <div class="tal">
             <p>
-            1. Create your account: <Link to="register">Register for free</Link> <br></br>
-            2. Browse through the <Link to="projects">projects</Link> and pick the one you want to invest in. <br></br>
+            1. Create your account: <Link to="/register">Register for free</Link> <br></br>
+            2. Browse through the <Link to="/projects-overview">projects</Link> and pick the one you want to invest in. <br></br>
             3. Select the amount of token you want to buy.<br></br>
             4. Pick your payment method and follow the instructions <br></br>
             5. After the distribution you can start trading and building your portfolio. <br></br>

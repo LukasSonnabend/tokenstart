@@ -56,73 +56,6 @@ export function NavBar() {
       </Navbar.Collapse>
     </Navbar>
 
-
-
-
-
-    {/* //   <div className="alert alert-warning" role="alert">
-    //     Currently under construction
-    //     </div>
-    //   <nav className="navbar bg-light .justify-content-center">
-    //     <a href="/"><p><span>T</span>oken<span>S</span>tart</p></a>
-    //   </nav>
-    //   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    //     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    //       <span className="navbar-toggler-icon"></span>
-    //     </button>
-    //     <div className="d-block d-sm-none">
-    //       <AuthOptions />
-    //     </div>
-    //     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-
-    //       {/* Mobile Navigation 
-    //       <div className="d-block d-sm-none">
-    //         <ul className="navbar-nav mr-auto">
-    //           <li className="nav-item">
-    //             <Link to="/projects/new" className="nav-link text-dark">Start project</Link>
-    //           </li>
-    //           <li className="nav-item">
-    //             <Link to="/projects" className="nav-link text-dark">Projects overview</Link>
-    //           </li>
-    //         </ul>        <form className="form-inline my-2 my-lg-0">
-    //           <li style={{ listStyle: "none" }} className="nav-item">
-    //             <ProjectSearch />
-    //           </li>
-    //         </form>
-
-    //       </div>
-
-    //       {/* Desktop Navigation 
-    //       <div id="desktopNavigationBar" className="col-10 d-none d-sm-block">
-    //         <ul className="nav navbar-nav pull-sm-left">
-    //           <li className="nav-item">
-    //             <Link to="/projects/new" className="nav-link text-dark"><button className="btn btn-outline-dark">Start project</button></Link>
-    //           </li>
-    //           <li className="nav-item">
-    //             <Link to="/projects" className="nav-link text-dark"><button className="btn btn-outline-dark">Projects overview</button></Link>
-    //           </li>
-    //         </ul>
-    //         <ul className="nav navbar-nav">
-    //           <form className="form-inline my-2 my-lg-0">
-    //             <li className="nav-item desktopSearch">
-    //               <ProjectSearch />
-    //             </li>
-    //           </form>
-    //         </ul>
-    //         <ul className="nav navbar-nav ml-auto">
-    //           <form className="form-inline my-2 my-lg-0">
-    //             <li style={{ listStyle: "none" }} className="nav-item">
-    //               <AuthOptions />
-    //             </li>
-    //           </form>
-    //         </ul>
-    //       </div>
-
-
-
-    //     </div>
-    //   </nav> */}
-
   </div>
   )
 }
@@ -137,7 +70,7 @@ export function Sidebar() {
     <ul className="sidebar-menu mt-2">
           <Nav.Link className="text-dark" href="/leaderboard">Leaderboard</Nav.Link>
           <Nav.Link className="text-dark" href="/exchange">Exchange</Nav.Link>
-          <Nav.Link className="text-dark" href="/projects">Project List</Nav.Link>
+          <Nav.Link className="text-dark" href="/projects-overview">Project List</Nav.Link>
           <Nav.Link className="text-dark" href="/project/new">Create Project</Nav.Link>
     </ul>
 

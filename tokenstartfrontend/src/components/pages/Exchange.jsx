@@ -99,14 +99,6 @@ export default function Exchange() {
     return <div>
         {projectList === undefined ? (<h1>Getting Exhange Info</h1>) : (
             <>
-
-                {/* { userData.user.id == projectInfo._id  && <Link to={"/edit/project/" + props.match.params.projectId}>Edit project</Link> } */}
-
-                {/* <div className="col-6">
-                    <Link to="/projects"> Go to projects overview</Link>
-                </div> */}
-
-
                 <div>
                     <div>
                         <div className="d-inline-flex col-10 justify-content-between w-100">
