@@ -10,6 +10,7 @@ import Project from "./components/pages/project";
 import Exchange from "./components/pages/Exchange";
 import EditProject from "./components/pages/EditProject";
 import ViewUser from "./components/pages/ViewUser";
+import LeaderBoard from "./components/pages/LeaderBoard";
 import howitworks_investors from "./components/pages/howitworks_investors";
 import howitworks_creators from "./components/pages/howitworks_creators";
 import {Route, Link, BrowserRouter, Switch} from 'react-router-dom';
@@ -89,6 +90,7 @@ function App() {
         <Route path="/edit/project/:projectId" component={EditProject}/>
         <Route path="/account" component={Account}/>
         <Route path="/checkout" component={Payment}/>
+        <Route path="/leaderboard" component={LeaderBoard}/>
         <Route path="/404" component={FourOFour}/>
         <Route path="/FAQs" component={FAQs}/>
         <Route path="/category/:catName" component={ProjectsOverview}></Route>

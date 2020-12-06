@@ -30,7 +30,6 @@ $insetShadow : inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 }
 
-
 html,
 body,
 #root,
@@ -207,6 +206,35 @@ left: -500%;
   }
 }
 
+
+.investorLeaderboardWrapper {
+
+.Leaderboard {
+  display: flex;
+  justify-content: space-around;
+  // .investorShowcaseImage {
+  //   background-image: url(https://images.unsplash.com/photo-1573878221136-9b03f3d976b7);
+  //   background-position: center;
+  //   height: 200px;
+  //   width: 200px;
+  //   border-radius: 100%;
+  //   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  //   background-size: cover;
+  // }
+  #rank0{
+    margin-top: 20px;
+  }
+  #rank2{
+    margin-top: 40px;
+  }
+}
+
+
+  }
+  
+  .flag-icon {
+    max-width: 50px;
+  }
 //User Page
 .ourBox {
   background: #C4C4C4;
