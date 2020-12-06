@@ -31,7 +31,7 @@ export function NavBar() {
           <label>Traders Section</label>
           <Nav.Link className="text-dark" href="/leaderboard">Leaderboard</Nav.Link>
           <Nav.Link className="text-dark" href="/exchange">Exchange</Nav.Link>
-          <Nav.Link className="text-dark" href="/projects">Project List</Nav.Link>
+          <Nav.Link className="text-dark" href="/projects-overview">Project List</Nav.Link>
           <Nav.Link className="text-dark" href="/project/new">Start Project</Nav.Link>
           </div>
           {/* Mobile Options End */}

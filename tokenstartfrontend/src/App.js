@@ -82,7 +82,7 @@ function App() {
         <Route path="/howitworks_investors" component={howitworks_investors}/>
         <Route path="/howitworks_creators" component={howitworks_creators}/>
         <Route path="/project/new" component={CreateProject}/>
-        <Route path="/projects" component={ProjectsOverview}/>
+        <Route path="/projects-overview" component={ProjectsOverview}/>
         <Route path="/exchange" component={Exchange}/>
         <Route path="/trade/:projectId" component={Trading}/>
         <Route path="/project/:projectId" component={Project}/>

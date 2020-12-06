@@ -47,11 +47,6 @@ export default function Project(props) {
 
                 <div className="editLink">{editLink}</div>
 
-                {/* <div className="col-6">
-                    <Link to="/projects"> Go to projects overview</Link>
-                </div> */}
-
-
                 <div className="projectHero d-flex py-2">
                 <div id="carouselExampleControls" className="carousel slide col-5" data-ride="carousel">
                     <div className="carousel-inner">
